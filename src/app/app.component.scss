@@ -1,0 +1,19 @@
+$main-color: #0f3057;
+* {
+  margin: 0px;
+  box-sizing: border-box;
+  padding: 0px;
+}
+.header {
+  background-color: $main-color;
+  width: 100%;
+  height: auto;
+}
+.conversion-type {
+  width: 5em;
+  height: 100%;
+}
+.page {
+  height: 100%;
+  width: 100%;
+}

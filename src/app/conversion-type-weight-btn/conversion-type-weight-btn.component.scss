@@ -1,0 +1,28 @@
+$main-color: #0f3057;
+$secondary-color: #00587a;
+
+.btn {
+  background-color: $main-color;
+  border-radius: 0px;
+  border-width: 0px;
+  width: 5em;
+  height: 5em;
+  &:hover {
+    background-color: $secondary-color;
+  }
+  &:active {
+    background-color: $secondary-color;
+    border-radius: 0px;
+    width: 5em;
+    height: 5em;
+    border-width: 0px;
+  }
+  &:focus {
+    background-color: $secondary-color;
+    border-radius: 0px;
+    border-width: 0px;
+    outline: none;
+    width: 5em;
+    height: 5em;
+  }
+}
