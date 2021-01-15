@@ -1,4 +1,11 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  Input,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-conversion-type-btn',
@@ -8,12 +15,25 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class ConversionTypeBtnComponent implements OnInit {
   constructor() {}
 
+  @Input() buttonType: string = 'length';
+
+  isActivated: boolean = false;
+
   @Output()
   buttonClickEmitter: EventEmitter<number> = new EventEmitter<number>();
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.buttonType === 'length') {
+      this.isActivated = true;
+    }
+  }
 
+  //send event to parent
   loadPageNumber() {
-    this.buttonClickEmitter.emit(1);
+    if (this.buttonType == 'length') {
+      this.buttonClickEmitter.emit(1);
+    } else {
+      this.buttonClickEmitter.emit(2);
+    }
   }
 }
