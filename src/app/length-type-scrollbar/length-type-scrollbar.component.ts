@@ -13,6 +13,7 @@ export class LengthTypeScrollbarComponent {
 
   @Input() inOut: number = 1;
 
+  // event from radio buttons
   changeScroll(e: any) {
     if (e.target.name == 'radio-in') {
       this.inScrollEmitter.emit(e.target.value);

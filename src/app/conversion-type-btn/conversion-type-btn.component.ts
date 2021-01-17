@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  EventEmitter,
-  Output,
-  Input,
-  ViewChild,
-} from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-conversion-type-btn',
@@ -28,7 +21,7 @@ export class ConversionTypeBtnComponent implements OnInit {
     }
   }
 
-  //send event to parent
+  //send load page number to parent
   loadPageNumber() {
     if (this.buttonType == 'length') {
       this.buttonClickEmitter.emit(1);

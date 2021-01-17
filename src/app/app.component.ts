@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, Output } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { LogService } from './log.service';
 import { ConversionTypeBtnComponent } from './conversion-type-btn/conversion-type-btn.component';
 import { Convert } from './Convert';
@@ -16,15 +16,14 @@ export class AppComponent {
   inputNumber: string = '';
   outputNumber: string = '';
   weight = 'weight';
-
-  constructor(private logger: LogService) {}
-
   loadedPageNumber: number = 1;
   inScrollData: string = 'kilometer';
   outScrollData: string = 'kilometer';
   scrollData: string = this.inScrollData + this.outScrollData;
 
-  //call from child component
+  constructor(private logger: LogService) {}
+
+  //load the corresponding page and activate buttons
   loadPage(pageNumber: any) {
     this.loadedPageNumber = pageNumber;
     this.logger.log(pageNumber);
@@ -38,6 +37,7 @@ export class AppComponent {
     }
   }
 
+  // get scroll data from scroll component
   setInScrollData(scrollIn: string) {
     console.log(scrollIn);
     this.inScrollData = scrollIn;
@@ -47,6 +47,8 @@ export class AppComponent {
     this.outScrollData = scrollOut;
     this.updateScrollData();
   }
+
+  // Convert
   updateScrollData() {
     this.scrollData = this.inScrollData + this.outScrollData;
     if (this.inputNumber !== '') {

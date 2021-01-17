@@ -4,6 +4,7 @@ $cyan: #00587a;
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
 
+// scroll styling
 .scroll-list {
   display: flex;
   flex-direction: column;
@@ -50,6 +51,8 @@ $cyan: #00587a;
 *:after {
   box-sizing: border-box;
 }
+
+// radio button styling
 .radio {
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
