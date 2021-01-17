@@ -37,7 +37,7 @@ $cyan: #00587a;
 .region {
   width: 6em;
 }
-.length {
+.length + .weight {
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -5,7 +5,7 @@
         <input
           type="radio"
           value="kilometer"
-          name="radio-in"
+          name="length-radio-in"
           checked="checked"
           (change)="changeScroll($event)"
         />
@@ -18,7 +18,7 @@
         <input
           type="radio"
           value="meter"
-          name="radio-in"
+          name="length-radio-in"
           (change)="changeScroll($event)"
         />
         <span class="radio__control-in"></span>
@@ -29,7 +29,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-in"
+          name="length-radio-in"
           value="centimeter"
           (change)="changeScroll($event)"
         />
@@ -41,7 +41,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-in"
+          name="length-radio-in"
           value="millimeter"
           (change)="changeScroll($event)"
         />
@@ -53,7 +53,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-in"
+          name="length-radio-in"
           value="micrometer"
           (change)="changeScroll($event)"
         />
@@ -65,7 +65,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-in"
+          name="length-radio-in"
           value="nanometer"
           (change)="changeScroll($event)"
         />
@@ -78,7 +78,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-in"
+          name="length-radio-in"
           value="mile"
           (change)="changeScroll($event)"
         />
@@ -90,7 +90,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-in"
+          name="length-radio-in"
           value="yard"
           (change)="changeScroll($event)"
         />
@@ -102,7 +102,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-in"
+          name="length-radio-in"
           value="foot"
           (change)="changeScroll($event)"
         />
@@ -114,7 +114,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-in"
+          name="length-radio-in"
           value="inch"
           (change)="changeScroll($event)"
         />
@@ -126,7 +126,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-in"
+          name="length-radio-in"
           value="lightYear"
           (change)="changeScroll($event)"
         />
@@ -138,7 +138,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-in"
+          name="length-radio-in"
           value="nauticalMile"
           (change)="changeScroll($event)"
         />
@@ -152,7 +152,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-out"
+          name="length-radio-out"
           value="kilometer"
           checked="checked"
           (change)="changeScroll($event)"
@@ -165,7 +165,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-out"
+          name="length-radio-out"
           value="meter"
           (change)="changeScroll($event)"
         />
@@ -177,7 +177,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-out"
+          name="length-radio-out"
           value="centimeter"
           (change)="changeScroll($event)"
         />
@@ -189,7 +189,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-out"
+          name="length-radio-out"
           value="millimeter"
           (change)="changeScroll($event)"
         />
@@ -201,7 +201,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-out"
+          name="length-radio-out"
           value="micrometer"
           (change)="changeScroll($event)"
         />
@@ -213,7 +213,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-out"
+          name="length-radio-out"
           value="nanometer"
           (change)="changeScroll($event)"
         />
@@ -226,7 +226,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-out"
+          name="length-radio-out"
           value="mile"
           (change)="changeScroll($event)"
         />
@@ -238,7 +238,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-out"
+          name="length-radio-out"
           value="yard"
           (change)="changeScroll($event)"
         />
@@ -250,7 +250,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-out"
+          name="length-radio-out"
           value="foot"
           (change)="changeScroll($event)"
         />
@@ -262,7 +262,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-out"
+          name="length-radio-out"
           value="inch"
           (change)="changeScroll($event)"
         />
@@ -274,7 +274,7 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-out"
+          name="length-radio-out"
           value="lightYear"
           (change)="changeScroll($event)"
         />
@@ -286,13 +286,260 @@
       <span class="radio__input">
         <input
           type="radio"
-          name="radio-out"
+          name="length-radio-out"
           value="nauticalMile"
           (change)="changeScroll($event)"
         />
         <span class="radio__control-out"></span>
       </span>
       <span class="radio__label-out">Nautical Mile</span>
+    </label>
+  </div>
+  <!--Weight----------------------------------------------------------------------------->
+  <div class="div-in" *ngIf="inOut == 3">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="metricTon"
+          name="weight-radio-in"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Metric Ton</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilogram"
+          name="weight-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Kilogram</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gram"
+          name="weight-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Gram</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="milligram"
+          name="weight-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Milligram</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="microgram"
+          name="weight-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Microgram</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialTon"
+          name="weight-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Imperial Ton</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usTon"
+          name="weight-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">US Ton</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="stone"
+          name="weight-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Stone</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="pound"
+          name="weight-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Pound</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="ounce"
+          name="weight-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Ounce</span>
+    </label>
+  </div>
+  <div class="div-out" *ngIf="inOut == 4">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="metricTon"
+          name="weight-radio-out"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Metric Ton</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilogram"
+          name="weight-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Kilogram</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gram"
+          name="weight-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Gram</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="milligram"
+          name="weight-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Milligram</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="microgram"
+          name="weight-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Microgram</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialTon"
+          name="weight-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Imperial Ton</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usTon"
+          name="weight-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">US Ton</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="stone"
+          name="weight-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Stone</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="pound"
+          name="weight-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Pound</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="ounce"
+          name="weight-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Ounce</span>
     </label>
   </div>
 </div>

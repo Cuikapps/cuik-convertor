@@ -456,4 +456,326 @@ export class Convert {
       }
     }
   }
+
+  public static convertWeight(type: string, input: number) {
+    switch (type) {
+      //Metric
+
+      //Metric Ton
+      case 'metricTonmetricTon': {
+        return input;
+      }
+      case 'metricTonkilogram': {
+        return input * 1000;
+      }
+      case 'metricTongram': {
+        return input * 1000000;
+      }
+      case 'metricTonmilligram': {
+        return input * 1000000000;
+      }
+      case 'metricTonmicrogram': {
+        return input * 1000000000000;
+      }
+      case 'metricTonimperialTon': {
+        return input / 1.016;
+      }
+      case 'metricTonusTon': {
+        return input * 1.10231;
+      }
+      case 'metricTonstone': {
+        return input * 157.472857135078;
+      }
+      case 'metricTonpound': {
+        return input * 2204.619999891091993;
+      }
+      case 'metricTonounce': {
+        return input * 35273.919998257471889;
+      }
+      // Kilogram
+      case 'kilogrammetricTon': {
+        return input / 1000;
+      }
+      case 'kilogramkilogram': {
+        return input;
+      }
+      case 'kilogramgram': {
+        return input * 1000;
+      }
+      case 'kilogrammilligram': {
+        return input * 1000000;
+      }
+      case 'kilogrammicrogram': {
+        return input * 1000000000;
+      }
+      case 'kilogramimperialTon': {
+        return input / 1016;
+      }
+      case 'kilogramusTon': {
+        return input / 907;
+      }
+      case 'kilogramstone': {
+        return input / 6.35;
+      }
+      case 'kilogrampound': {
+        return input * 2.2046199998910922524;
+      }
+      case 'kilogramounce': {
+        return input * 35.273919998257476038;
+      }
+      //gram
+      case 'grammetricTon': {
+        return input / 1000000;
+      }
+      case 'gramkilogram': {
+        return input / 1000;
+      }
+      case 'gramgram': {
+        return input;
+      }
+      case 'grammilligram': {
+        return input * 1000;
+      }
+      case 'grammicrogram': {
+        return input * 1000000;
+      }
+      case 'gramimperialTon': {
+        return input / 1016000;
+      }
+      case 'gramusTon': {
+        return input / 907185;
+      }
+      case 'gramstone': {
+        return input / 6350;
+      }
+      case 'grampound': {
+        return input / 454;
+      }
+      case 'gramounce': {
+        return input / 28.35;
+      }
+      //milligram
+      case 'milligrammetricTon': {
+        return input / 1000000000;
+      }
+      case 'milligramkilogram': {
+        return input / 1000000;
+      }
+      case 'milligramgram': {
+        return input / 1000;
+      }
+      case 'milligrammilligram': {
+        return input;
+      }
+      case 'milligrammicrogram': {
+        return input * 1000;
+      }
+      case 'milligramimperialTon': {
+        return input / 1016000000;
+      }
+      case 'milligramusTon': {
+        return input / 907200000;
+      }
+      case 'milligramstone': {
+        return input / 6350000;
+      }
+      case 'milligrampound': {
+        return input / 453592;
+      }
+      case 'milligramounce': {
+        return input / 28350;
+      }
+      //Microgram
+      case 'microgrammetricTon': {
+        return input / 1000000000000;
+      }
+      case 'microgramkilogram': {
+        return input / 1000000000;
+      }
+      case 'microgramgram': {
+        return input / 1000000;
+      }
+      case 'microgrammilligram': {
+        return input / 1000;
+      }
+      case 'microgrammicrogram': {
+        return input;
+      }
+      case 'microgramimperialTon': {
+        return input / 1016000000000;
+      }
+      case 'microgramusTon': {
+        return input / 907200000000;
+      }
+      case 'microgramstone': {
+        return input / 6350000000;
+      }
+      case 'microgrampound': {
+        return input / 453592000;
+      }
+      case 'microgramounce': {
+        return input / 28350000;
+      }
+      //Customary
+
+      //Imperial Ton
+      case 'imperialTonmetricTon': {
+        return input * 1.016;
+      }
+      case 'imperialTonkilogram': {
+        return input * 1016;
+      }
+      case 'imperialTongram': {
+        return input * 1016000;
+      }
+      case 'imperialTonmilligram': {
+        return input * 1016000000;
+      }
+      case 'imperialTonmicrogram': {
+        return input * 1016000000000;
+      }
+      case 'imperialTonimperialTon': {
+        return input;
+      }
+      case 'imperialTonusTon': {
+        return input * 1.12;
+      }
+      case 'imperialTonstone': {
+        return input * 160;
+      }
+      case 'imperialTonpound': {
+        return input * 2240;
+      }
+      case 'imperialTonounce': {
+        return input * 35840;
+      }
+      //US Ton
+      case 'usTonmetricTon': {
+        return input / 1.102;
+      }
+      case 'usTonkilogram': {
+        return input * 907.185;
+      }
+      case 'usTongram': {
+        return input * 907185;
+      }
+      case 'usTonmilligram': {
+        return input * 907185000;
+      }
+      case 'usTonmicrogram': {
+        return input * 907185000000;
+      }
+      case 'usTonimperialTon': {
+        return input / 1.12;
+      }
+      case 'usTonusTon': {
+        return input;
+      }
+      case 'usTonstone': {
+        return input * 142.85718385714;
+      }
+      case 'usTonpound': {
+        return input * 2000.000573999959897;
+      }
+      case 'usTonounce': {
+        return input * 32000.009183999358356;
+      }
+      // Stone
+      case 'stonemetricTon': {
+        return input / 157;
+      }
+      case 'stonekilogram': {
+        return input * 6.35;
+      }
+      case 'stonegram': {
+        return input * 6350;
+      }
+      case 'stonemilligram': {
+        return input * 6350000;
+      }
+      case 'stonemicrogram': {
+        return input * 6350000000;
+      }
+      case 'stoneimperialTon': {
+        return input / 160;
+      }
+      case 'stoneusTon': {
+        return input / 143;
+      }
+      case 'stonestone': {
+        return input;
+      }
+      case 'stonepound': {
+        return input * 14;
+      }
+      case 'stoneounce': {
+        return input * 224;
+      }
+      //Pound
+      case 'poundmetricTon': {
+        return input / 2205;
+      }
+      case 'poundkilogram': {
+        return input / 2.205;
+      }
+      case 'poundgram': {
+        return input * 453.59250018100118496;
+      }
+      case 'poundmilligram': {
+        return input * 453592.50018100118496;
+      }
+      case 'poundmicrogram': {
+        return input * 453592500.18100118496;
+      }
+      case 'poundimperialTon': {
+        return input / 2240;
+      }
+      case 'poundusTon': {
+        return input / 2000;
+      }
+      case 'poundstone': {
+        return input / 14;
+      }
+      case 'poundpound': {
+        return input;
+      }
+      case 'poundounce': {
+        return input * 16;
+      }
+      // Ounce
+      case 'ouncemetricTon': {
+        return input / 35274;
+      }
+      case 'ouncekilogram': {
+        return input / 35.274;
+      }
+      case 'ouncegram': {
+        return input * 28.34953126131257406;
+      }
+      case 'ouncemilligram': {
+        return input * 28349.531261312575225;
+      }
+      case 'ouncemicrogram': {
+        return input * 28349531.261312575225;
+      }
+      case 'ounceimperialTon': {
+        return input / 35840;
+      }
+      case 'ounceusTon': {
+        return input / 32000;
+      }
+      case 'ouncestone': {
+        return input / 224;
+      }
+      case 'ouncepound': {
+        return input / 16;
+      }
+      case 'ounceounce': {
+        return input;
+      }
+      default: {
+        return input;
+      }
+    }
+  }
 }
