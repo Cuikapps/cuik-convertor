@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, Output } from '@angular/core';
 import { LogService } from './log.service';
 import { ConversionTypeBtnComponent } from './conversion-type-btn/conversion-type-btn.component';
 import { Convert } from './Convert';
@@ -13,8 +13,8 @@ export class AppComponent {
 
   @ViewChild('lengthBtn') lengthBtn!: ConversionTypeBtnComponent;
   @ViewChild('weightBtn') weightBtn!: ConversionTypeBtnComponent;
-  @ViewChild('inputNumber') inputNumber!: HTMLInputElement;
-  @ViewChild('outputNumber') outputNumber!: HTMLInputElement;
+  inputNumber: string = '';
+  outputNumber: string = '';
   weight = 'weight';
 
   constructor(private logger: LogService) {}
@@ -39,6 +39,7 @@ export class AppComponent {
   }
 
   setInScrollData(scrollIn: string) {
+    console.log(scrollIn);
     this.inScrollData = scrollIn;
     this.updateScrollData();
   }
@@ -48,8 +49,13 @@ export class AppComponent {
   }
   updateScrollData() {
     this.scrollData = this.inScrollData + this.outScrollData;
-    console.log(
-      Convert.convertLength(this.scrollData, parseFloat(this.inputNumber.value))
-    );
+    if (this.inputNumber !== '') {
+      this.outputNumber = Convert.convertLength(
+        this.scrollData,
+        parseFloat(this.inputNumber)
+      ).toString();
+    } else {
+      return;
+    }
   }
 }

@@ -28,7 +28,11 @@
           ></app-length-type-scrollbar>
         </div>
         <div class="input-output">
-          <input #inputNumber type="number" />
+          <input
+            type="number"
+            [(ngModel)]="inputNumber"
+            (change)="updateScrollData()"
+          />
           <div class="length-equal-sign">
             <svg
               width="90"
@@ -50,9 +54,14 @@
             </svg>
           </div>
 
-          <input #outputNumber type="number" readonly />
+          <input
+            type="number"
+            (change)="updateScrollData()"
+            readonly
+            [value]="outputNumber"
+          />
         </div>
-        <div class="weight" *ngIf="loadedPageNumber == 2">Weight</div>
+        <div class="weight" *ngIf="loadedPageNumber === 2">Weight</div>
       </div>
     </div>
   </div>
