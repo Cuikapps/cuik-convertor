@@ -1,6 +1,29 @@
 <div class="page">
   <div class="header">
     <img src="../assets/LOGO.png" width="60" />
+    <div class="region-2"></div>
+    <div class="region-2"></div>
+    <button
+      id="credits-button"
+      (click)="
+        alertCredits('Credits:Icon by www.wishforge.games on freeicons.io')
+      "
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#e7e7de"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="credits-svg"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12" y2="16"></line>
+      </svg>
+    </button>
   </div>
   <div class="inner-page">
     <div class="conversion-type">
@@ -10,105 +33,667 @@
       ></app-conversion-type-btn>
       <app-conversion-type-btn
         #weightBtn
-        [buttonType]="weight"
+        [buttonType]="buttonTypes[0]"
+        (buttonClickEmitter)="loadPage($event)"
+      ></app-conversion-type-btn>
+      <app-conversion-type-btn
+        #tempBtn
+        [buttonType]="buttonTypes[1]"
+        (buttonClickEmitter)="loadPage($event)"
+      ></app-conversion-type-btn>
+      <app-conversion-type-btn
+        #volumeBtn
+        [buttonType]="buttonTypes[2]"
+        (buttonClickEmitter)="loadPage($event)"
+      ></app-conversion-type-btn>
+      <app-conversion-type-btn
+        #areaBtn
+        [buttonType]="buttonTypes[3]"
+        (buttonClickEmitter)="loadPage($event)"
+      ></app-conversion-type-btn>
+      <app-conversion-type-btn
+        #speedBtn
+        [buttonType]="buttonTypes[4]"
         (buttonClickEmitter)="loadPage($event)"
       ></app-conversion-type-btn>
     </div>
-    <div class="app-face" [ngSwitch]="loadedPageNumber">
-      <div class="length" *ngSwitchCase="1">
-        <div class="scroll-bars">
-          <app-length-type-scrollbar
-            (lengthInScrollEmitter)="setLengthInScrollData($event)"
-            [inOut]="1"
-          ></app-length-type-scrollbar>
-          <div class="region"></div>
-          <app-length-type-scrollbar
-            (lengthOutScrollEmitter)="setLengthOutScrollData($event)"
-            [inOut]="2"
-          ></app-length-type-scrollbar>
-        </div>
-        <div class="input-output">
-          <input
-            type="number"
-            [(ngModel)]="lengthInputNumber"
-            (change)="updateLengthScrollData()"
-          />
-          <div class="length-equal-sign">
-            <svg
-              width="90"
-              height="19"
-              viewBox="0 0 90 19"
-              fill="#0f3057"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="90" height="19" rx="5" fill="#0f3057" />
-            </svg>
-            <svg
-              width="90"
-              height="19"
-              viewBox="0 0 90 19"
-              fill="#0f3057"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="90" height="19" rx="5" fill="#0f3057" />
-            </svg>
+    <div class="app-face">
+      <div [ngSwitch]="loadedPageNumber" class="convert-holder">
+        <div class="length" *ngSwitchCase="1">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              (lengthInScrollEmitter)="setLengthInScrollData($event)"
+              [inOut]="1"
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              (lengthOutScrollEmitter)="setLengthOutScrollData($event)"
+              [inOut]="2"
+            ></app-length-type-scrollbar>
           </div>
-          <input
-            type="number"
-            (change)="updateLengthScrollData()"
-            readonly
-            [value]="lengthOutputNumber"
-          />
-        </div>
-      </div>
-      <div class="weight" *ngSwitchCase="2">
-        <div class="scroll-bars">
-          <app-length-type-scrollbar
-            [inOut]="3"
-            (weightInScrollEmitter)="setWeightInScrollData($event)"
-          ></app-length-type-scrollbar>
-          <div class="region"></div>
-          <app-length-type-scrollbar
-            [inOut]="4"
-            (weightOutScrollEmitter)="setWeightOutScrollData($event)"
-          ></app-length-type-scrollbar>
-        </div>
-        <div class="input-output">
-          <input
-            type="number"
-            [(ngModel)]="weightInputNumber"
-            (change)="updateWeightScrollData()"
-          />
-          <div class="length-equal-sign">
-            <svg
-              width="90"
-              height="19"
-              viewBox="0 0 90 19"
-              fill="#0f3057"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="90" height="19" rx="5" fill="#0f3057" />
-            </svg>
-            <svg
-              width="90"
-              height="19"
-              viewBox="0 0 90 19"
-              fill="#0f3057"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="90" height="19" rx="5" fill="#0f3057" />
-            </svg>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="lengthInputNumber"
+              (change)="updateLengthScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
+            <input type="number" readonly [value]="lengthOutputNumber" />
           </div>
+        </div>
+        <div class="weight" *ngSwitchCase="2">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              [inOut]="3"
+              (weightInScrollEmitter)="setWeightInScrollData($event)"
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              [inOut]="4"
+              (weightOutScrollEmitter)="setWeightOutScrollData($event)"
+            ></app-length-type-scrollbar>
+          </div>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="weightInputNumber"
+              (change)="updateWeightScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
 
-          <input
-            type="number"
-            readonly
-            (change)="updateWeightScrollData()"
-            [value]="weightOutputNumber"
-          />
+            <input type="number" readonly [value]="weightOutputNumber" />
+          </div>
         </div>
+        <div class="temp" *ngSwitchCase="3">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              [inOut]="5"
+              (tempInScrollEmitter)="setTempInScrollData($event)"
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              [inOut]="6"
+              (tempOutScrollEmitter)="setTempOutScrollData($event)"
+            ></app-length-type-scrollbar>
+          </div>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="tempInputNumber"
+              (change)="updateTempScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
+
+            <input type="number" readonly [value]="tempOutputNumber" />
+          </div>
+        </div>
+        <div class="volume" *ngSwitchCase="4">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              [inOut]="7"
+              (volumeInScrollEmitter)="setVolumeInScrollData($event)"
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              [inOut]="8"
+              (volumeOutScrollEmitter)="setVolumeOutScrollData($event)"
+            ></app-length-type-scrollbar>
+          </div>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="volumeInputNumber"
+              (change)="updateVolumeScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
+
+            <input type="number" readonly [value]="volumeOutputNumber" />
+          </div>
+        </div>
+        <div class="area" *ngSwitchCase="5">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              [inOut]="9"
+              (areaInScrollEmitter)="setAreaInScrollData($event)"
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              [inOut]="10"
+              (areaOutScrollEmitter)="setAreaOutScrollData($event)"
+            ></app-length-type-scrollbar>
+          </div>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="areaInputNumber"
+              (change)="updateAreaScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
+
+            <input type="number" readonly [value]="areaOutputNumber" />
+          </div>
+        </div>
+        <div class="speed" *ngSwitchCase="6">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              [inOut]="11"
+              (speedInScrollEmitter)="setSpeedInScrollData($event)"
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              [inOut]="12"
+              (speedOutScrollEmitter)="setSpeedOutScrollData($event)"
+            ></app-length-type-scrollbar>
+          </div>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="speedInputNumber"
+              (change)="updateSpeedScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
+
+            <input type="number" readonly [value]="speedOutputNumber" />
+          </div>
+        </div>
+        <div class="angle" *ngSwitchCase="7">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              [inOut]="13"
+              (angleInScrollEmitter)="setAngleInScrollData($event)"
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              [inOut]="14"
+              (angleOutScrollEmitter)="setAngleOutScrollData($event)"
+            ></app-length-type-scrollbar>
+          </div>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="angleInputNumber"
+              (change)="updateAngleScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
+
+            <input type="number" readonly [value]="angleOutputNumber" />
+          </div>
+        </div>
+        <div class="time" *ngSwitchCase="8">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              [inOut]="15"
+              (timeInScrollEmitter)="setTimeInScrollData($event)"
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              [inOut]="16"
+              (timeOutScrollEmitter)="setTimeOutScrollData($event)"
+            ></app-length-type-scrollbar>
+          </div>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="timeInputNumber"
+              (change)="updateTimeScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
+
+            <input type="number" readonly [value]="timeOutputNumber" />
+          </div>
+        </div>
+        <div class="pressure" *ngSwitchCase="9">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              [inOut]="17"
+              (pressureInScrollEmitter)="setPressureInScrollData($event)"
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              [inOut]="18"
+              (pressureOutScrollEmitter)="setPressureOutScrollData($event)"
+            ></app-length-type-scrollbar>
+          </div>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="pressureInputNumber"
+              (change)="updatePressureScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
+
+            <input type="number" readonly [value]="pressureOutputNumber" />
+          </div>
+        </div>
+        <div class="digital-storage" *ngSwitchCase="10">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              [inOut]="19"
+              (digStorageInScrollEmitter)="setDigStorageInScrollData($event)"
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              [inOut]="20"
+              (digStorageOutScrollEmitter)="setDigStorageOutScrollData($event)"
+            ></app-length-type-scrollbar>
+          </div>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="digStorageInputNumber"
+              (change)="updateDigStorageScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
+
+            <input type="number" readonly [value]="digStorageOutputNumber" />
+          </div>
+        </div>
+        <div class="data-transfer-rate" *ngSwitchCase="11">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              [inOut]="21"
+              (dataTransferInScrollEmitter)="
+                setDataTransferInScrollData($event)
+              "
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              [inOut]="22"
+              (dataTransferOutScrollEmitter)="
+                setDataTransferOutScrollData($event)
+              "
+            ></app-length-type-scrollbar>
+          </div>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="dataTransferInputNumber"
+              (change)="updateDataTransferScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
+
+            <input type="number" readonly [value]="dataTransferOutputNumber" />
+          </div>
+        </div>
+        <div class="energy" *ngSwitchCase="12">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              [inOut]="23"
+              (energyInScrollEmitter)="setEnergyInScrollData($event)"
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              [inOut]="24"
+              (energyOutScrollEmitter)="setEnergyOutScrollData($event)"
+            ></app-length-type-scrollbar>
+          </div>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="energyInputNumber"
+              (change)="updateEnergyScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
+
+            <input type="number" readonly [value]="energyOutputNumber" />
+          </div>
+        </div>
+        <div class="frequency" *ngSwitchCase="13">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              [inOut]="25"
+              (frequencyInScrollEmitter)="setFrequencyInScrollData($event)"
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              [inOut]="26"
+              (frequencyOutScrollEmitter)="setFrequencyOutScrollData($event)"
+            ></app-length-type-scrollbar>
+          </div>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="frequencyInputNumber"
+              (change)="updateFrequencyScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
+
+            <input type="number" readonly [value]="frequencyOutputNumber" />
+          </div>
+        </div>
+        <div class="fuel" *ngSwitchCase="14">
+          <div class="scroll-bars">
+            <app-length-type-scrollbar
+              [inOut]="27"
+              (fuelInScrollEmitter)="setFuelInScrollData($event)"
+            ></app-length-type-scrollbar>
+            <div class="region"></div>
+            <app-length-type-scrollbar
+              [inOut]="28"
+              (fuelOutScrollEmitter)="setFuelOutScrollData($event)"
+            ></app-length-type-scrollbar>
+          </div>
+          <div class="input-output">
+            <input
+              type="number"
+              [(ngModel)]="fuelInputNumber"
+              (change)="updateFuelScrollData()"
+            />
+            <div class="length-equal-sign">
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+              <svg
+                width="90"
+                height="19"
+                viewBox="0 0 90 19"
+                fill="#0f3057"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="90" height="19" rx="5" fill="#0f3057" />
+              </svg>
+            </div>
+
+            <input type="number" readonly [value]="fuelOutputNumber" />
+          </div>
+        </div>
+        <div *ngSwitchDefault>Hello</div>
       </div>
-      <div *ngSwitchDefault>Hello</div>
+      <div class="bottom-row-button">
+        <app-conversion-type-btn
+          #angleBtn
+          [buttonType]="buttonTypes[5]"
+          (buttonClickEmitter)="loadPage($event)"
+        ></app-conversion-type-btn>
+        <app-conversion-type-btn
+          #timeBtn
+          [buttonType]="buttonTypes[6]"
+          (buttonClickEmitter)="loadPage($event)"
+        ></app-conversion-type-btn>
+        <app-conversion-type-btn
+          #pressureBtn
+          [buttonType]="buttonTypes[7]"
+          (buttonClickEmitter)="loadPage($event)"
+        ></app-conversion-type-btn>
+        <app-conversion-type-btn
+          #digStorageBtn
+          [buttonType]="buttonTypes[8]"
+          (buttonClickEmitter)="loadPage($event)"
+        ></app-conversion-type-btn>
+        <app-conversion-type-btn
+          #dataTransferBtn
+          [buttonType]="buttonTypes[9]"
+          (buttonClickEmitter)="loadPage($event)"
+        ></app-conversion-type-btn>
+        <app-conversion-type-btn
+          #energyBtn
+          [buttonType]="buttonTypes[10]"
+          (buttonClickEmitter)="loadPage($event)"
+        ></app-conversion-type-btn>
+        <app-conversion-type-btn
+          #frequencyBtn
+          [buttonType]="buttonTypes[11]"
+          (buttonClickEmitter)="loadPage($event)"
+        ></app-conversion-type-btn>
+        <app-conversion-type-btn
+          #fuelBtn
+          [buttonType]="buttonTypes[12]"
+          (buttonClickEmitter)="loadPage($event)"
+        ></app-conversion-type-btn>
+      </div>
     </div>
   </div>
 </div>

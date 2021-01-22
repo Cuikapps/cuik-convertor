@@ -542,4 +542,772 @@
       <span class="radio__label-out">Ounce</span>
     </label>
   </div>
+  <!--Temp----------------------------------------------------------------------------->
+  <div class="div-in" *ngIf="inOut == 5">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="celsius"
+          name="temp-radio-in"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Celsius</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="fahrenheit"
+          name="temp-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Fahrenheit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kelvin"
+          name="temp-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Kelvin</span>
+    </label>
+  </div>
+  <div class="div-out" *ngIf="inOut == 6">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="celsius"
+          name="temp-radio-out"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Celsius</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="fahrenheit"
+          name="temp-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Fahrenheit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kelvin"
+          name="temp-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Kelvin</span>
+    </label>
+  </div>
+  <!--Volume----------------------------------------------------------------------------->
+  <div class="div-in" *ngIf="inOut == 7">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usLiquidGallon"
+          name="volume-radio-in"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">US Liquid Gallon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usLiquidQuart"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">US Liquid Quart</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usLiquidPint"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">US Liquid Pint</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usLegalCup"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">US Legal Cup</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usLiquidOunce"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">US Fluid Ounce</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usTablespoon"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">US Tablespoon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usTeaspoon"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">US Teaspoon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="cubicMeter"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Cubic Meter</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="liter"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Liter</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="milliliter"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Milliliter</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialGallon"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Imperial Gallon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialQuart"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Imperial Quart</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialPint"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Imperial Pint</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialCup"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Imperial Cup</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialFluidOunce"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Imperial Fluid Ounce</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialTablespoon"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Imperial Tablespoon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialTeaspoon"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Imperial Teaspoon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="cubicFoot"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Cubic Foot</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="cubicInch"
+          name="volume-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Cubic Inch</span>
+    </label>
+  </div>
+  <div class="div-out" *ngIf="inOut == 8">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usLiquidGallon"
+          name="volume-radio-out"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">US Liquid Gallon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usLiquidQuart"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">US Liquid Quart</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usLiquidPint"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">US Liquid Pint</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usLegalCup"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">US Legal Cup</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usFluidOunce"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">US Fluid Ounce</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usTablespoon"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">US Tablespoon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usTeaspoon"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">US Teaspoon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="cubicMeter"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Cubic Meter</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="liter"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Liter</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="milliliter"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Milliliter</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialGallon"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Imperial Gallon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialQuart"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Imperial Quart</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialPint"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Imperial Pint</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialCup"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Imperial Cup</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialFluidOunce"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Imperial Fluid Ounce</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialTablespoon"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Imperial Tablespoon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="imperialTeaspoon"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Imperial Teaspoon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="cubicFoot"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Cubic Foot</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="cubicInch"
+          name="volume-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Cubic Inch</span>
+    </label>
+  </div>
+  <!--Area----------------------------------------------------------------------------->
+  <div class="div-in" *ngIf="inOut == 9">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="squareKilometer"
+          name="area-radio-in"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Square Kilometer</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="squareMeter"
+          name="area-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Square Meter</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="squareMile"
+          name="area-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Square Mile</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="squareYard"
+          name="area-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Square Yard</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="squareFoot"
+          name="area-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Square Foot</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="squareInch"
+          name="area-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Square Inch</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="hectare"
+          name="area-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Hectare</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="acre"
+          name="area-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Acre</span>
+    </label>
+  </div>
+  <div class="div-out" *ngIf="inOut == 10">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="squareKilometer"
+          name="area-radio-out"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Square Kilometer</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="squareMeter"
+          name="area-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Square Meter</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="squareMile"
+          name="area-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Square Mile</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="squareYard"
+          name="area-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Square Yard</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="squareFoot"
+          name="area-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Square Foot</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="squareInch"
+          name="area-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Square Inch</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="hectare"
+          name="area-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Hectare</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="acre"
+          name="area-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Acre</span>
+    </label>
+  </div>
+  <!--Speed----------------------------------------------------------------------------->
+  <div class="div-in" *ngIf="inOut == 11">Speed</div>
+  <div class="div-out" *ngIf="inOut == 12">Speed</div>
+  <!--Angle----------------------------------------------------------------------------->
+  <div class="div-in" *ngIf="inOut == 13">Angle</div>
+  <div class="div-out" *ngIf="inOut == 14">Angle</div>
+  <!--Time----------------------------------------------------------------------------->
+  <div class="div-in" *ngIf="inOut == 15">Time</div>
+  <div class="div-out" *ngIf="inOut == 16">Time</div>
+  <!--Pressure-------------------------------------------------------------------------->
+  <div class="div-in" *ngIf="inOut == 17">Pressure</div>
+  <div class="div-out" *ngIf="inOut == 18">Pressure</div>
+  <!--Digital Storage------------------------------------------------------------------->
+  <div class="div-in" *ngIf="inOut == 19">Digital Storage</div>
+  <div class="div-out" *ngIf="inOut == 20">Digital Storage</div>
+  <!--Data Transfer Rate----------------------------------------------------------------------------->
+  <div class="div-in" *ngIf="inOut == 21">Data Transfer</div>
+  <div class="div-out" *ngIf="inOut == 22">Data Transfer</div>
+  <!--Energy----------------------------------------------------------------------------->
+  <div class="div-in" *ngIf="inOut == 23">Energy</div>
+  <div class="div-out" *ngIf="inOut == 24">Energy</div>
+  <!--Frequency----------------------------------------------------------------------------->
+  <div class="div-in" *ngIf="inOut == 25">Frequency</div>
+  <div class="div-out" *ngIf="inOut == 26">Frequency</div>
+  <!--Fuel Economy----------------------------------------------------------------------------->
+  <div class="div-in" *ngIf="inOut == 27">Fuel Economy</div>
+  <div class="div-out" *ngIf="inOut == 28">Fuel Economy</div>
 </div>

@@ -5,5 +5,22 @@ html {
 }
 body {
   margin: 0;
+  background-color: #0f3057;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+h1 {
+  display: none;
+  visibility: hidden;
+}
+@media screen and (max-height: 570px), (max-width: 1150px) {
+  body app-root * {
+    display: none;
+    visibility: hidden;
+  }
+  h1 {
+    display: inline;
+    visibility: visible;
+    font-size: 200px;
+    color: #e7e7e7;
+  }
 }
