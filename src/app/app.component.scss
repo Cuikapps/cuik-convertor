@@ -1,6 +1,8 @@
 $main-color: #0f3057;
 $secondary-color: #e7e7de;
 $cyan: #00587a;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
 .header {
   background-color: $main-color;
   width: 100%;
@@ -42,9 +44,15 @@ $cyan: #00587a;
   background-color: $secondary-color;
   padding: 10px;
   border-radius: 10px;
-}
-.bottom-row-button {
-  margin-top: 33px;
+  h1 {
+    visibility: visible;
+    display: inline;
+    font-family: "Poppins", sans-serif;
+    margin-left: 10px;
+    color: $main-color;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
 }
 .region {
   width: 6em;

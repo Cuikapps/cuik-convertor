@@ -72,6 +72,22 @@ export class AppComponent {
     'frequency',
     'fuel economy',
   ];
+  textTypes: Array<string> = [
+    'Length',
+    'Weight',
+    'Temp',
+    'Volume',
+    'Area',
+    'Speed',
+    'Plane Angle',
+    'Time',
+    'Pressure',
+    'Digital Storage',
+    'Data Transfer Rate',
+    'Energy',
+    'Frequency',
+    'Fuel Economy',
+  ];
   loadedPageNumber: number = 1;
 
   // scroll data
@@ -87,35 +103,35 @@ export class AppComponent {
   volumeInScrollData: string = 'usLiquidGallon';
   volumeOutScrollData: string = 'usLiquidGallon';
 
-  areaInScrollData: string = '';
-  areaOutScrollData: string = '';
+  areaInScrollData: string = 'squareKilometer';
+  areaOutScrollData: string = 'squareKilometer';
 
-  speedInScrollData: string = '';
-  speedOutScrollData: string = '';
+  speedInScrollData: string = 'MPH';
+  speedOutScrollData: string = 'MPH';
 
-  angleInScrollData: string = '';
-  angleOutScrollData: string = '';
+  angleInScrollData: string = 'degree';
+  angleOutScrollData: string = 'degree';
 
-  timeInScrollData: string = '';
-  timeOutScrollData: string = '';
+  timeInScrollData: string = 'nanosecond';
+  timeOutScrollData: string = 'nanosecond';
 
-  pressureInScrollData: string = '';
-  pressureOutScrollData: string = '';
+  pressureInScrollData: string = 'bar';
+  pressureOutScrollData: string = 'bar';
 
-  digStorageInScrollData: string = '';
-  digStorageOutScrollData: string = '';
+  digStorageInScrollData: string = 'bit';
+  digStorageOutScrollData: string = 'bit';
 
-  dataTransferInScrollData: string = '';
-  dataTransferOutScrollData: string = '';
+  dataTransferInScrollData: string = 'bitPS';
+  dataTransferOutScrollData: string = 'bitPS';
 
-  energyInScrollData: string = '';
-  energyOutScrollData: string = '';
+  energyInScrollData: string = 'joule';
+  energyOutScrollData: string = 'joule';
 
-  frequencyInScrollData: string = '';
-  frequencyOutScrollData: string = '';
+  frequencyInScrollData: string = 'hertz';
+  frequencyOutScrollData: string = 'hertz';
 
-  fuelInScrollData: string = '';
-  fuelOutScrollData: string = '';
+  fuelInScrollData: string = 'MPG';
+  fuelOutScrollData: string = 'MPG';
 
   lengthScrollData: string = this.lengthInScrollData + this.lengthOutScrollData;
   weightScrollData: string = this.weightInScrollData + this.weightOutScrollData;
@@ -355,10 +371,8 @@ export class AppComponent {
       this.fuelBtn.isActivated = true;
     }
   }
-  //Show credits
-  alertCredits(msg: string) {
-    alert(msg);
-  }
+  //Feed back
+  feedback() {}
 
   // get scroll data from scroll component
   setLengthInScrollData(scrollIn: string) {

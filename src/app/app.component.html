@@ -3,12 +3,7 @@
     <img src="../assets/LOGO.png" width="60" />
     <div class="region-2"></div>
     <div class="region-2"></div>
-    <button
-      id="credits-button"
-      (click)="
-        alertCredits('Credits:Icon by www.wishforge.games on freeicons.io')
-      "
-    >
+    <button title="feedback" id="credits-button" (click)="feedback()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -59,6 +54,7 @@
     </div>
     <div class="app-face">
       <div [ngSwitch]="loadedPageNumber" class="convert-holder">
+        <h1>{{ textTypes[loadedPageNumber - 1] }}</h1>
         <div class="length" *ngSwitchCase="1">
           <div class="scroll-bars">
             <app-length-type-scrollbar

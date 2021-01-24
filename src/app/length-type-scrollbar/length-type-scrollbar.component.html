@@ -1284,30 +1284,1698 @@
     </label>
   </div>
   <!--Speed----------------------------------------------------------------------------->
-  <div class="div-in" *ngIf="inOut == 11">Speed</div>
-  <div class="div-out" *ngIf="inOut == 12">Speed</div>
+  <div class="div-in" *ngIf="inOut == 11">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="MPH"
+          name="speed-radio-in"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Miles per Hour</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="FPS"
+          name="speed-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Foot per Second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="MPS"
+          name="speed-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Meter per Second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="KPH"
+          name="speed-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Kilometer per Hour</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="knot"
+          name="speed-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Knot</span>
+    </label>
+  </div>
+  <div class="div-out" *ngIf="inOut == 12">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="MPH"
+          name="speed-radio-out"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Miles per Hour</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="FPS"
+          name="speed-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Foot per Second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="MPS"
+          name="speed-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Meter per Second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="KPH"
+          name="speed-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Kilometer per Hour</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="knot"
+          name="speed-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Knot</span>
+    </label>
+  </div>
   <!--Angle----------------------------------------------------------------------------->
-  <div class="div-in" *ngIf="inOut == 13">Angle</div>
-  <div class="div-out" *ngIf="inOut == 14">Angle</div>
+  <div class="div-in" *ngIf="inOut == 13">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="degree"
+          name="angle-radio-in"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Degree</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gradian"
+          name="angle-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Gradian</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="milliradian"
+          name="angle-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Milliradian</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="minuteArc"
+          name="angle-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Minute of Arc</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="radian"
+          name="angle-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Radian</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="secondArc"
+          name="angle-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Second of Arc</span>
+    </label>
+  </div>
+  <div class="div-out" *ngIf="inOut == 14">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="degree"
+          name="angle-radio-out"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Degree</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gradian"
+          name="angle-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Gradian</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="milliradian"
+          name="angle-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Milliradian</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="minuteArc"
+          name="angle-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Minute of Arc</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="radian"
+          name="angle-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Radian</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="secondArc"
+          name="angle-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Second of Arc</span>
+    </label>
+  </div>
   <!--Time----------------------------------------------------------------------------->
-  <div class="div-in" *ngIf="inOut == 15">Time</div>
-  <div class="div-out" *ngIf="inOut == 16">Time</div>
+  <div class="div-in" *ngIf="inOut == 15">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="nanosecond"
+          name="time-radio-in"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Nanosecond</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="microsecond"
+          name="time-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Microsecond</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="millisecond"
+          name="time-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Millisecond</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="second"
+          name="time-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="minute"
+          name="time-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Minute</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="hour"
+          name="time-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Hour</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="day"
+          name="time-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Day</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="week"
+          name="time-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Week</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="month"
+          name="time-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Month</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="year"
+          name="time-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Year</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="decade"
+          name="time-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Decade</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="century"
+          name="time-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Century</span>
+    </label>
+  </div>
+  <div class="div-out" *ngIf="inOut == 16">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="nanosecond"
+          name="time-radio-out"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Nanosecond</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="microsecond"
+          name="time-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Microsecond</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="millisecond"
+          name="time-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Millisecond</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="second"
+          name="time-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="minute"
+          name="time-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Minute</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="hour"
+          name="time-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Hour</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="day"
+          name="time-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Day</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="week"
+          name="time-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Week</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="month"
+          name="time-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Month</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="year"
+          name="time-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Year</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="decade"
+          name="time-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Decade</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="century"
+          name="time-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Century</span>
+    </label>
+  </div>
   <!--Pressure-------------------------------------------------------------------------->
-  <div class="div-in" *ngIf="inOut == 17">Pressure</div>
-  <div class="div-out" *ngIf="inOut == 18">Pressure</div>
+  <div class="div-in" *ngIf="inOut == 17">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="bar"
+          name="pressure-radio-in"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Bar</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="pascal"
+          name="pressure-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Pascal</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="pound-force"
+          name="pressure-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Pound-force per Square Inch</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="atmosphere"
+          name="pressure-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Atmosphere</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="torr"
+          name="pressure-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Torr</span>
+    </label>
+  </div>
+  <div class="div-out" *ngIf="inOut == 18">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="bar"
+          name="pressure-radio-out"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Bar</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="pascal"
+          name="pressure-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Pascal</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="pound-force"
+          name="pressure-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Pound-force per Square Inch</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="atmosphere"
+          name="pressure-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Atmosphere</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="torr"
+          name="pressure-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Torr</span>
+    </label>
+  </div>
   <!--Digital Storage------------------------------------------------------------------->
-  <div class="div-in" *ngIf="inOut == 19">Digital Storage</div>
-  <div class="div-out" *ngIf="inOut == 20">Digital Storage</div>
+  <div class="div-in" *ngIf="inOut == 19">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="bit"
+          name="digStorage-radio-in"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Bit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilobit"
+          name="digStorage-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Kilobit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="megabit"
+          name="digStorage-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Megabit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gigabit"
+          name="digStorage-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Gigabit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="terabit"
+          name="digStorage-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Terabit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="petabit"
+          name="digStorage-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Petabit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="byte"
+          name="digStorage-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Byte</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilobyte"
+          name="digStorage-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Kilobyte</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="megabyte"
+          name="digStorage-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Megabyte</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gigabyte"
+          name="digStorage-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Gigabyte</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="terabyte"
+          name="digStorage-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Terabyte</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="petabyte"
+          name="digStorage-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Petabyte</span>
+    </label>
+  </div>
+  <div class="div-out" *ngIf="inOut == 20">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="bit"
+          name="digStorage-radio-out"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Bit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilobit"
+          name="digStorage-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Kilobit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="megabit"
+          name="digStorage-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Megabit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gigabit"
+          name="digStorage-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Gigabit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="terabit"
+          name="digStorage-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Terabit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="petabit"
+          name="digStorage-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Petabit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="byte"
+          name="digStorage-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Byte</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilobyte"
+          name="digStorage-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Kilobyte</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="megabyte"
+          name="digStorage-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Megabyte</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gigabyte"
+          name="digStorage-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Gigabyte</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="terabyte"
+          name="digStorage-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Terabyte</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="petabyte"
+          name="digStorage-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Petabyte</span>
+    </label>
+  </div>
   <!--Data Transfer Rate----------------------------------------------------------------------------->
-  <div class="div-in" *ngIf="inOut == 21">Data Transfer</div>
-  <div class="div-out" *ngIf="inOut == 22">Data Transfer</div>
+  <div class="div-in" *ngIf="inOut == 21">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="bitPS"
+          name="dataTransfer-radio-in"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Bit per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="bytePS"
+          name="dataTransfer-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Byte per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilobitPS"
+          name="dataTransfer-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Kilobit per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilobytePS"
+          name="dataTransfer-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Kilobyte per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="megabitPS"
+          name="dataTransfer-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Megabit per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="megabytePS"
+          name="dataTransfer-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Megabyte per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gigabitPS"
+          name="dataTransfer-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Gigabit per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gigabytePS"
+          name="dataTransfer-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Gigabyte per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="terabitPS"
+          name="dataTransfer-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Terabit per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="terabytePS"
+          name="dataTransfer-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Terabyte per second</span>
+    </label>
+  </div>
+  <div class="div-out" *ngIf="inOut == 22">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="bitPS"
+          name="dataTransfer-radio-out"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Bit per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="bytePS"
+          name="dataTransfer-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Byte per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilobitPS"
+          name="dataTransfer-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Kilobit per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilobytePS"
+          name="dataTransfer-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Kilobyte per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="megabitPS"
+          name="dataTransfer-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Megabit per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="megabytePS"
+          name="dataTransfer-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Megabyte per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gigabitPS"
+          name="dataTransfer-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Gigabit per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gigabytePS"
+          name="dataTransfer-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Gigabyte per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="terabitPS"
+          name="dataTransfer-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Terabit per second</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="terabytePS"
+          name="dataTransfer-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Terabyte per second</span>
+    </label>
+  </div>
   <!--Energy----------------------------------------------------------------------------->
-  <div class="div-in" *ngIf="inOut == 23">Energy</div>
-  <div class="div-out" *ngIf="inOut == 24">Energy</div>
+  <div class="div-in" *ngIf="inOut == 23">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="joule"
+          name="energy-radio-in"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Joule</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilojoule"
+          name="energy-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Kilojoule</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gramCalorie"
+          name="energy-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Gram calorie</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilocalorie"
+          name="energy-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Kilocalorie</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="wattHour"
+          name="energy-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Watt Hour</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilowattHour"
+          name="energy-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Kilowatt Hour</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="electronvolt"
+          name="energy-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Electronvolt</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="BTU"
+          name="energy-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">British Thermal Unit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usTherm"
+          name="energy-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">US Therm</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="foot-pound"
+          name="energy-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Foot-pound</span>
+    </label>
+  </div>
+  <div class="div-out" *ngIf="inOut == 24">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="joule"
+          name="energy-radio-out"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Joule</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilojoule"
+          name="energy-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Kilojoule</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gramCalorie"
+          name="energy-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Gram calorie</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilocalorie"
+          name="energy-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Kilocalorie</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="wattHour"
+          name="energy-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Watt Hour</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilowattHour"
+          name="energy-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Kilowatt Hour</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="electronvolt"
+          name="energy-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Electronvolt</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="BTU"
+          name="energy-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">British Thermal Unit</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="usTherm"
+          name="energy-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">US Therm</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="foot-pound"
+          name="energy-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Foot-pound</span>
+    </label>
+  </div>
   <!--Frequency----------------------------------------------------------------------------->
-  <div class="div-in" *ngIf="inOut == 25">Frequency</div>
-  <div class="div-out" *ngIf="inOut == 26">Frequency</div>
+  <div class="div-in" *ngIf="inOut == 25">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="hertz"
+          name="frequency-radio-in"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Hertz</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilohertz"
+          name="frequency-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Kilohertz</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="megahertz"
+          name="frequency-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Megahertz</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gigahertz"
+          name="frequency-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Gigahertz</span>
+    </label>
+  </div>
+  <div class="div-out" *ngIf="inOut == 26">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="hertz"
+          name="frequency-radio-out"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Hertz</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="kilohertz"
+          name="frequency-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Kilohertz</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="megahertz"
+          name="frequency-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Megahertz</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="gigahertz"
+          name="frequency-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Gigahertz</span>
+    </label>
+  </div>
   <!--Fuel Economy----------------------------------------------------------------------------->
-  <div class="div-in" *ngIf="inOut == 27">Fuel Economy</div>
-  <div class="div-out" *ngIf="inOut == 28">Fuel Economy</div>
+  <div class="div-in" *ngIf="inOut == 27">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="MPG"
+          name="fuel-radio-in"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Miles per Gallon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="MPIG"
+          name="fuel-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Miles per Imperial Gallon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="KPL"
+          name="fuel-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Kilometer per Liter</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="LPK"
+          name="fuel-radio-in"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-in"></span>
+      </span>
+      <span class="radio__label-in">Liter per 100 Kilometer</span>
+    </label>
+  </div>
+  <div class="div-out" *ngIf="inOut == 28">
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="MPG"
+          name="fuel-radio-out"
+          checked="checked"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Miles per Gallon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="MPIG"
+          name="fuel-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Miles per Imperial Gallon</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="KPL"
+          name="fuel-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Kilometer per Liter</span>
+    </label>
+    <label class="radio">
+      <span class="radio__input">
+        <input
+          type="radio"
+          value="LPK"
+          name="fuel-radio-out"
+          (change)="changeScroll($event)"
+        />
+        <span class="radio__control-out"></span>
+      </span>
+      <span class="radio__label-out">Liter per 100 Kilometer</span>
+    </label>
+  </div>
 </div>

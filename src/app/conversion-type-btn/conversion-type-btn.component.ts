@@ -11,6 +11,7 @@ export class ConversionTypeBtnComponent implements OnInit {
   @Input() buttonType: string = 'length';
 
   isActivated: boolean = false;
+  title!: string;
 
   @Output()
   buttonClickEmitter: EventEmitter<number> = new EventEmitter<number>();
@@ -18,6 +19,21 @@ export class ConversionTypeBtnComponent implements OnInit {
   ngOnInit(): void {
     if (this.buttonType === 'length') {
       this.isActivated = true;
+    }
+    this.title = this.toCamelCase(this.buttonType);
+  }
+
+  toCamelCase(btnType: string): string {
+    if (btnType.includes(' ')) {
+      let words = btnType.split(' ');
+      for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+      }
+      return words.join(' ');
+    } else {
+      let temp: Array<string> = Array.from(btnType);
+      temp[0] = temp[0].toUpperCase();
+      return temp.join('');
     }
   }
 

@@ -803,8 +803,8 @@ export class Convert {
       case 'kelvincelsius': {
         return input - 273.15;
       }
-      case 'kelvinfehrenheit': {
-        return (input - 273.15) * (5 / 9) + 32;
+      case 'kelvinfahrenheit': {
+        return (input - 273.15) * (9 / 5) + 32;
       }
       case 'kelvinkelvin': {
         return input;
@@ -2132,6 +2132,86 @@ export class Convert {
   }
   public static convertSpeed(type: string, input: number) {
     switch (type) {
+      // Miles per hour
+      case 'MPHMPH': {
+        return input;
+      }
+      case 'MPHFPS': {
+        return input * 1.46667;
+      }
+      case 'MPHMPS': {
+        return input / 2.237;
+      }
+      case 'MPHKPH': {
+        return input * 1.609;
+      }
+      case 'MPHknot': {
+        return input / 1.151;
+      }
+      // Foot per second
+      case 'FPSMPH': {
+        return input / 1.46667;
+      }
+      case 'FPSFPS': {
+        return input;
+      }
+      case 'FPSMPS': {
+        return input / 3.281;
+      }
+      case 'FPSKPH': {
+        return input * 1.097;
+      }
+      case 'FPSknot': {
+        return input / 1.688;
+      }
+      // Meter per socond
+      case 'MPSMPH': {
+        return input * 2.23694;
+      }
+      case 'MPSFPS': {
+        return input * 3.2808453346457;
+      }
+      case 'MPSMPS': {
+        return input;
+      }
+      case 'MPSKPH': {
+        return input * 3.6;
+      }
+      case 'MPSknot': {
+        return input * 1.9438477170141412742;
+      }
+      // Kilometer per hour
+      case 'KPHMPH': {
+        return input / 1.609;
+      }
+      case 'KPHFPS': {
+        return input / 1.097;
+      }
+      case 'KPHMPS': {
+        return input / 3.6;
+      }
+      case 'KPHKPH': {
+        return input;
+      }
+      case 'KPHknot': {
+        return input / 1.852;
+      }
+      // Knot
+      case 'knotMPH': {
+        return input / 1.609;
+      }
+      case 'knotFPS': {
+        return input / 1.097;
+      }
+      case 'knotMPS': {
+        return input / 3.6;
+      }
+      case 'knotKPH': {
+        return input;
+      }
+      case 'knotknot': {
+        return input / 1.852;
+      }
       default: {
         return input;
       }
@@ -2139,6 +2219,120 @@ export class Convert {
   }
   public static convertAngle(type: string, input: number) {
     switch (type) {
+      // Degree
+      case 'degreedegree': {
+        return input;
+      }
+      case 'degreegradian': {
+        return input * (200 / 180);
+      }
+      case 'degreemilliradian': {
+        return input * ((1000 * Math.PI) / 180);
+      }
+      case 'degreeminuteArc': {
+        return input * 60;
+      }
+      case 'degreeradian': {
+        return input * (Math.PI / 180);
+      }
+      case 'degreesecondArc': {
+        return input * 3600;
+      }
+      // Gradian
+      case 'gradiandegree': {
+        return input * (180 / 200);
+      }
+      case 'gradiangradian': {
+        return input;
+      }
+      case 'gradianmilliradian': {
+        return input * ((1000 * Math.PI) / 200);
+      }
+      case 'gradianminuteArc': {
+        return input * 54;
+      }
+      case 'gradianradian': {
+        return input * (Math.PI / 200);
+      }
+      case 'gradiansecondArc': {
+        return input * 3240;
+      }
+      // Milliradian
+      case 'milliradiandegree': {
+        return input * (180 / (1000 * Math.PI));
+      }
+      case 'milliradiangradian': {
+        return input * (200 / (1000 * Math.PI));
+      }
+      case 'milliradianmilliradian': {
+        return input;
+      }
+      case 'milliradianminuteArc': {
+        return input * ((60 * 180) / (1000 * Math.PI));
+      }
+      case 'milliradianradian': {
+        return input / 1000;
+      }
+      case 'milliradiansecondArc': {
+        return input * ((3600 * 180) / (1000 * Math.PI));
+      }
+      // Minute of Arc
+      case 'minuteArcdegree': {
+        return input / 60;
+      }
+      case 'minuteArcgradian': {
+        return input / 54;
+      }
+      case 'minuteArcmilliradian': {
+        return input * ((1000 * Math.PI) / (60 * 180));
+      }
+      case 'minuteArcminuteArc': {
+        return input;
+      }
+      case 'minuteArcradian': {
+        return input * (Math.PI / (60 * 180));
+      }
+      case 'minuteArcsecondArc': {
+        return input * 60;
+      }
+      // Radian
+      case 'radiandegree': {
+        return input * (180 / Math.PI);
+      }
+      case 'radiangradian': {
+        return input * (200 / Math.PI);
+      }
+      case 'radianmilliradian': {
+        return input * 1000;
+      }
+      case 'radianminuteArc': {
+        return input * ((60 * 180) / Math.PI);
+      }
+      case 'radianradian': {
+        return input;
+      }
+      case 'radiansecondArc': {
+        return input * ((3600 * 180) / Math.PI);
+      }
+      //Second of Arc
+      case 'secondArcdegree': {
+        return input / 3600;
+      }
+      case 'secondArcgradian': {
+        return input / 3240;
+      }
+      case 'secondArcmilliradian': {
+        return input * ((1000 * Math.PI) / (180 * 3600));
+      }
+      case 'secondArcminuteArc': {
+        return input / 60;
+      }
+      case 'secondArcradian': {
+        return input * (Math.PI / (180 * 3600));
+      }
+      case 'secondArcsecondArc': {
+        return input;
+      }
       default: {
         return input;
       }
@@ -2146,6 +2340,450 @@ export class Convert {
   }
   public static convertTime(type: string, input: number) {
     switch (type) {
+      // Nanosecond
+      case 'nanosecondnanosecond': {
+        return input;
+      }
+      case 'nanosecondmicrosecond': {
+        return input / 1000;
+      }
+      case 'nanosecondmillisecond': {
+        return input / 1000000;
+      }
+      case 'nanosecondsecond': {
+        return input / 1000000000;
+      }
+      case 'nanosecondminute': {
+        return input / 60000000000;
+      }
+      case 'nanosecondhour': {
+        return input / 3600000000000;
+      }
+      case 'nanosecondday': {
+        return input / 86400000000000;
+      }
+      case 'nanosecondweek': {
+        return input / 604800000000000;
+      }
+      case 'nanosecondmonth': {
+        return input / 2628000000000000;
+      }
+      case 'nanosecondyear': {
+        return input / 31540000000000000;
+      }
+      case 'nanoseconddecade': {
+        return input / 315400000000000000;
+      }
+      case 'nanosecondcentury': {
+        return input / 3154000000000000000;
+      }
+      //Microsecond
+      case 'microsecondnanosecond': {
+        return input * 1000;
+      }
+      case 'microsecondmicrosecond': {
+        return input;
+      }
+      case 'microsecondmillisecond': {
+        return input / 1000;
+      }
+      case 'microsecondsecond': {
+        return input / 1000000;
+      }
+      case 'microsecondminute': {
+        return input / 60000000;
+      }
+      case 'microsecondhour': {
+        return input / 3600000000;
+      }
+      case 'microsecondday': {
+        return input / 86400000000;
+      }
+      case 'microsecondweek': {
+        return input / 604800000000;
+      }
+      case 'microsecondmonth': {
+        return input / 2628000000000;
+      }
+      case 'microsecondyear': {
+        return input / 31540000000000;
+      }
+      case 'microseconddecade': {
+        return input / 315400000000000;
+      }
+      case 'microsecondcentury': {
+        return input / 3154000000000000;
+      }
+      // Millisecond
+      case 'millisecondnanosecond': {
+        return input * 1000000;
+      }
+      case 'millisecondmicrosecond': {
+        return input * 1000;
+      }
+      case 'millisecondmillisecond': {
+        return input;
+      }
+      case 'millisecondsecond': {
+        return input / 1000;
+      }
+      case 'millisecondminute': {
+        return input / 60000;
+      }
+      case 'millisecondhour': {
+        return input / 3600000;
+      }
+      case 'millisecondday': {
+        return input / 86400000;
+      }
+      case 'millisecondweek': {
+        return input / 604800000;
+      }
+      case 'millisecondmonth': {
+        return input / 2628000000;
+      }
+      case 'millisecondyear': {
+        return input / 31540000000;
+      }
+      case 'milliseconddecade': {
+        return input / 315400000000;
+      }
+      case 'millisecondcentury': {
+        return input / 3154000000000;
+      }
+      // Second
+      case 'secondnanosecond': {
+        return input * 1000000000;
+      }
+      case 'secondmicrosecond': {
+        return input * 1000000;
+      }
+      case 'secondmillisecond': {
+        return input * 1000;
+      }
+      case 'secondsecond': {
+        return input;
+      }
+      case 'secondminute': {
+        return input / 60;
+      }
+      case 'secondhour': {
+        return input / 3600;
+      }
+      case 'secondday': {
+        return input / 86400;
+      }
+      case 'secondweek': {
+        return input / 604800;
+      }
+      case 'secondmonth': {
+        return input / 2628000;
+      }
+      case 'secondyear': {
+        return input / 31540000;
+      }
+      case 'seconddecade': {
+        return input / 315400000;
+      }
+      case 'secondcentury': {
+        return input / 3154000000;
+      }
+      //Minute
+      case 'minutenanosecond': {
+        return input * 60000000000;
+      }
+      case 'minutemicrosecond': {
+        return input * 60000000;
+      }
+      case 'minutemillisecond': {
+        return input * 60000;
+      }
+      case 'minutesecond': {
+        return input * 60;
+      }
+      case 'minuteminute': {
+        return input;
+      }
+      case 'minutehour': {
+        return input / 60;
+      }
+      case 'minuteday': {
+        return input / 1440;
+      }
+      case 'minuteweek': {
+        return input / 10080;
+      }
+      case 'minutemonth': {
+        return input / 43800;
+      }
+      case 'minuteyear': {
+        return input / 525600;
+      }
+      case 'minutedecade': {
+        return input / 5256000;
+      }
+      case 'minutecentury': {
+        return input / 52560000;
+      }
+      //Hour
+      case 'hournanosecond': {
+        return input * 3600000000000;
+      }
+      case 'hourmicrosecond': {
+        return input * 3600000000;
+      }
+      case 'hourmillisecond': {
+        return input * 3600000;
+      }
+      case 'hoursecond': {
+        return input * 3600;
+      }
+      case 'hourminute': {
+        return input * 60;
+      }
+      case 'hourhour': {
+        return input;
+      }
+      case 'hourday': {
+        return input / 24;
+      }
+      case 'hourweek': {
+        return input / 168;
+      }
+      case 'hourmonth': {
+        return input / 730;
+      }
+      case 'houryear': {
+        return input / 8760;
+      }
+      case 'hourdecade': {
+        return input / 87600;
+      }
+      case 'hourcentury': {
+        return input / 876000;
+      }
+      //Day
+      case 'daynanosecond': {
+        return input * 86400000000000;
+      }
+      case 'daymicrosecond': {
+        return input * 86400000000;
+      }
+      case 'daymillisecond': {
+        return input * 86400000;
+      }
+      case 'daysecond': {
+        return input * 86400;
+      }
+      case 'dayminute': {
+        return input * 1440;
+      }
+      case 'dayhour': {
+        return input * 24;
+      }
+      case 'dayday': {
+        return input;
+      }
+      case 'dayweek': {
+        return input / 7;
+      }
+      case 'daymonth': {
+        return input / 30.417;
+      }
+      case 'dayyear': {
+        return input / 365;
+      }
+      case 'daydecade': {
+        return input / 3650;
+      }
+      case 'daycentury': {
+        return input / 36500;
+      }
+      //Week
+      case 'weeknanosecond': {
+        return input * 86400000000000;
+      }
+      case 'weekmicrosecond': {
+        return input * 86400000000;
+      }
+      case 'weekmillisecond': {
+        return input * 86400000;
+      }
+      case 'weeksecond': {
+        return input * 604800;
+      }
+      case 'weekminute': {
+        return input * 10080;
+      }
+      case 'weekhour': {
+        return input * 168;
+      }
+      case 'weekday': {
+        return input * 7;
+      }
+      case 'weekweek': {
+        return input;
+      }
+      case 'weekmonth': {
+        return input / 4.345;
+      }
+      case 'weekyear': {
+        return input / 52.143;
+      }
+      case 'weekdecade': {
+        return input / 521;
+      }
+      case 'weekcentury': {
+        return input / 5214;
+      }
+      // Month
+      case 'monthnanosecond': {
+        return input * 2628000000000000;
+      }
+      case 'monthmicrosecond': {
+        return input * 2628000000000;
+      }
+      case 'monthmillisecond': {
+        return input * 2628000000;
+      }
+      case 'monthsecond': {
+        return input * 2628000;
+      }
+      case 'monthminute': {
+        return input * 43800;
+      }
+      case 'monthhour': {
+        return input * 730;
+      }
+      case 'monthday': {
+        return input * 30.417;
+      }
+      case 'monthweek': {
+        return input * 4.345;
+      }
+      case 'monthmonth': {
+        return input;
+      }
+      case 'monthyear': {
+        return input / 12;
+      }
+      case 'monthdecade': {
+        return input / 120;
+      }
+      case 'monthcentury': {
+        return input / 1200;
+      }
+      //Year
+      case 'yearnanosecond': {
+        return input * 31540000000000000;
+      }
+      case 'yearmicrosecond': {
+        return input * 31540000000000;
+      }
+      case 'yearmillisecond': {
+        return input * 31540000000;
+      }
+      case 'yearsecond': {
+        return input * 31540000;
+      }
+      case 'yearminute': {
+        return input * 525600;
+      }
+      case 'yearhour': {
+        return input * 8760;
+      }
+      case 'yearday': {
+        return input * 365;
+      }
+      case 'yearweek': {
+        return input * 52.143;
+      }
+      case 'yearmonth': {
+        return input * 12;
+      }
+      case 'yearyear': {
+        return input;
+      }
+      case 'yeardecade': {
+        return input / 10;
+      }
+      case 'yearcentury': {
+        return input / 100;
+      }
+      //Decade
+      case 'decadenanosecond': {
+        return input * 315400000000000000;
+      }
+      case 'decademicrosecond': {
+        return input * 315400000000000;
+      }
+      case 'decademillisecond': {
+        return input * 315400000000;
+      }
+      case 'decadesecond': {
+        return input * 315400000;
+      }
+      case 'decademinute': {
+        return input * 5256000;
+      }
+      case 'decadehour': {
+        return input * 87600;
+      }
+      case 'decadeday': {
+        return input * 3650;
+      }
+      case 'decadeweek': {
+        return input * 521.43;
+      }
+      case 'decademonth': {
+        return input * 120;
+      }
+      case 'decadeyear': {
+        return input * 10;
+      }
+      case 'decadedecade': {
+        return input;
+      }
+      case 'decadecentury': {
+        return input / 10;
+      }
+      //Century
+      case 'centurynanosecond': {
+        return input * 3154000000000000000;
+      }
+      case 'centurymicrosecond': {
+        return input * 3154000000000000;
+      }
+      case 'centurymillisecond': {
+        return input * 3154000000000;
+      }
+      case 'centurysecond': {
+        return input * 3154000000;
+      }
+      case 'centuryminute': {
+        return input * 52560000;
+      }
+      case 'centuryhour': {
+        return input * 876000;
+      }
+      case 'centuryday': {
+        return input * 36500;
+      }
+      case 'centuryweek': {
+        return input * 5214.3;
+      }
+      case 'centurymonth': {
+        return input * 1200;
+      }
+      case 'centuryyear': {
+        return input * 100;
+      }
+      case 'centurydecade': {
+        return input * 10;
+      }
+      case 'centurycentury': {
+        return input;
+      }
       default: {
         return input;
       }
@@ -2153,6 +2791,86 @@ export class Convert {
   }
   public static convertPressure(type: string, input: number) {
     switch (type) {
+      // Bar
+      case 'barbar': {
+        return input;
+      }
+      case 'barpascal': {
+        return input * 100000;
+      }
+      case 'barpound-force': {
+        return input * 14.5038;
+      }
+      case 'baratmosphere': {
+        return input / 1.013;
+      }
+      case 'bartorr': {
+        return input * 750;
+      }
+      // Pascal
+      case 'pascalbar': {
+        return input / 100000;
+      }
+      case 'pascalpascal': {
+        return input;
+      }
+      case 'pascalpound-force': {
+        return input / 6895;
+      }
+      case 'pascalatmosphere': {
+        return input / 101325;
+      }
+      case 'pascaltorr': {
+        return input / 133;
+      }
+      // Pound-force per Square Inch
+      case 'pound-forcebar': {
+        return input / 14.504;
+      }
+      case 'pound-forcepascal': {
+        return input * 6895;
+      }
+      case 'pound-forcepound-force': {
+        return input;
+      }
+      case 'pound-forceatmosphere': {
+        return input / 14.696;
+      }
+      case 'pound-forcetorr': {
+        return input / 51.715;
+      }
+      // Atmosphere
+      case 'atmospherebar': {
+        return input * 1.013;
+      }
+      case 'atmospherepascal': {
+        return input * 101325;
+      }
+      case 'atmospherepound-force': {
+        return input * 14.696;
+      }
+      case 'atmosphereatmosphere': {
+        return input;
+      }
+      case 'atmospheretorr': {
+        return input * 760;
+      }
+      // Torr
+      case 'torrbar': {
+        return input / 750;
+      }
+      case 'torrpascal': {
+        return input * 133;
+      }
+      case 'torrpound-force': {
+        return input / 51.715;
+      }
+      case 'torratmosphere': {
+        return input / 760;
+      }
+      case 'torrtorr': {
+        return input;
+      }
       default: {
         return input;
       }
@@ -2160,6 +2878,450 @@ export class Convert {
   }
   public static convertDigStorage(type: string, input: number) {
     switch (type) {
+      //Bit
+      case 'bitbit': {
+        return input;
+      }
+      case 'bitkilobit': {
+        return input / 1000;
+      }
+      case 'bitmegabit': {
+        return input / 1000000;
+      }
+      case 'bitgigabit': {
+        return input / 1000000000;
+      }
+      case 'bitterabit': {
+        return input / 1000000000000;
+      }
+      case 'bitpetabit': {
+        return input / 1000000000000000;
+      }
+      case 'bitbyte': {
+        return input / 8;
+      }
+      case 'bitkilobyte': {
+        return input / 8000;
+      }
+      case 'bitmegabyte': {
+        return input / 8000000;
+      }
+      case 'bitgigabyte': {
+        return input / 8000000000;
+      }
+      case 'bitterabyte': {
+        return input / 8000000000000;
+      }
+      case 'bitpetabyte': {
+        return input / 8000000000000000;
+      }
+      //Kilobit
+      case 'kilobitbit': {
+        return input * 1000;
+      }
+      case 'kilobitkilobit': {
+        return input;
+      }
+      case 'kilobitmegabit': {
+        return input / 1000;
+      }
+      case 'kilobitgigabit': {
+        return input / 1000000;
+      }
+      case 'kilobitterabit': {
+        return input / 1000000000;
+      }
+      case 'kilobitpetabit': {
+        return input / 1000000000000;
+      }
+      case 'kilobitbyte': {
+        return input * 125;
+      }
+      case 'kilobitkilobyte': {
+        return input / 8;
+      }
+      case 'kilobitmegabyte': {
+        return input / 8000;
+      }
+      case 'kilobitgigabyte': {
+        return input / 8000000;
+      }
+      case 'kilobitterabyte': {
+        return input / 8000000000;
+      }
+      case 'kilobitpetabyte': {
+        return input / 8000000000000;
+      }
+      // Megabit
+      case 'megabitbit': {
+        return input * 1000000;
+      }
+      case 'megabitkilobit': {
+        return input * 1000;
+      }
+      case 'megabitmegabit': {
+        return input;
+      }
+      case 'megabitgigabit': {
+        return input / 1000;
+      }
+      case 'megabitterabit': {
+        return input / 1000000;
+      }
+      case 'megabitpetabit': {
+        return input / 1000000000;
+      }
+      case 'megabitbyte': {
+        return input * 125000;
+      }
+      case 'megabitkilobyte': {
+        return input * 125;
+      }
+      case 'megabitmegabyte': {
+        return input / 8;
+      }
+      case 'megabitgigabyte': {
+        return input / 8000;
+      }
+      case 'megabitterabyte': {
+        return input / 8000000;
+      }
+      case 'megabitpetabyte': {
+        return input / 8000000000;
+      }
+      //Gigabit
+      case 'gigabitbit': {
+        return input * 1000000000;
+      }
+      case 'gigabitkilobit': {
+        return input * 1000000;
+      }
+      case 'gigabitmegabit': {
+        return input * 1000;
+      }
+      case 'gigabitgigabit': {
+        return input;
+      }
+      case 'gigabitterabit': {
+        return input / 1000;
+      }
+      case 'gigabitpetabit': {
+        return input / 1000000;
+      }
+      case 'gigabitbyte': {
+        return input * 125000000;
+      }
+      case 'gigabitkilobyte': {
+        return input * 125000;
+      }
+      case 'gigabitmegabyte': {
+        return input * 125;
+      }
+      case 'gigabitgigabyte': {
+        return input / 8;
+      }
+      case 'gigabitterabyte': {
+        return input / 8000;
+      }
+      case 'gigabitpetabyte': {
+        return input / 8000000;
+      }
+      //Terabit
+      case 'terabitbit': {
+        return input * 1000000000000;
+      }
+      case 'terabitkilobit': {
+        return input * 1000000000;
+      }
+      case 'terabitmegabit': {
+        return input * 1000000;
+      }
+      case 'terabitgigabit': {
+        return input * 1000;
+      }
+      case 'terabitterabit': {
+        return input;
+      }
+      case 'terabitpetabit': {
+        return input / 1000;
+      }
+      case 'terabitbyte': {
+        return input * 125000000000;
+      }
+      case 'terabitkilobyte': {
+        return input * 125000000;
+      }
+      case 'terabitmegabyte': {
+        return input * 125000;
+      }
+      case 'terabitgigabyte': {
+        return input * 125;
+      }
+      case 'terabitterabyte': {
+        return input / 8;
+      }
+      case 'terabitpetabyte': {
+        return input / 8000;
+      }
+      //Petabit
+      case 'petabitbit': {
+        return input * 1000000000000000;
+      }
+      case 'petabitkilobit': {
+        return input * 1000000000000;
+      }
+      case 'petabitmegabit': {
+        return input * 1000000000;
+      }
+      case 'petabitgigabit': {
+        return input * 1000000;
+      }
+      case 'petabitterabit': {
+        return input * 1000;
+      }
+      case 'petabitpetabit': {
+        return input;
+      }
+      case 'petabitbyte': {
+        return input * 125000000000000;
+      }
+      case 'petabitkilobyte': {
+        return input * 125000000000;
+      }
+      case 'petabitmegabyte': {
+        return input * 125000000;
+      }
+      case 'petabitgigabyte': {
+        return input * 125000;
+      }
+      case 'petabitterabyte': {
+        return input * 125;
+      }
+      case 'petabitpetabyte': {
+        return input / 8;
+      }
+      //Byte
+      case 'bytebit': {
+        return input * 8;
+      }
+      case 'bytekilobit': {
+        return input / 125;
+      }
+      case 'bytemegabit': {
+        return input / 125000;
+      }
+      case 'bytegigabit': {
+        return input / 125000000;
+      }
+      case 'byteterabit': {
+        return input / 125000000000;
+      }
+      case 'bytepetabit': {
+        return input / 125000000000000;
+      }
+      case 'bytebyte': {
+        return input;
+      }
+      case 'bytekilobyte': {
+        return input / 1000;
+      }
+      case 'bytemegabyte': {
+        return input / 1000000;
+      }
+      case 'bytegigabyte': {
+        return input / 1000000000;
+      }
+      case 'byteterabyte': {
+        return input / 1000000000000;
+      }
+      case 'bytepetabyte': {
+        return input / 1000000000000000;
+      }
+      // Kilobyte
+      case 'kilobytebit': {
+        return input * 8000;
+      }
+      case 'kilobytekilobit': {
+        return input * 8;
+      }
+      case 'kilobytemegabit': {
+        return input / 125;
+      }
+      case 'kilobytegigabit': {
+        return input / 125000;
+      }
+      case 'kilobyteterabit': {
+        return input / 125000000;
+      }
+      case 'kilobytepetabit': {
+        return input / 125000000000;
+      }
+      case 'kilobytebyte': {
+        return input * 1000;
+      }
+      case 'kilobytekilobyte': {
+        return input;
+      }
+      case 'kilobytemegabyte': {
+        return input / 1000;
+      }
+      case 'kilobytegigabyte': {
+        return input / 1000000;
+      }
+      case 'kilobyteterabyte': {
+        return input / 1000000000;
+      }
+      case 'kilobytepetabyte': {
+        return input / 1000000000000;
+      }
+      //Megabyte
+      case 'megabytebit': {
+        return input * 8000000;
+      }
+      case 'megabytekilobit': {
+        return input * 8000;
+      }
+      case 'megabytemegabit': {
+        return input * 8;
+      }
+      case 'megabytegigabit': {
+        return input / 125;
+      }
+      case 'megabyteterabit': {
+        return input / 125000;
+      }
+      case 'megabytepetabit': {
+        return input / 125000000;
+      }
+      case 'megabytebyte': {
+        return input * 1000000;
+      }
+      case 'megabytekilobyte': {
+        return input * 1000;
+      }
+      case 'megabytemegabyte': {
+        return input;
+      }
+      case 'megabytegigabyte': {
+        return input / 1000;
+      }
+      case 'megabyteterabyte': {
+        return input / 1000000;
+      }
+      case 'megabytepetabyte': {
+        return input / 1000000000;
+      }
+      //Gigabyte
+      case 'gigabytebit': {
+        return input * 8000000000;
+      }
+      case 'gigabytekilobit': {
+        return input * 8000000;
+      }
+      case 'gigabytemegabit': {
+        return input * 8000;
+      }
+      case 'gigabytegigabit': {
+        return input * 8;
+      }
+      case 'gigabyteterabit': {
+        return input / 125;
+      }
+      case 'gigabytepetabit': {
+        return input / 125000;
+      }
+      case 'gigabytebyte': {
+        return input * 1000000000;
+      }
+      case 'gigabytekilobyte': {
+        return input * 1000000;
+      }
+      case 'gigabytemegabyte': {
+        return input * 1000;
+      }
+      case 'gigabytegigabyte': {
+        return input;
+      }
+      case 'gigabyteterabyte': {
+        return input / 1000;
+      }
+      case 'gigabytepetabyte': {
+        return input / 1000000;
+      }
+      //Terabyte
+      case 'terabytebit': {
+        return input * 8000000000000;
+      }
+      case 'terabytekilobit': {
+        return input * 8000000000;
+      }
+      case 'terabytemegabit': {
+        return input * 8000000;
+      }
+      case 'terabytegigabit': {
+        return input * 8000;
+      }
+      case 'terabyteterabit': {
+        return input * 8;
+      }
+      case 'terabytepetabit': {
+        return input / 125;
+      }
+      case 'terabytebyte': {
+        return input * 1000000000000;
+      }
+      case 'terabytekilobyte': {
+        return input * 1000000000;
+      }
+      case 'terabytemegabyte': {
+        return input * 1000000;
+      }
+      case 'terabytegigabyte': {
+        return input * 1000;
+      }
+      case 'terabyteterabyte': {
+        return input;
+      }
+      case 'terabytepetabyte': {
+        return input / 1000;
+      }
+      //Petabyte
+      case 'petabytebit': {
+        return input * 8000000000000000;
+      }
+      case 'petabytekilobit': {
+        return input * 8000000000000;
+      }
+      case 'petabytemegabit': {
+        return input * 8000000000;
+      }
+      case 'petabytegigabit': {
+        return input * 8000000;
+      }
+      case 'petabyteterabit': {
+        return input * 8000;
+      }
+      case 'petabytepetabit': {
+        return input * 8;
+      }
+      case 'petabytebyte': {
+        return input * 1000000000000000;
+      }
+      case 'petabytekilobyte': {
+        return input * 1000000000000;
+      }
+      case 'petabytemegabyte': {
+        return input * 1000000000;
+      }
+      case 'petabytegigabyte': {
+        return input * 1000000;
+      }
+      case 'petabyteterabyte': {
+        return input * 1000;
+      }
+      case 'petabytepetabyte': {
+        return input;
+      }
       default: {
         return input;
       }
@@ -2167,6 +3329,285 @@ export class Convert {
   }
   public static convertDataTransfer(type: string, input: number) {
     switch (type) {
+      //Bit per second
+      case 'bitPSbitPS': {
+        return input;
+      }
+      case 'bitPSbytePS': {
+        return input / 8;
+      }
+      case 'bitPSkilobitPS': {
+        return input / 1000;
+      }
+      case 'bitPSkilobytePS': {
+        return input / 8000;
+      }
+      case 'bitPSmegabitPS': {
+        return input / 1000000;
+      }
+      case 'bitPSmegabytePS': {
+        return input / 8000000;
+      }
+      case 'bitPSgigabitPS': {
+        return input / 1000000000;
+      }
+      case 'bitPSgigabytePS': {
+        return input / 8000000000;
+      }
+      case 'bitPSterabitPS': {
+        return input / 1000000000000;
+      }
+      case 'bitPSterabytePS': {
+        return input / 8000000000000;
+      }
+      // Byte per second
+      case 'bytePSbitPS': {
+        return input * 8;
+      }
+      case 'bytePSbytePS': {
+        return input;
+      }
+      case 'bytePSkilobitPS': {
+        return input / 125;
+      }
+      case 'bytePSkilobytePS': {
+        return input / 1000;
+      }
+      case 'bytePSmegabitPS': {
+        return input / 125000;
+      }
+      case 'bytePSmegabytePS': {
+        return input / 100000;
+      }
+      case 'bytePSgigabitPS': {
+        return input / 125000000;
+      }
+      case 'bytePSgigabytePS': {
+        return input / 100000000;
+      }
+      case 'bytePSterabitPS': {
+        return input / 125000000000;
+      }
+      case 'bytePSterabytePS': {
+        return input / 100000000000;
+      }
+      //Kilobit per second
+      case 'kilobitPSbitPS': {
+        return input * 1000;
+      }
+      case 'kilobitPSbytePS': {
+        return input * 125;
+      }
+      case 'kilobitPSkilobitPS': {
+        return input;
+      }
+      case 'kilobitPSkilobytePS': {
+        return input / 8;
+      }
+      case 'kilobitPSmegabitPS': {
+        return input / 1000;
+      }
+      case 'kilobitPSmegabytePS': {
+        return input / 8000;
+      }
+      case 'kilobitPSgigabitPS': {
+        return input / 1000000;
+      }
+      case 'kilobitPSgigabytePS': {
+        return input / 8000000;
+      }
+      case 'kilobitPSterabitPS': {
+        return input / 1000000000;
+      }
+      case 'kilobitPSterabytePS': {
+        return input / 8000000000;
+      }
+      //Kilobyte per second
+      case 'kilobytePSbitPS': {
+        return input * 8000;
+      }
+      case 'kilobytePSbytePS': {
+        return input * 1000;
+      }
+      case 'kilobytePSkilobitPS': {
+        return input * 8;
+      }
+      case 'kilobytePSkilobytePS': {
+        return input;
+      }
+      case 'kilobytePSmegabitPS': {
+        return input / 125;
+      }
+      case 'kilobytePSmegabytePS': {
+        return input / 1000;
+      }
+      case 'kilobytePSgigabitPS': {
+        return input / 125000;
+      }
+      case 'kilobytePSgigabytePS': {
+        return input / 100000;
+      }
+      case 'kilobytePSterabitPS': {
+        return input / 125000000;
+      }
+      case 'kilobytePSterabytePS': {
+        return input / 100000000;
+      }
+      //Megabit per second
+      case 'megabitPSbitPS': {
+        return input * 1000000;
+      }
+      case 'megabitPSbytePS': {
+        return input * 125000;
+      }
+      case 'megabitPSkilobitPS': {
+        return input * 1000;
+      }
+      case 'megabitPSkilobytePS': {
+        return input * 125;
+      }
+      case 'megabitPSmegabitPS': {
+        return input;
+      }
+      case 'megabitPSmegabytePS': {
+        return input / 8;
+      }
+      case 'megabitPSgigabitPS': {
+        return input / 1000;
+      }
+      case 'megabitPSgigabytePS': {
+        return input / 8000;
+      }
+      case 'megabitPSterabitPS': {
+        return input / 1000000;
+      }
+      case 'megabitPSterabytePS': {
+        return input / 8000000;
+      }
+      //Megabyte per second
+      case 'megabytePSbitPS': {
+        return input * 8000000;
+      }
+      case 'megabytePSbytePS': {
+        return input * 1000000;
+      }
+      case 'megabytePSkilobitPS': {
+        return input * 8000;
+      }
+      case 'megabytePSkilobytePS': {
+        return input * 1000;
+      }
+      case 'megabytePSmegabitPS': {
+        return input * 8;
+      }
+      case 'megabytePSmegabytePS': {
+        return input;
+      }
+      case 'megabytePSgigabitPS': {
+        return input / 125;
+      }
+      case 'megabytePSgigabytePS': {
+        return input / 1000;
+      }
+      case 'megabytePSterabitPS': {
+        return input / 125000;
+      }
+      case 'megabytePSterabytePS': {
+        return input / 1000000;
+      }
+      //Gigabit per second
+      case 'gigabitPSbitPS': {
+        return input * 1000000000;
+      }
+      case 'gigabitPSbytePS': {
+        return input * 125000000;
+      }
+      case 'gigabitPSkilobitPS': {
+        return input * 1000000;
+      }
+      case 'gigabitPSkilobytePS': {
+        return input * 125000;
+      }
+      case 'gigabitPSmegabitPS': {
+        return input * 1000;
+      }
+      case 'gigabitPSmegabytePS': {
+        return input * 125;
+      }
+      case 'gigabitPSgigabitPS': {
+        return input;
+      }
+      case 'gigabitPSgigabytePS': {
+        return input / 8;
+      }
+      case 'gigabitPSterabitPS': {
+        return input / 1000;
+      }
+      case 'gigabitPSterabytePS': {
+        return input / 8000;
+      }
+      //Gigabyte per second
+      case 'gigabytePSbitPS': {
+        return input * 8000000000;
+      }
+      case 'gigabytePSbytePS': {
+        return input * 1000000000;
+      }
+      case 'gigabytePSkilobitPS': {
+        return input * 8000000;
+      }
+      case 'gigabytePSkilobytePS': {
+        return input * 1000000;
+      }
+      case 'gigabytePSmegabitPS': {
+        return input * 8000;
+      }
+      case 'gigabytePSmegabytePS': {
+        return input * 1000;
+      }
+      case 'gigabytePSgigabitPS': {
+        return input * 8;
+      }
+      case 'gigabytePSgigabytePS': {
+        return input;
+      }
+      case 'gigabytePSterabitPS': {
+        return input / 125;
+      }
+      case 'gigabytePSterabytePS': {
+        return input / 1000;
+      }
+      //Terabit per second
+      case 'terabitPSbitPS': {
+        return input * 1000000000000;
+      }
+      case 'terabitPSbytePS': {
+        return input * 125000000000;
+      }
+      case 'terabitPSkilobitPS': {
+        return input * 1000000000;
+      }
+      case 'terabitPSkilobytePS': {
+        return input * 125000000;
+      }
+      case 'terabitPSmegabitPS': {
+        return input * 1000000;
+      }
+      case 'terabitPSmegabytePS': {
+        return input * 125000;
+      }
+      case 'terabitPSgigabitPS': {
+        return input * 1000;
+      }
+      case 'terabitPSgigabytePS': {
+        return input * 125;
+      }
+      case 'terabitPSterabitPS': {
+        return input;
+      }
+      case 'terabitPSterabytePS': {
+        return input / 8;
+      }
       default: {
         return input;
       }
@@ -2174,6 +3615,316 @@ export class Convert {
   }
   public static convertEnergy(type: string, input: number) {
     switch (type) {
+      //Joule
+      case 'joulejoule': {
+        return input;
+      }
+      case 'joulekilojoule': {
+        return input / 1000;
+      }
+      case 'joulegramCalorie': {
+        return input / 4.184;
+      }
+      case 'joulekilocalorie': {
+        return input / 4184;
+      }
+      case 'joulewattHour': {
+        return input / 3600;
+      }
+      case 'joulekilowattHour': {
+        return input / 3600000;
+      }
+      case 'jouleelectronvolt': {
+        return input * 6242000000000000000;
+      }
+      case 'jouleBTU': {
+        return input / 1055;
+      }
+      case 'jouleusTherm': {
+        return input / 105500000;
+      }
+      case 'joulefoot-pound': {
+        return input / 1.356;
+      }
+      //Kilojoule
+      case 'kilojoulejoule': {
+        return input * 1000;
+      }
+      case 'kilojoulekilojoule': {
+        return input;
+      }
+      case 'kilojoulegramCalorie': {
+        return input * 239.006;
+      }
+      case 'kilojoulekilocalorie': {
+        return input / 4.184;
+      }
+      case 'kilojoulewattHour': {
+        return input / 3.6;
+      }
+      case 'kilojoulekilowattHour': {
+        return input / 3600;
+      }
+      case 'kilojouleelectronvolt': {
+        return input * 6242000000000000000000;
+      }
+      case 'kilojouleBTU': {
+        return input / 1.055;
+      }
+      case 'kilojouleusTherm': {
+        return input / 105480;
+      }
+      case 'kilojoulefoot-pound': {
+        return input * 738;
+      }
+      // Gram Calorie
+      case 'gramCaloriejoule': {
+        return input * 4.184;
+      }
+      case 'gramCaloriekilojoule': {
+        return input / 239;
+      }
+      case 'gramCaloriegramCalorie': {
+        return input;
+      }
+      case 'gramCaloriekilocalorie': {
+        return input / 1000;
+      }
+      case 'gramCaloriewattHour': {
+        return input / 860.421;
+      }
+      case 'gramCaloriekilowattHour': {
+        return input / 860421;
+      }
+      case 'gramCalorieelectronvolt': {
+        return input * 96110000000000000000;
+      }
+      case 'gramCalorieBTU': {
+        return input / 252;
+      }
+      case 'gramCalorieusTherm': {
+        return input / 25210000;
+      }
+      case 'gramCaloriefoot-pound': {
+        return input * 3.08596;
+      }
+      //Kilocalorie
+      case 'kilocaloriejoule': {
+        return input * 4184;
+      }
+      case 'kilocaloriekilojoule': {
+        return input * 4.184;
+      }
+      case 'kilocaloriegramCalorie': {
+        return input * 1000;
+      }
+      case 'kilocaloriekilocalorie': {
+        return input;
+      }
+      case 'kilocaloriewattHour': {
+        return input * 1.6222;
+      }
+      case 'kilocaloriekilowattHour': {
+        return input / 860.421;
+      }
+      case 'kilocalorieelectronvolt': {
+        return input * 26110000000000000000000;
+      }
+      case 'kilocalorieBTU': {
+        return input * 3.96567;
+      }
+      case 'kilocalorieusTherm': {
+        return input / 25210;
+      }
+      case 'kilocaloriefoot-pound': {
+        return input * 3085.96;
+      }
+      // Watt Hour
+      case 'wattHourjoule': {
+        return input * 3600;
+      }
+      case 'wattHourkilojoule': {
+        return input * 3.6;
+      }
+      case 'wattHourgramCalorie': {
+        return input * 860.421;
+      }
+      case 'wattHourkilocalorie': {
+        return input / 1.162;
+      }
+      case 'wattHourwattHour': {
+        return input;
+      }
+      case 'wattHourkilowattHour': {
+        return input / 1000;
+      }
+      case 'wattHourelectronvolt': {
+        return input * 22469442780800000000000;
+      }
+      case 'wattHourBTU': {
+        return input * 3.4121430218701735981;
+      }
+      case 'wattHourusTherm': {
+        return input / 29300;
+      }
+      case 'wattHourfoot-pound': {
+        return input * 2655;
+      }
+      //Kilowatt Hour
+      case 'kilowattHourjoule': {
+        return input * 3600000;
+      }
+      case 'kilowattHourkilojoule': {
+        return input * 3600;
+      }
+      case 'kilowattHourgramCalorie': {
+        return input * 860421;
+      }
+      case 'kilowattHourkilocalorie': {
+        return input * 860.421;
+      }
+      case 'kilowattHourwattHour': {
+        return input * 1000;
+      }
+      case 'kilowattHourkilowattHour': {
+        return input;
+      }
+      case 'kilowattHourelectronvolt': {
+        return input * 22469442780800000000000000;
+      }
+      case 'kilowattHourBTU': {
+        return input * 3412.1430218701735981;
+      }
+      case 'kilowattHourusTherm': {
+        return input / 29.3;
+      }
+      case 'kilowattHourfoot-pound': {
+        return input * 2655000;
+      }
+      //Electron Volt
+      case 'electronvoltjoule': {
+        return input / 6242000000000000000;
+      }
+      case 'electronvoltkilojoule': {
+        return input * 0.00000000000000000000016022;
+      }
+      case 'electronvoltgramCalorie': {
+        return input * 0.000000000000000000038293;
+      }
+      case 'electronvoltkilocalorie': {
+        return input * 0.000000000000000000000038293;
+      }
+      case 'electronvoltwattHour': {
+        return input * 0.000000000000000000000044505;
+      }
+      case 'electronvoltkilowattHour': {
+        return input * 0.000000000000000000000000044505;
+      }
+      case 'electronvoltelectronvolt': {
+        return input;
+      }
+      case 'electronvoltBTU': {
+        return input * 0.00000000000000000000015186;
+      }
+      case 'electronvoltusTherm': {
+        return input * 0.0000000000000000000000000015186;
+      }
+      case 'electronvoltfoot-pound': {
+        return input * 0.00000000000000000011817;
+      }
+      //British Thermal Unit
+      case 'BTUjoule': {
+        return input * 1055.06;
+      }
+      case 'BTUkilojoule': {
+        return input * 1.05506;
+      }
+      case 'BTUgramCalorie': {
+        return input * 252.164;
+      }
+      case 'BTUkilocalorie': {
+        return input / 3.966;
+      }
+      case 'BTUwattHour': {
+        return input / 3.412;
+      }
+      case 'BTUkilowattHour': {
+        return input / 3412;
+      }
+      case 'BTUelectronvolt': {
+        return input * 6585000000000000000000;
+      }
+      case 'BTUBTU': {
+        return input;
+      }
+      case 'BTUusTherm': {
+        return input / 99976.1;
+      }
+      case 'BTUfoot-pound': {
+        return input * 778;
+      }
+      //US Therm
+      case 'usThermjoule': {
+        return input * 105480000;
+      }
+      case 'usThermkilojoule': {
+        return input * 105480;
+      }
+      case 'usThermgramCalorie': {
+        return input * 25216400;
+      }
+      case 'usThermkilocalorie': {
+        return input * 25210.4;
+      }
+      case 'usThermwattHour': {
+        return input * 29300.1;
+      }
+      case 'usThermkilowattHour': {
+        return input * 29.3001;
+      }
+      case 'usThermelectronvolt': {
+        return input * 658400000000000000000000000;
+      }
+      case 'usThermBTU': {
+        return input * 99976.1;
+      }
+      case 'usThermusTherm': {
+        return input;
+      }
+      case 'usThermfoot-pound': {
+        return input * 77800000;
+      }
+      // Foot-Pound
+      case 'foot-poundjoule': {
+        return input * 1.35582;
+      }
+      case 'foot-poundkilojoule': {
+        return input / 738;
+      }
+      case 'foot-poundgramCalorie': {
+        return input / 3.086;
+      }
+      case 'foot-poundkilocalorie': {
+        return input / 3086;
+      }
+      case 'foot-poundwattHour': {
+        return input / 2655;
+      }
+      case 'foot-poundkilowattHour': {
+        return input / 2655000;
+      }
+      case 'foot-poundelectronvolt': {
+        return input * 8462000000000000000;
+      }
+      case 'foot-poundBTU': {
+        return input * 778;
+      }
+      case 'foot-poundusTherm': {
+        return input / 77800000;
+      }
+      case 'foot-poundfoot-pound': {
+        return input;
+      }
       default: {
         return input;
       }
@@ -2181,6 +3932,58 @@ export class Convert {
   }
   public static convertFrequency(type: string, input: number) {
     switch (type) {
+      //Hertz
+      case 'hertzhertz': {
+        return input;
+      }
+      case 'hertzkilohertz': {
+        return input / 1000;
+      }
+      case 'hertzmegahertz': {
+        return input / 1000000;
+      }
+      case 'hertzgigahertz': {
+        return input / 1000000000;
+      }
+      //Kilohertz
+      case 'kilohertzhertz': {
+        return input * 1000;
+      }
+      case 'kilohertzkilohertz': {
+        return input;
+      }
+      case 'kilohertzmegahertz': {
+        return input / 1000;
+      }
+      case 'kilohertzgigahertz': {
+        return input / 1000000;
+      }
+      //Megahertz
+      case 'megahertzhertz': {
+        return input * 1000000;
+      }
+      case 'megahertzkilohertz': {
+        return input * 1000;
+      }
+      case 'megahertzmegahertz': {
+        return input;
+      }
+      case 'megahertzgigahertz': {
+        return input / 1000;
+      }
+      //Gigahertz
+      case 'gigahertzhertz': {
+        return input * 1000000000;
+      }
+      case 'gigahertzkilohertz': {
+        return input * 1000000;
+      }
+      case 'gigahertzmegahertz': {
+        return input * 1000;
+      }
+      case 'gigahertzgigahertz': {
+        return input;
+      }
       default: {
         return input;
       }
@@ -2188,6 +3991,58 @@ export class Convert {
   }
   public static convertFuel(type: string, input: number) {
     switch (type) {
+      // Mile per Gallon
+      case 'MPGMPG': {
+        return input;
+      }
+      case 'MPGMPIG': {
+        return input * 1.20095;
+      }
+      case 'MPGKPL': {
+        return input / 2.352;
+      }
+      case 'MPGLPK': {
+        return 235.215 / input;
+      }
+      //Mile per Imperial Gallon
+      case 'MPGMPG': {
+        return input / 1.20095;
+      }
+      case 'MPGMPIG': {
+        return input;
+      }
+      case 'MPGKPL': {
+        return input / 2.825;
+      }
+      case 'MPGLPK': {
+        return 282.481 / input;
+      }
+      // Kilometer per Liter
+      case 'MPGMPG': {
+        return input * 2.352;
+      }
+      case 'MPGMPIG': {
+        return input * 2.825;
+      }
+      case 'MPGKPL': {
+        return input;
+      }
+      case 'MPGLPK': {
+        return 100 / input;
+      }
+      //Liter per 100 Kilometer
+      case 'MPGMPG': {
+        return 235.215 / input;
+      }
+      case 'MPGMPIG': {
+        return 282.481 / input;
+      }
+      case 'MPGKPL': {
+        return 100 / input;
+      }
+      case 'MPGLPK': {
+        return input;
+      }
       default: {
         return input;
       }

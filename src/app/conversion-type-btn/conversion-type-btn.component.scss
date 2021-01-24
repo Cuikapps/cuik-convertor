@@ -6,11 +6,18 @@ $secondary-color: #00587a;
   border-width: 0px;
   width: 5em;
   height: 5em;
+  cursor: pointer;
   &:hover {
-    background-color: $secondary-color !important;
+    background: radial-gradient(
+      circle,
+      rgba(0, 88, 122, 1) 0%,
+      rgba(3, 81, 116, 1) 21%,
+      rgba(6, 72, 108, 1) 46%,
+      rgba(15, 48, 87, 1) 100%
+    ) !important;
   }
   &:focus {
-    background-color: $secondary-color !important;
+    background: $secondary-color !important;
     border-radius: 0px;
     border-width: 0px;
     width: 5em;

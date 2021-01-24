@@ -6,7 +6,6 @@ html {
 body {
   margin: 0;
   background-color: #0f3057;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 h1 {
   display: none;
@@ -18,6 +17,7 @@ h1 {
     visibility: hidden;
   }
   h1 {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     display: inline;
     visibility: visible;
     font-size: 200px;
