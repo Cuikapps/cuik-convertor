@@ -372,7 +372,9 @@ export class AppComponent {
     }
   }
   //Feed back
-  feedback() {}
+  feedback() {
+    window.open('https://cuikapps.com/support.html', '_blank');
+  }
 
   // get scroll data from scroll component
   setLengthInScrollData(scrollIn: string) {
@@ -440,11 +442,11 @@ export class AppComponent {
     this.updateTimeScrollData();
   }
   setPressureInScrollData(scrollIn: string) {
-    this.volumeInScrollData = scrollIn;
+    this.pressureInScrollData = scrollIn;
     this.updatePressureScrollData();
   }
   setPressureOutScrollData(scrollOut: string) {
-    this.volumeOutScrollData = scrollOut;
+    this.pressureOutScrollData = scrollOut;
     this.updatePressureScrollData();
   }
   setDigStorageInScrollData(scrollIn: string) {
