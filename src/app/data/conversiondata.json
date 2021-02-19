@@ -1,0 +1,22 @@
+{
+  "data": {
+    "length": [
+      "Kilometer",
+      "Meter",
+      "Centimeter",
+      "Millimeter",
+      "Micrometer",
+      "Nanometer",
+      "Mile",
+      "Yard",
+      "Foot",
+      "Inch",
+      "Nautical Mile"
+    ]
+  },
+  "conversions": [
+    "Kilometer Kilometer_1",
+    "Kilometer Meter_1000",
+    "Kilometer Centimeter_100000"
+  ]
+}

@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ConversionTypeBtnComponent } from './conversion-type-btn/conversion-type-btn.component';
-import { LengthTypeScrollbarComponent } from './length-type-scrollbar/length-type-scrollbar.component';
+import { ConversionTypeBtnComponent } from './components/conversion-type-btn/conversion-type-btn.component';
+import { LengthTypeScrollbarComponent } from './components/length-type-scrollbar/length-type-scrollbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({

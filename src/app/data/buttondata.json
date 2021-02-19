@@ -1,0 +1,34 @@
+{
+  "buttonTypes": [
+    "length",
+    "weight",
+    "temp",
+    "volume",
+    "area",
+    "speed",
+    "plane angle",
+    "time",
+    "pressure",
+    "digital storage",
+    "data transfer rate",
+    "energy",
+    "frequency",
+    "fuel economy"
+  ],
+  "titles": [
+    "Length",
+    "Weight",
+    "Temp",
+    "Volume",
+    "Area",
+    "Speed",
+    "Plane Angle",
+    "Time",
+    "Pressure",
+    "Digital Storage",
+    "Data Transfer Rate",
+    "Energy",
+    "Frequency",
+    "Fuel Economy"
+  ]
+}

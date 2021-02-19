@@ -20,10 +20,10 @@ export class ConversionTypeBtnComponent implements OnInit {
     if (this.buttonType === 'length') {
       this.isActivated = true;
     }
-    this.title = this.toCamelCase(this.buttonType);
+    this.title = this.toPascalCase(this.buttonType);
   }
 
-  toCamelCase(btnType: string): string {
+  toPascalCase(btnType: string): string {
     if (btnType.includes(' ')) {
       let words = btnType.split(' ');
       for (let i = 0; i < words.length; i++) {

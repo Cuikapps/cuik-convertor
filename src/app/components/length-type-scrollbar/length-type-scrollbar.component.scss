@@ -1,8 +1,4 @@
-$main-color: #0f3057;
-$secondary-color: #e7e7de;
-$cyan: #00587a;
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+@use '../../../Theme' as theme;
 
 // scroll styling
 .scroll-list {
@@ -15,7 +11,7 @@ $cyan: #00587a;
   border-width: 5px;
   border-radius: 10px;
   border-style: solid;
-  border-color: $main-color;
+  border-color: theme.$primary;
   /* width */
   &::-webkit-scrollbar {
     width: 20px;
@@ -23,19 +19,19 @@ $cyan: #00587a;
 
   /* Track */
   &::-webkit-scrollbar-track {
-    background: $secondary-color;
+    background: theme.$secondary;
     border-radius: 8px;
   }
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    background: $main-color;
+    background: theme.$primary;
     border-radius: 4px;
   }
 
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
-    background: $cyan;
+    background: theme.$tertiary;
   }
 }
 .div-in,
@@ -54,9 +50,9 @@ $cyan: #00587a;
 
 // radio button styling
 .radio {
-  font-family: "Poppins", sans-serif;
+  font-family: theme.$Poppins;
   font-size: 1.5rem;
-  color: $main-color;
+  color: theme.$primary;
   display: grid;
   grid-template-columns: min-content auto;
   grid-gap: 0.5em;
@@ -89,10 +85,10 @@ $cyan: #00587a;
     width: 0;
     height: 0;
     &:focus + .radio__control-in {
-      box-shadow: 0 0 0 0.05em $secondary-color, 0 0 0.15em 0.1em currentColor;
+      box-shadow: 0 0 0 0.05em theme.$secondary, 0 0 0.15em 0.1em currentColor;
     }
     &:focus + .radio__control-out {
-      box-shadow: 0 0 0 0.05em $secondary-color, 0 0 0.15em 0.1em currentColor;
+      box-shadow: 0 0 0 0.05em theme.$secondary, 0 0 0.15em 0.1em currentColor;
     }
   }
   input:checked + .radio__control-in::before {

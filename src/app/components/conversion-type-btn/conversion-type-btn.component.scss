@@ -1,5 +1,4 @@
-$main-color: #0f3057;
-$secondary-color: #00587a;
+@use '../../../Theme' as theme;
 
 .btn {
   border-radius: 0px;
@@ -7,6 +6,7 @@ $secondary-color: #00587a;
   width: 5em;
   height: 5em;
   cursor: pointer;
+  color: theme.$secondary;
   &:hover {
     background: radial-gradient(
       circle,
@@ -17,7 +17,7 @@ $secondary-color: #00587a;
     ) !important;
   }
   &:focus {
-    background: $secondary-color !important;
+    background: theme.$tertiary !important;
     border-radius: 0px;
     border-width: 0px;
     width: 5em;
