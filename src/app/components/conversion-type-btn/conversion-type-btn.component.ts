@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { buttonTypes } from '../../engine/data/buttondata.json';
 
 @Component({
   selector: 'app-conversion-type-btn',
@@ -39,34 +40,11 @@ export class ConversionTypeBtnComponent implements OnInit {
 
   //send load page number to parent
   loadPageNumber() {
-    if (this.buttonType == 'length') {
-      this.buttonClickEmitter.emit(1);
-    } else if (this.buttonType == 'weight') {
-      this.buttonClickEmitter.emit(2);
-    } else if (this.buttonType == 'temp') {
-      this.buttonClickEmitter.emit(3);
-    } else if (this.buttonType == 'volume') {
-      this.buttonClickEmitter.emit(4);
-    } else if (this.buttonType == 'area') {
-      this.buttonClickEmitter.emit(5);
-    } else if (this.buttonType == 'speed') {
-      this.buttonClickEmitter.emit(6);
-    } else if (this.buttonType == 'plane angle') {
-      this.buttonClickEmitter.emit(7);
-    } else if (this.buttonType == 'time') {
-      this.buttonClickEmitter.emit(8);
-    } else if (this.buttonType == 'pressure') {
-      this.buttonClickEmitter.emit(9);
-    } else if (this.buttonType == 'digital storage') {
-      this.buttonClickEmitter.emit(10);
-    } else if (this.buttonType == 'data transfer rate') {
-      this.buttonClickEmitter.emit(11);
-    } else if (this.buttonType == 'energy') {
-      this.buttonClickEmitter.emit(12);
-    } else if (this.buttonType == 'frequency') {
-      this.buttonClickEmitter.emit(13);
-    } else if (this.buttonType == 'fuel economy') {
-      this.buttonClickEmitter.emit(14);
+    for (let i = 1; i <= buttonTypes.length; i++) {
+      if (this.buttonType === buttonTypes[i - 1]) {
+        this.buttonClickEmitter.emit(i);
+        console.log(i);
+      }
     }
   }
 }

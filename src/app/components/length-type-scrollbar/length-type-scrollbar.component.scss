@@ -2,9 +2,10 @@
 
 // scroll styling
 .scroll-list {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  width: 35em;
+  width: 100%;
   overflow-y: scroll;
   justify-content: space-between;
   height: 15em;
@@ -42,6 +43,7 @@
   grid-template-rows: min-content auto;
   row-gap: 0.5em;
 }
+
 *,
 *:before,
 *:after {
@@ -57,22 +59,14 @@
   grid-template-columns: min-content auto;
   grid-gap: 0.5em;
   &:focus-within {
-    .radio__label-in {
-      transform: scale(1.05);
-      opacity: 1;
-    }
+    .radio__label-in,
     .radio__label-out {
       transform: scale(1.05);
       opacity: 1;
     }
   }
-  .radio__label-in {
-    // ...existing styles
-    transition: 180ms all ease-in-out;
-    opacity: 0.8;
-  }
+  .radio__label-in,
   .radio__label-out {
-    // ...existing styles
     transition: 180ms all ease-in-out;
     opacity: 0.8;
   }
@@ -84,28 +78,17 @@
     opacity: 0;
     width: 0;
     height: 0;
-    &:focus + .radio__control-in {
-      box-shadow: 0 0 0 0.05em theme.$secondary, 0 0 0.15em 0.1em currentColor;
-    }
+    &:focus + .radio__control-in,
     &:focus + .radio__control-out {
       box-shadow: 0 0 0 0.05em theme.$secondary, 0 0 0.15em 0.1em currentColor;
     }
   }
-  input:checked + .radio__control-in::before {
-    transform: scale(1);
-  }
+  input:checked + .radio__control-in::before,
   input:checked + .radio__control-out::before {
     transform: scale(1);
   }
-  input + .radio__control-in::before {
-    content: "";
-    width: 0.5em;
-    height: 0.5em;
-    box-shadow: inset 0.5em 0.5em currentColor;
-    border-radius: 50%;
-    transition: 180ms transform ease-in-out;
-    transform: scale(0);
-  }
+
+  input + .radio__control-in::before,
   input + .radio__control-out::before {
     content: "";
     width: 0.5em;
@@ -115,15 +98,7 @@
     transition: 180ms transform ease-in-out;
     transform: scale(0);
   }
-  .radio__control-in {
-    width: 1em;
-    height: 1em;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    border: 0.1em solid currentColor;
-    transform: translateY(-0.1em);
-  }
+  .radio__control-in,
   .radio__control-out {
     width: 1em;
     height: 1em;
@@ -131,6 +106,8 @@
     place-items: center;
     border-radius: 50%;
     border: 0.1em solid currentColor;
-    transform: translateY(-0.1em);
+
+    // Radio button y pos
+    transform: translateY(0.2em);
   }
 }

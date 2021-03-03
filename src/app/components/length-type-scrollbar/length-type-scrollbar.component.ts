@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { buttonTypes } from '../../data/buttondata.json';
-import { data } from '../../data/conversiondata.json';
+import { buttonTypes } from '../../engine/data/buttondata.json';
+import { data } from '../../engine/data/conversiondata.json';
 
 @Component({
   selector: 'app-length-type-scrollbar',
@@ -19,7 +19,9 @@ export class LengthTypeScrollbarComponent {
 
   initValues() {
     let arr: Array<Array<string>> = new Array();
-    arr.push(data.length);
+    for (let title of data) {
+      arr.push(title);
+    }
     return arr;
   }
 
