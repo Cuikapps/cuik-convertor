@@ -1,41 +1,26 @@
-<div class="page">
-  <div class="history" [ngClass]="{ close: isHistoryTabOpen }">
-    <h3>History</h3>
-    <div class="history-data" *ngFor="let data of historyList">
-      <div class="from">{{ data.from }}</div>
-      <div class="to">{{ data.to }}</div>
-      <div class="history-input">{{ data.input }}</div>
-      <div class="history-output">{{ data.output }}</div>
-    </div>
-    <div class="clear-history" (click)="clearHistory()">Clear</div>
-  </div>
-  <div
-    class="open-close-btn"
-    [ngClass]="{ close: isHistoryTabOpen }"
-    (click)="toggleHistory()"
-  >
-    <span>V</span>
-    History
-  </div>
-  <div class="header">
-    <img src="../assets/LOGO.png" width="60" />
-    <button title="feedback" class="credits-button" (click)="feedback()">
+<div class="loading" *ngIf="!isPageLoaded">Loading...</div>
+
+<div class="page" *ngIf="isPageLoaded">
+  <div class="button-bar" [ngClass]="{ 'button-bar-open': buttonBarToggle }">
+    <div title="Feedback" class="buttons" (click)="feedback()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
+        width="50"
+        height="50"
         fill="none"
         stroke="#e7e7de"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="credits-svg"
+        class="stroke-svg"
       >
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="12" y1="8" x2="12" y2="12"></line>
-        <line x1="12" y1="16" x2="12" y2="16"></line>
+        <circle class="secondary" cx="12" cy="12" r="10"></circle>
+        <line class="secondary" x1="12" y1="8" x2="12" y2="12"></line>
+        <line class="secondary" x1="12" y1="16" x2="12" y2="16"></line>
       </svg>
-    </button>
-    <div class="settings" (click)="openSettings()">
+    </div>
+    <div title="Settings" class="buttons" (click)="toggleSettings()">
       <svg
         id="Capa_1"
         xmlns="http://www.w3.org/2000/svg"
@@ -66,6 +51,159 @@
         />
       </svg>
     </div>
+    <div title="History" class="buttons" (click)="toggleHistory()">
+      <svg
+        width="50"
+        height="50"
+        viewBox="0 0 134 200"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="stroke-svg"
+      >
+        <path
+          class="secondary"
+          d="M18 2.5H76C96.7107 2.5 113.5 19.2893 113.5 40V164C113.5 172.56 106.56 179.5 98 179.5H18C9.43959 179.5 2.5 172.56 2.5 164V18C2.5 9.43959 9.43959 2.5 18 2.5Z"
+          stroke="black"
+          stroke-width="5"
+        />
+        <path
+          class="secondary"
+          d="M36 20.5H94C114.711 20.5 131.5 37.2893 131.5 58V182C131.5 190.56 124.56 197.5 116 197.5H36C27.4396 197.5 20.5 190.56 20.5 182V36C20.5 27.4396 27.4396 20.5 36 20.5Z"
+          stroke="black"
+          stroke-width="5"
+        />
+        <line
+          class="secondary"
+          x1="36.5"
+          y1="36.5"
+          x2="100.5"
+          y2="36.5"
+          stroke="black"
+          stroke-width="5"
+          stroke-linecap="round"
+        />
+        <line
+          class="secondary"
+          x1="36.5"
+          y1="50.5"
+          x2="100.5"
+          y2="50.5"
+          stroke="black"
+          stroke-width="5"
+          stroke-linecap="round"
+        />
+        <line
+          class="secondary"
+          x1="36.5"
+          y1="65.5"
+          x2="100.5"
+          y2="65.5"
+          stroke="black"
+          stroke-width="5"
+          stroke-linecap="round"
+        />
+        <line
+          class="secondary"
+          x1="36.5"
+          y1="81.5"
+          x2="100.5"
+          y2="81.5"
+          stroke="black"
+          stroke-width="5"
+          stroke-linecap="round"
+        />
+        <rect
+          class="secondary"
+          x="35.5"
+          y="99.5"
+          width="66"
+          height="66"
+          rx="7.5"
+          stroke="black"
+          stroke-width="3"
+        />
+        <path
+          class="secondary"
+          d="M55 131L35.5 148V160L37.5 163.5L42 165.5H87L55 131Z"
+          stroke="black"
+          stroke-width="3"
+        />
+        <circle
+          class="secondary"
+          cx="82.5"
+          cy="119.5"
+          r="8"
+          stroke="black"
+          stroke-width="3"
+        />
+      </svg>
+    </div>
+    <div title="Calculator" class="buttons" (click)="toggleCalculator()">
+      <svg
+        width="50"
+        height="50"
+        viewBox="0 0 39 36"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect class="secondary" y="7" width="16" height="2" fill="black" />
+        <rect
+          class="secondary"
+          x="7"
+          y="16"
+          width="16"
+          height="2"
+          transform="rotate(-90 7 16)"
+          fill="black"
+        />
+        <path class="secondary" d="M0 33H16V36H0L0 33Z" fill="black" />
+        <rect class="secondary" y="26" width="16" height="3" fill="black" />
+        <rect
+          class="secondary"
+          x="23"
+          y="30"
+          width="16"
+          height="2"
+          fill="black"
+        />
+        <rect
+          class="secondary"
+          x="24.636"
+          y="12.9497"
+          width="16"
+          height="2"
+          transform="rotate(-45 24.636 12.9497)"
+          fill="black"
+        />
+        <rect
+          class="secondary"
+          x="26.0503"
+          y="1.63605"
+          width="16"
+          height="2"
+          transform="rotate(45 26.0503 1.63605)"
+          fill="black"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="open-close-btn"
+    [ngClass]="{ close: buttonBarToggle }"
+    (click)="toggleButtonBar()"
+  >
+    <svg
+      version="1.0"
+      xmlns="http://www.w3.org/2000/svg"
+      width="90px"
+      height="25px"
+    >
+      <line x1="5" y1="5" x2="44" y2="20" />
+      <line x1="85" y1="5" x2="46" y2="20" />
+    </svg>
+  </div>
+  <div class="header">
+    <img src="../assets/LOGO.png" width="60" />
   </div>
   <div class="inner-page">
     <div class="conversion-type">
@@ -81,10 +219,10 @@
         <div class="face" *ngSwitchCase="i + 1">
           <h1>{{ textTypes[loadedPageNumber - 1] }}</h1>
           <div class="input">
-            <app-length-type-scrollbar
+            <app-scrollbar
               (InScrollEmitter)="setInScrollData($event)"
               [inOut]="button + '1'"
-            ></app-length-type-scrollbar>
+            ></app-scrollbar>
             <input
               type="number"
               [(ngModel)]="InputNumber"
@@ -113,10 +251,10 @@
             </svg>
           </div>
           <div class="output">
-            <app-length-type-scrollbar
+            <app-scrollbar
               (OutScrollEmitter)="setOutScrollData($event)"
               [inOut]="button + '2'"
-            ></app-length-type-scrollbar>
+            ></app-scrollbar>
             <input type="number" readonly [value]="OutputNumber" />
           </div>
         </div>
@@ -125,10 +263,11 @@
     </div>
   </div>
 
-  <div class="settings-page-modal" *ngIf="settingsToggle === true">
+  <div class="page-modal" *ngIf="settingsToggle">
     <div class="settings-page">
-      <div class="exit" (click)="closeSettings()">
+      <div class="exit" (click)="toggleSettings()">
         <svg
+          class="x-close-btn"
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"
           width="25px"
@@ -144,7 +283,7 @@
         <h4>Rounded Output</h4>
         <label class="switch">
           <input
-            [(ngModel)]="roundOutput"
+            [(ngModel)]="bRoundOutput"
             (change)="updateSettings()"
             type="checkbox"
           />
@@ -152,5 +291,42 @@
         </label>
       </div>
     </div>
+  </div>
+  <div class="calculator" *ngIf="calculatorToggle">
+    <div class="exit left" (click)="toggleCalculator()">
+      <svg
+        class="x-close-btn"
+        version="1.0"
+        xmlns="http://www.w3.org/2000/svg"
+        width="25px"
+        height="25px"
+      >
+        <line x1="5" y1="5" x2="19" y2="19" />
+        <line x1="5" y1="19" x2="19" y2="5" />
+      </svg>
+    </div>
+    <app-calculator></app-calculator>
+  </div>
+  <div class="history" *ngIf="historyToggle">
+    <h3>History</h3>
+    <div class="close-history-btn" (click)="toggleHistory()">
+      <svg
+        class="x-close-btn"
+        version="1.0"
+        xmlns="http://www.w3.org/2000/svg"
+        width="25px"
+        height="25px"
+      >
+        <line x1="5" y1="5" x2="19" y2="19" />
+        <line x1="5" y1="19" x2="19" y2="5" />
+      </svg>
+    </div>
+    <div class="history-data" *ngFor="let data of historyList">
+      <div class="from">{{ data.from }}</div>
+      <div class="to">{{ data.to }}</div>
+      <div class="history-input">{{ data.input }}</div>
+      <div class="history-output">{{ data.output }}</div>
+    </div>
+    <div class="clear-history" (click)="clearHistory()">Clear</div>
   </div>
 </div>

@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LengthTypeScrollbarComponent } from './length-type-scrollbar.component';
+import { ScrollbarComponent } from './scrollbar.component';
 
 describe('LengthTypeScrollbarComponent', () => {
-  let component: LengthTypeScrollbarComponent;
-  let fixture: ComponentFixture<LengthTypeScrollbarComponent>;
+  let component: ScrollbarComponent;
+  let fixture: ComponentFixture<ScrollbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LengthTypeScrollbarComponent ]
-    })
-    .compileComponents();
+      declarations: [ScrollbarComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LengthTypeScrollbarComponent);
+    fixture = TestBed.createComponent(ScrollbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

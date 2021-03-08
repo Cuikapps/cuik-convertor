@@ -1,44 +1,14 @@
 @use '../Theme' as theme;
 
+.loading {
+  color: theme.$secondary;
+}
+
 .header {
   background-color: theme.$primary;
   width: 100%;
   display: flex;
   height: auto;
-  .settings {
-    position: absolute;
-    cursor: pointer;
-    right: 66px;
-    top: 5px;
-    .secondary {
-      transition: fill 0.2s ease-in-out;
-      fill: inherit;
-    }
-    fill: theme.$secondary;
-    &:hover {
-      fill: theme.$accent;
-    }
-  }
-  .credits-button {
-    background-color: transparent;
-    position: absolute;
-    cursor: pointer;
-    right: 0px;
-    top: 0px;
-    border-width: 0em;
-    &:focus {
-      outline: none;
-    }
-    .credits-svg {
-      transition: stroke 0.2s ease-in-out;
-      width: 4em;
-      stroke: inherit;
-    }
-    stroke: theme.$secondary;
-    &:hover {
-      stroke: theme.$accent;
-    }
-  }
 }
 .conversion-type {
   width: 200px;
@@ -149,82 +119,6 @@ input {
   }
 }
 
-.history {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  background-color: theme.$secondary;
-  height: 400px;
-  z-index: 10;
-  top: -410px;
-  left: 10%;
-  right: 10%;
-  align-items: center;
-  justify-content: flex-start;
-  border: 5px solid theme.$primary;
-  border-radius: 0px 0px 30px 30px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  transition: transform 1s ease-in-out;
-  &::-webkit-scrollbar {
-    width: 20px;
-  }
-  &::-webkit-scrollbar-track {
-    background: theme.$secondary;
-    border-radius: 0px 0px 20px 0px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: theme.$primary;
-    border-radius: 20px;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background: theme.$tertiary;
-  }
-  h3 {
-    color: theme.$primary;
-    font-family: theme.$Poppins;
-    font-size: 1.3rem;
-  }
-  .clear-history {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    cursor: pointer;
-    color: theme.$primary;
-    font-family: theme.$Poppins;
-    font-size: 1.3rem;
-  }
-
-  .history-data {
-    display: grid;
-    grid-template-columns: 490px 490px;
-    grid-template-rows: 30px 15px;
-    .from {
-      grid: 1 1;
-      color: theme.$primary;
-      font-family: theme.$Poppins;
-      font-size: 1.3rem;
-    }
-    .to {
-      color: theme.$primary;
-      font-family: theme.$Poppins;
-      font-size: 1.3rem;
-      grid: 2 1;
-    }
-    .history-input {
-      color: theme.$primary;
-      font-family: theme.$Poppins;
-      font-size: 1rem;
-      grid: 1 2;
-    }
-    .history-output {
-      color: theme.$primary;
-      font-family: theme.$Poppins;
-      font-size: 1rem;
-      grid: 2 2;
-    }
-  }
-}
 span {
   color: theme.$secondary;
   text-align: center;
@@ -232,33 +126,116 @@ span {
   font-size: 1.2rem;
   transition: transform 1s ease-in-out;
 }
+
+.button-bar {
+  $width: 300px;
+  $height: 300px;
+  position: fixed;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 55px 55px;
+  gap: 100px;
+  grid-template-rows: 55px 55px;
+  z-index: 20;
+  background-color: transparent;
+  left: calc(50% - 300px / 2);
+  width: $width;
+  height: $height;
+  top: -300px;
+  transform: scale(0);
+  transition: transform 1s ease-out, top 1s ease-out;
+
+  .buttons {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: theme.$primary;
+    box-shadow: 0px 0px 5px 5px theme.$primary;
+    .secondary {
+      transition: fill 0.2s ease-in-out, stroke 0.2s ease-in-out;
+      fill: inherit;
+      stroke: inherit;
+    }
+    svg {
+      fill: theme.$secondary;
+      &:hover {
+        fill: theme.$accent;
+      }
+    }
+    .stroke-svg {
+      fill: none;
+      stroke: theme.$secondary;
+      &:hover {
+        fill: none;
+        stroke: theme.$accent;
+      }
+    }
+  }
+}
+.button-bar-open {
+  top: 80px;
+  transform: scale(1);
+}
+
 .open-close-btn {
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: theme.$tertiary;
-  width: 100px;
-  height: 25px;
-  left: calc(50% - 50px);
+  background-color: theme.$primary;
+  border: 2px solid theme.$tertiary;
+  border-top: none;
+  padding: 5px;
+  min-width: 100px;
+  left: calc(50% - 55px);
   border-radius: 0px 0px 10px 10px;
   color: theme.$secondary;
   text-align: center;
   font-family: theme.$Poppins;
   font-size: 1rem;
-  transition: transform 1s ease-in-out;
+  z-index: 21;
+  transition: transform 0.5s ease-in-out;
   cursor: pointer;
-}
 
-.close {
-  transform: translateY(400px);
-  span {
-    transform: rotateZ(180deg);
+  svg {
+    transition: transform 0.5s ease-in-out;
+    line {
+      stroke: theme.$secondary;
+      stroke-width: 5px;
+      stroke-linecap: round;
+    }
   }
 }
 
-.settings-page-modal {
+.close {
+  svg {
+    transform: rotateX(180deg);
+  }
+}
+.exit {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  right: 0px;
+  top: 0px;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+.left {
+  right: none;
+  left: 0;
+}
+.page-modal {
   position: fixed;
+  z-index: 100;
   left: 0px;
   right: 0px;
   bottom: 0px;
@@ -267,7 +244,9 @@ span {
   align-items: center;
   justify-content: center;
   background-color: rgba(87, 87, 87, 0.2);
+
   .settings-page {
+    box-sizing: initial;
     background-color: theme.$secondary;
     width: 680px;
     height: 350px;
@@ -293,21 +272,8 @@ span {
       width: 32px;
       height: 32px;
       background-color: transparent;
-      border-radius: 50%;
-      transition: transform 0.5s ease-in-out;
+
       cursor: pointer;
-      &:hover {
-        background-color: theme.$primary;
-        transform: rotateZ(-90deg);
-        svg line {
-          stroke: theme.$secondary;
-        }
-      }
-      svg line {
-        stroke: theme.$primary;
-        stroke-width: 5px;
-        stroke-linecap: round;
-      }
     }
     .settings-list {
       display: grid;
@@ -317,7 +283,7 @@ span {
         align-self: center;
         justify-self: center;
         font-family: theme.$Poppins;
-        font-size: 1rem;
+        font-size: 1.2rem;
         color: theme.$primary;
       }
       /* The switch - the box around the slider */
@@ -380,4 +346,115 @@ span {
       }
     }
   }
+}
+.history {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: theme.$secondary;
+  height: 400px;
+  width: 900px;
+  z-index: 10;
+  top: 35%;
+  left: 15%;
+  align-items: center;
+  justify-content: flex-start;
+  border: 5px solid theme.$primary;
+  border-radius: 30px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: top 1s ease-in-out;
+  &::-webkit-scrollbar {
+    width: 20px;
+  }
+  &::-webkit-scrollbar-track {
+    background: theme.$secondary;
+    border-radius: 0px 20px 20px 0px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: theme.$primary;
+    border-radius: 20px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: theme.$tertiary;
+  }
+  .close-history-btn {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+  }
+  h3 {
+    color: theme.$primary;
+    font-family: theme.$Poppins;
+    font-size: 1.3rem;
+  }
+  .clear-history {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: theme.$primary;
+    font-family: theme.$Poppins;
+    font-size: 1.3rem;
+  }
+
+  .history-data {
+    display: grid;
+    grid-template-columns: 490px 490px;
+    grid-template-rows: 30px 15px;
+    .from {
+      grid: 1 1;
+      color: theme.$primary;
+      font-family: theme.$Poppins;
+      font-size: 1.3rem;
+    }
+    .to {
+      color: theme.$primary;
+      font-family: theme.$Poppins;
+      font-size: 1.3rem;
+      grid: 2 1;
+    }
+    .history-input {
+      color: theme.$primary;
+      font-family: theme.$Poppins;
+      font-size: 1rem;
+      grid: 1 2;
+    }
+    .history-output {
+      color: theme.$primary;
+      font-family: theme.$Poppins;
+      font-size: 1rem;
+      grid: 2 2;
+    }
+  }
+}
+
+.calculator {
+  position: fixed;
+  background-color: theme.$secondary;
+  border: 5px solid theme.$primary;
+  border-top: none;
+  border-right: none;
+  border-radius: 0px 0px 0px 15px;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 305px;
+}
+
+.x-close-btn:hover {
+  background-color: theme.$primary;
+  transform: rotateZ(-90deg);
+  border-radius: 50%;
+  transition: transform 0.5s ease-in-out;
+  line {
+    stroke: theme.$secondary;
+  }
+}
+.x-close-btn line {
+  stroke: theme.$primary;
+  stroke-width: 5px;
+  stroke-linecap: round;
 }

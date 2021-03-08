@@ -3,11 +3,11 @@ import { buttonTypes } from '../../engine/data/buttondata.json';
 import { data } from '../../engine/data/conversiondata.json';
 
 @Component({
-  selector: 'app-length-type-scrollbar',
-  templateUrl: './length-type-scrollbar.component.html',
-  styleUrls: ['./length-type-scrollbar.component.scss'],
+  selector: 'app-scrollbar',
+  templateUrl: './scrollbar.component.html',
+  styleUrls: ['./scrollbar.component.scss'],
 })
-export class LengthTypeScrollbarComponent {
+export class ScrollbarComponent {
   constructor() {}
 
   @Output() InScrollEmitter = new EventEmitter<string>();
@@ -15,9 +15,9 @@ export class LengthTypeScrollbarComponent {
   @Input() inOut: string = 'length1';
   buttonTypes: Array<string> = buttonTypes;
 
-  values: Array<Array<string>> = this.initValues();
+  values: Array<Array<string>> = this.initData();
 
-  initValues() {
+  initData() {
     let arr: Array<Array<string>> = new Array();
     for (let title of data) {
       arr.push(title);

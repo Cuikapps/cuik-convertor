@@ -25,6 +25,31 @@
       "Carrat",
       "Atomic Mass Unit"
     ],
-    ["Celsius", "Kelvin", "Fahrenheit"]
+    ["Celsius", "Kelvin", "Fahrenheit"],
+    [
+      "Cubic Kilometer",
+      "Cubic Meter",
+      "Cubic Centimeter",
+      "Cubic Millimeter",
+      "Liter",
+      "Milliliter",
+      "US Gallon",
+      "US Quart",
+      "US Pint",
+      "US Cup",
+      "US Fluid Ounce",
+      "US Table Spoon",
+      "US Tea Spoon",
+      "Imperial Gallon",
+      "Imperial Quart",
+      "Imperial Pint",
+      "Imperial Fluid Ounce",
+      "Imperial Table Spoon",
+      "Imperial Tea Spoon",
+      "Cubic Mile",
+      "Cubic Yard",
+      "Cubic Foot",
+      "Cubic Inch"
+    ]
   ]
 }

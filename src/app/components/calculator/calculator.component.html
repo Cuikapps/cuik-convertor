@@ -1,0 +1,38 @@
+<div class="calculator">
+  <div class="display">
+    <div [innerHTML]="previous" class="prev"></div>
+    <div class="current">{{ current }}</div>
+  </div>
+  <div class="button-grid">
+    <div title="Percent" (click)="toPercent()" class="percent">%</div>
+    <div title="Clear Entry" (click)="clearEntry()" class="clear-entry">CE</div>
+    <div title="Clear" (click)="clear()" class="clear">C</div>
+    <div title="Delete" (click)="delete()" class="backspace">⌫</div>
+    <div title="Fraction" (click)="fraction()" class="fraction">
+      <sup>1</sup>/x
+    </div>
+    <div title="Square" (click)="square()" class="square">x<sup>2</sup></div>
+    <div title="Square Root" (click)="squareRoot()" class="square-root">
+      <sup>2</sup>√x
+    </div>
+    <div title="Divide" (click)="divide()" class="div">÷</div>
+    <div class="seven" (click)="addNumber('7')">7</div>
+    <div class="eight" (click)="addNumber('8')">8</div>
+    <div class="nine" (click)="addNumber('9')">9</div>
+    <div title="Multiply" (click)="multiply()" class="mult">x</div>
+    <div class="four" (click)="addNumber('4')">4</div>
+    <div class="five" (click)="addNumber('5')">5</div>
+    <div class="six" (click)="addNumber('6')">6</div>
+    <div title="Subtract" (click)="subtract()" class="sub">-</div>
+    <div class="one" (click)="addNumber('1')">1</div>
+    <div class="two" (click)="addNumber('2')">2</div>
+    <div class="three" (click)="addNumber('3')">3</div>
+    <div title="Add" (click)="add()" class="add">+</div>
+    <div title="Change Sign" (click)="changeSign()" class="neg">
+      <sup>+</sup>/-
+    </div>
+    <div class="zero" (click)="addNumber('0')">0</div>
+    <div title="Decimal" (click)="addDecimal()" class="decimal">.</div>
+    <div title="Enter" (click)="enter()" class="enter">=</div>
+  </div>
+</div>
