@@ -41,6 +41,7 @@ export class AppComponent implements AfterContentChecked {
   historyToggle: boolean = false;
 
   bRoundOutput: boolean = this.settings.bRoundOutput;
+  decimals: number = 0;
 
   ngAfterContentChecked() {
     this.cdr.detectChanges();
@@ -50,10 +51,9 @@ export class AppComponent implements AfterContentChecked {
 
   //input data
   InputNumber: string = '';
-  OutputNumber: string = '';
+  OutputNumber: string = '0';
 
   // page data
-  buttonTypes: Array<string> = ButtonData.buttonTypes;
   textTypes: Array<string> = ButtonData.titles;
   loadedPageNumber: number = 1;
 
@@ -61,7 +61,7 @@ export class AppComponent implements AfterContentChecked {
   InScrollData: string = '';
   OutScrollData: string = '';
 
-  ScrollData: string = this.InScrollData + ' ' + this.OutScrollData;
+  ScrollData: string = this.InScrollData + '_' + this.OutScrollData;
 
   updateSettings() {
     this.settings.bRoundOutput = this.bRoundOutput;
@@ -70,6 +70,11 @@ export class AppComponent implements AfterContentChecked {
   //load the corresponding page and activate buttons
   loadPage(pageNumber: any) {
     this.loadedPageNumber = pageNumber;
+    this.InScrollData = '';
+    this.OutScrollData = '';
+    this.ScrollData = this.InScrollData + '_' + this.OutScrollData;
+    this.InputNumber = '';
+    this.OutputNumber = '0';
 
     for (let i = 1; i <= this.conversionButtons.length; i++) {
       if (i === pageNumber) {
@@ -123,13 +128,13 @@ export class AppComponent implements AfterContentChecked {
 
   // Convert
   updateScrollData() {
-    this.ScrollData = this.InScrollData + ' ' + this.OutScrollData;
+    this.ScrollData = this.InScrollData + '_' + this.OutScrollData;
     if (this.InputNumber !== '') {
       if (this.bRoundOutput)
         this.OutputNumber = Big(
           Convert.convert(this.ScrollData, this.InputNumber)
         )
-          .round()
+          .round(this.decimals)
           .toString();
       else
         this.OutputNumber = Convert.convert(this.ScrollData, this.InputNumber);

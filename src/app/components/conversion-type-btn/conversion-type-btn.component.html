@@ -1,9 +1,9 @@
 <button
   #button
-  title="{{ title }}"
+  [title]="buttonType"
   (click)="loadPageNumber()"
   [style.background]="isActivated ? '#00587a' : '#0F3057'"
   class="btn"
 >
-  {{ title }}
+  {{ buttonType }}
 </button>

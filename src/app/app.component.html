@@ -208,22 +208,23 @@
   <div class="inner-page">
     <div class="conversion-type">
       <app-conversion-type-btn
-        *ngFor="let buttonType of buttonTypes"
+        *ngFor="let textType of textTypes"
         #conversionBtn
-        [buttonType]="buttonType"
+        [buttonType]="textType"
         (buttonClickEmitter)="loadPage($event)"
       ></app-conversion-type-btn>
     </div>
     <div class="app-face" [ngSwitch]="loadedPageNumber">
-      <ng-container *ngFor="let button of buttonTypes; let i = index">
+      <ng-container *ngFor="let text of textTypes; let i = index">
         <div class="face" *ngSwitchCase="i + 1">
           <h1>{{ textTypes[loadedPageNumber - 1] }}</h1>
           <div class="input">
             <app-scrollbar
               (InScrollEmitter)="setInScrollData($event)"
-              [inOut]="button + '1'"
+              [inOut]="(text | lowercase) + '1'"
             ></app-scrollbar>
             <input
+              placeholder="0"
               type="number"
               [(ngModel)]="InputNumber"
               (change)="updateScrollData()"
@@ -253,7 +254,7 @@
           <div class="output">
             <app-scrollbar
               (OutScrollEmitter)="setOutScrollData($event)"
-              [inOut]="button + '2'"
+              [inOut]="(text | lowercase) + '2'"
             ></app-scrollbar>
             <input type="number" readonly [value]="OutputNumber" />
           </div>
@@ -288,6 +289,14 @@
             type="checkbox"
           />
           <span class="slider"></span>
+        </label>
+        <label class="trailing-0s" [ngClass]="{ disabled: !bRoundOutput }">
+          <span>Decimals</span>
+          <input
+            type="number"
+            [(ngModel)]="decimals"
+            (input)="updateSettings()"
+          />
         </label>
       </div>
     </div>

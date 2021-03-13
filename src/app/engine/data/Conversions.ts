@@ -1,342 +1,233 @@
-export const CONVERSIONS: Array<Array<string>> = [
-  [
-    //Length
+import { Pipe } from '@angular/core';
+import Big from 'big.js';
+let CT: Map<string, string | ((a: string, b: boolean) => string)> = new Map();
 
-    //Kilometer
-    'Kilometer Kilometer_1',
-    'Kilometer Meter_1e+3',
-    'Kilometer Centimeter_1e+5',
-    'Kilometer Millimeter_1e+6',
-    'Kilometer Micrometer_1e+9',
-    'Kilometer Nanometer_1e+12',
-    'Kilometer Mile_0.6213688756',
-    'Kilometer Yard_1093.6132983',
-    'Kilometer Foot_3280.839895',
-    'Kilometer Inch_39370.07874',
-    'Kilometer Light Year_1.057008707e-13',
+//Length
+CT.set('Kilometer', '1');
+CT.set('Meter', '1e+3');
+CT.set('Centimeter', '1e+5');
+CT.set('Millimeter', '1e+6');
+CT.set('Micrometer', '1e+9');
+CT.set('Nanometer', '1e+12');
+CT.set('Mile', '0.6213688756');
+CT.set('Yard', '1093.6132983');
+CT.set('Foot', '3280.839895');
+CT.set('Inch', '39370.07874');
+CT.set('Light Year', '1.057008707e-13');
 
-    //Meter
-    'Meter Kilometer_1e-3',
-    'Meter Meter_1',
-    'Meter Centimeter_1e+2',
-    'Meter Millimeter_1e+3',
-    'Meter Micrometer_1e+6',
-    'Meter Nanometer_1e+9',
-    'Meter Mile_6.213689e-4',
-    'Meter Yard_1.0936132983',
-    'Meter Foot_3.280839895',
-    'Meter Inch_39.37007874',
-    'Meter Light Year_1.057008707e-16',
+//Weight
+CT.set('Kilogram', '1');
+CT.set('Gram', '1e+3');
+CT.set('Milligram', '1e+6');
+CT.set('Metric Ton', '1e-3');
+CT.set('Long Ton', '9.842073e-4');
+CT.set('Short Ton', '1.1023122e-3');
+CT.set('Pound', '2.2046244202');
+CT.set('Ounce', '35.273990723');
+CT.set('Carrat', '5e+3');
+CT.set('Atomic Mass Unit', '6.022136652E+26');
 
-    //Centimeter
-    'Centimeter Kilometer_1e-5',
-    'Centimeter Meter_1e-2',
-    'Centimeter Centimeter_1',
-    'Centimeter Millimeter_10',
-    'Centimeter Micrometer_1e+5',
-    'Centimeter Nanometer_1e+8',
-    'Centimeter Mile_6.213689e-6',
-    'Centimeter Yard_1.0936133e-2',
-    'Centimeter Foot_3.280839895e-2',
-    'Centimeter Inch_3.937007874e-1',
-    'Centimeter Light Year_1.057008707e-18',
+//Temperature
+CT.set('Celsius', (inputValue: string, op: boolean): string => {
+  if (op) return Big(inputValue).times('1').toString();
+  return Big(inputValue).times('1').toString();
+});
+CT.set('Fahrenheit', (inputValue: string, op: boolean): string => {
+  if (op)
+    return Big(inputValue)
+      .minus('32')
+      .times(`${5 / 9}`)
+      .toString();
 
-    //Millimeter
-    'Millimeter Kilometer_1e-6',
-    'Millimeter Meter_1e-3',
-    'Millimeter Centimeter_0.1',
-    'Millimeter Millimeter_1',
-    'Millimeter Micrometer_1e+3',
-    'Millimeter Nanometer_1e+6',
-    'Millimeter Mile_6.213689e-7',
-    'Millimeter Yard_1.0936133e-3',
-    'Millimeter Foot_3.280839895e-3',
-    'Millimeter Inch_3.937007874e-2',
-    'Millimeter Light Year_1.057008707e-19',
+  return Big(inputValue)
+    .times(`${(9 / 5).toString()}`)
+    .add('32')
+    .toString();
+});
+CT.set('Kelvin', (inputValue: string, op: boolean): string => {
+  if (op) return Big(inputValue).minus('273.15').toString();
 
-    //Micrometer
-    'Micrometer Kilometer_1e-9',
-    'Micrometer Meter_1e-6',
-    'Micrometer Centimeter_1e-4',
-    'Micrometer Millimeter_1e-3',
-    'Micrometer Micrometer_1',
-    'Micrometer Nanometer_1e+3',
-    'Micrometer Mile_6.213689e-10',
-    'Micrometer Yard_1.0936133e-6',
-    'Micrometer Foot_3.280839895e-6',
-    'Micrometer Inch_3.937007874e-5',
-    'Micrometer Light Year_1.057008707e-22',
+  return Big(inputValue).add('273.15').toString();
+});
 
-    //Nanometer
-    'Nanometer Kilometer_1e-12',
-    'Nanometer Meter_1e-9',
-    'Nanometer Centimeter_1e-7',
-    'Nanometer Millimeter_1e-6',
-    'Nanometer Micrometer_1e-3',
-    'Nanometer Nanometer_1',
-    'Nanometer Mile_6.213689e-13',
-    'Nanometer Yard_1.0936133e-9',
-    'Nanometer Foot_3.280839895e-9',
-    'Nanometer Inch_3.937007874e-8',
-    'Nanometer Light Year_1.057008707e-25',
+//Volume
+CT.set('Cubic Kilometer', '1');
+CT.set('Cubic Meter', '1e+9');
+CT.set('Cubic Centimeter', '1e+15');
+CT.set('Cubic Millimeter', '1e+18');
+CT.set('US Gallon', '264172176858');
+CT.set('US Quart', '1056688707432');
+CT.set('US Pint', '2113377414864');
+CT.set('US Cup', '4226754829728');
+CT.set('US Fluid Ounce', '33814038637823');
+CT.set('US Table Spoon', '67628077275645');
+CT.set('US Tea Spoon', '67628077275645');
+CT.set('Imperial Gallon', '219969248299');
+CT.set('Imperial Quart', '879876993196');
+CT.set('Imperial Pint', '1759753986393');
+CT.set('Imperial Fluid Ounce', '35195079727854');
+CT.set('Imperial Table Spoon', '56312127564566');
+CT.set('Imperial Tea Spoon', '168936382693699');
+CT.set('Cubic Mile', '0.2399128636');
+CT.set('Cubic Yard', '1307950619.3');
+CT.set('Cubic Foot', '35314666721');
+CT.set('Cubic Inch', '61023744094732');
 
-    //Mile
-    'Mile Kilometer_1.60935',
-    'Mile Meter_1609.35',
-    'Mile Centimeter_160935',
-    'Mile Millimeter_1.60935e+6',
-    'Mile Micrometer_1.60935e+9',
-    'Mile Nanometer_1.60935e+12',
-    'Mile Mile_1',
-    'Mile Yard_1.7600065617e+3',
-    'Mile Foot_5.280019685e+3',
-    'Mile Inch_6.336023622e+4',
-    'Mile Light Year_1.701096963e-13',
+//Area
+CT.set('Square Kilometer', '1');
+CT.set('Square Meter', '1e+6');
+CT.set('Square Centimeter', '1e+10');
+CT.set('Square Millimeter', '1e+12');
+CT.set('Square Micrometer', '1e+18');
+CT.set('Hectare', '100');
+CT.set('Square Mile', '0.3861018768');
+CT.set('Square Yard', '1195990.0463');
+CT.set('Square Foot', '10763910.417');
+CT.set('Square Inch', '1550003100');
+CT.set('Acre', '247.10538147');
 
-    //Yard
-    'Yard Kilometer_9.144e-4',
-    'Yard Meter_9.144e-1',
-    'Yard Centimeter_91.44',
-    'Yard Millimeter_914.4',
-    'Yard Micrometer_9144e+2',
-    'Yard Nanometer_9144e+5',
-    'Yard Mile_5.681797e-4',
-    'Yard Yard_1',
-    'Yard Foot_3',
-    'Yard Inch_36',
-    'Yard Light Year_9.665287622E-17',
+//Speed
+CT.set('Meter/second', '1');
+CT.set('Kilometer/hour', '3.6');
+CT.set('Foot/second', '3.28083989501312');
+CT.set('Mile/hour', '2.2369362920544');
+CT.set('Mile/second', '0.000621371192237334');
+CT.set('Knot', '1.9438444924406');
+CT.set('Speed of Light', '3.33564095198151e-9');
 
-    //Foot
-    'Foot Kilometer_3.048e-4',
-    'Foot Meter_3.048e-1',
-    'Foot Centimeter_30.48',
-    'Foot Millimeter_304.8',
-    'Foot Micrometer_3048e+2',
-    'Foot Nanometer_3048e+5',
-    'Foot Mile_1.893932e-4',
-    `Foot Yard_${1 / 3}$add`,
-    'Foot Foot_1',
-    'Foot Inch_12',
-    'Foot Light Year_3.22176254E-17',
+//Plane Angle
+CT.set('Degree', (inputValue: string, op: boolean): string => {
+  if (op) return Big(inputValue).times('1').toString();
+  return Big(inputValue).times('1').toString();
+});
+CT.set('Gradian', (inputValue: string, op: boolean): string => {
+  if (op)
+    return Big(inputValue)
+      .times(`${180 / 200}`)
+      .toString();
+  return Big(inputValue)
+    .times(`${200 / 180}`)
+    .toString();
+});
+CT.set('Milliradian', (inputValue: string, op: boolean): string => {
+  if (op)
+    return Big(inputValue)
+      .times(Big('180').div(Big('1000').times(Math.PI.toString())))
+      .toString();
+  return Big(inputValue)
+    .times(Big('1000').times(Math.PI.toString()).div('180'))
+    .toString();
+});
+CT.set('Minute of Arc', (inputValue: string, op: boolean): string => {
+  if (op) return Big(inputValue).div('60').toString();
+  return Big(inputValue).times('60').toString();
+});
+CT.set('Radian', (inputValue: string, op: boolean): string => {
+  if (op)
+    return Big(inputValue).times(Big('180').div(Math.PI.toString())).toString();
+  return Big(inputValue).times(Big(Math.PI.toString()).div('180')).toString();
+});
+CT.set('Second of Arc', (inputValue: string, op: boolean): string => {
+  if (op) return Big(inputValue).div('3600').toString();
+  return Big(inputValue).times('3600').toString();
+});
 
-    //Inch
-    'Inch Kilometer_2.54e-5',
-    'Inch Meter_2.54e-2',
-    'Inch Centimeter_2.54',
-    'Inch Millimeter_25.4',
-    'Inch Micrometer_254e+2',
-    'Inch Nanometer_254e+5',
-    'Inch Mile_1.57828e-5',
-    'Inch Yard_2.77777778e-2',
-    'Inch Foot_8.33333333e-2',
-    'Inch Inch_1',
-    'Inch Light Year_2.684802117E-18',
+//Time
+CT.set('Second', '1');
+CT.set('Millisecond', '1e+3');
+CT.set('Microsecond', '1e+6');
+CT.set('Nanosecond', '1e+9');
+CT.set('Picosecond', '1e+12');
+CT.set('Minute', '1.66666667e-2');
+CT.set('Hour', '2.777778e-4');
+CT.set('Day', '1.15741e-5');
+CT.set('Week', '1.6534e-6');
+CT.set('Month', '3.802570537E-7');
+CT.set('Year', '3.168808781E-8');
 
-    //Light Year
-    'Light Year Kilometer_946066e+7',
-    'Light Year Meter_946066e+10',
-    'Light Year Centimeter_946066e+12',
-    'Light Year Millimeter_946066e+13',
-    'Light Year Micrometer_9.46066E+21',
-    'Light Year Nanometer_9.460659999E+24',
-    'Light Year Mile_5878559666946',
-    'Light Year Yard_10346303587051618',
-    'Light Year Foot_31038910761154856',
-    'Light Year Inch_3724669291338583e+2',
-    'Light Year Light Year_1',
-  ],
-  [
-    //Weight
+//Pressure
+CT.set('Bar', '1');
+CT.set('Pascal', '1e+5');
+CT.set('Pound-force per Square Inch', '14.503773773');
+CT.set('Standard Atmosphere', '0.9869232667');
+CT.set('Torr', '750.0616827');
 
-    //Kilogram
-    'Kilogram Kilogram_1',
-    'Kilogram Gram_1e+3',
-    'Kilogram Milligram_1e+6',
-    'Kilogram Metric Ton_1e-3',
-    'Kilogram Long Ton_9.842073e-4',
-    'Kilogram Short Ton_1.1023122e-3',
-    'Kilogram Pound_2.2046244202',
-    'Kilogram Ounce_35.273990723',
-    'Kilogram Carrat_5e+3',
-    'Kilogram Atomic Mass Unit_6.022136652E+26',
+//Digital Storage
+CT.set('Bit', '1');
+CT.set('Kilobit', '1e-3');
+CT.set('Kibibit', '9.76563e-4');
+CT.set('Megabit', '1e-6');
+CT.set('Mebibit', '9.5367e-7');
+CT.set('Gigabit', '1e-9');
+CT.set('Gibibit', '9.3132e-10');
+CT.set('Terabit', '1e-12');
+CT.set('Tebibit', '9.0949e-13');
+CT.set('Petabit', '1e-15');
+CT.set('Pebibit', '8.8818e-16');
+CT.set('Byte', '0.125');
+CT.set('Kilobyte', '1.25e-4');
+CT.set('Kibibyte', '1.2207e-4');
+CT.set('Megabyte', '1.25e-7');
+CT.set('Mebibyte', '1.1921e-7');
+CT.set('Gigabyte', '1.25e-10');
+CT.set('Gibibyte', '1.1642e-10');
+CT.set('Terabyte', '1.25e-13');
+CT.set('Tebibyte', '1.1369e-13');
+CT.set('Petabyte', '1.25e-16');
+CT.set('Pebibyte', '1.1102e-16');
 
-    //Gram
-    'Gram Kilogram_1e-3',
-    'Gram Gram_1',
-    'Gram Milligram_1e+3',
-    'Gram Metric Ton_1e-6',
-    'Gram Long Ton_9.842073304e-7',
-    'Gram Short Ton_1.1023122e-6',
-    'Gram Pound_2.2046244202e-3',
-    'Gram Ounce_3.5273990723e-2',
-    'Gram Carrat_5',
-    'Gram Atomic Mass Unit_6.022136652E+23',
+//Data Transfer Rate
+CT.set('Bit/second', '1');
+CT.set('Kilobit/second', '1e-3');
+CT.set('Kibibit/second', '9.76563e-4');
+CT.set('Kilobyte/second', '1.25e-4');
+CT.set('Megabit/second', '1e-6');
+CT.set('Mebibit/second', '9.5367e-7');
+CT.set('Megabyte/second', '1.25e-7');
+CT.set('Gigabit/second', '1e-9');
+CT.set('Gibibit/second', '9.3132e-10');
+CT.set('Gigabyte/second', '1.25e-10');
+CT.set('Terabit/second', '1e-12');
+CT.set('Tebibit/second', '9.0949e-13');
+CT.set('Terabyte/second', '1.25e-13');
+CT.set('Petabit/second', '1e-15');
+CT.set('Pebibit/second', '8.8818e-16');
+CT.set('Petabyte/second', '1.25e-16');
 
-    //Milligram
-    'Milligram Kilogram_1e-6',
-    'Milligram Gram_1e-3',
-    'Milligram Milligram_1',
-    'Milligram Metric Ton_1e-9',
-    'Milligram Long Ton_9.842073304e-10',
-    'Milligram Short Ton_1.1023122e-9',
-    'Milligram Pound_2.2046244202e-6',
-    'Milligram Ounce_3.5273990723e-5',
-    'Milligram Carrat_5e-3',
-    'Milligram Atomic Mass Unit_6.022136652E+20',
+//Energy
+CT.set('Joule', '1');
+CT.set('Kilojoule', '1e-3');
+CT.set('Gram Calorie', '2.39006e-1');
+CT.set('Kilocalorie', '2.39006e-4');
+CT.set('Watt Hour', '2.77778e-4');
+CT.set('Kilowatt Hour', '2.77778e-7');
+CT.set('Electronvolt', '6.242e+18');
+CT.set('British Thermal Unit', '9.47817e-4');
+CT.set('US Thermal Unit', '9.4804e-9');
+CT.set('Foot-pound', '0.737562');
 
-    //Metric Ton
-    'Metric Ton Kilogram_1e+3',
-    'Metric Ton Gram_1e+6',
-    'Metric Ton Milligram_1e+9',
-    'Metric Ton Metric Ton_1',
-    'Metric Ton Long Ton_9.842073304e-1',
-    'Metric Ton Short Ton_1.1023122101',
-    'Metric Ton Pound_2.2046244202e+3',
-    'Metric Ton Ounce_3.5273990723e+4',
-    'Metric Ton Carrat_5e+6',
-    'Metric Ton Atomic Mass Unit_6.022136652E+29',
+//Frequency
+CT.set('Hertz', '1');
+CT.set('Kilohertz', '1e-3');
+CT.set('Megahertz', '1e-6');
+CT.set('Gigahertz', '1e-9');
 
-    //Long Ton
-    'Long Ton Kilogram_1.01604608e+3',
-    'Long Ton Gram_1.01604608e+6',
-    'Long Ton Milligram_1.016046080e+9',
-    'Long Ton Metric Ton_1.01604608',
-    'Long Ton Long Ton_1',
-    'Long Ton Short Ton_1.12',
-    'Long Ton Pound_2.240e+3',
-    'Long Ton Ounce_3.5840e+4',
-    'Long Ton Carrat_5.0802304e+6',
-    'Long Ton Atomic Mass Unit_6.118768338E+29',
+//Fuel Economy
+CT.set('Miles/gallon', (inputValue: string, op: boolean): string => {
+  if (op) return Big(inputValue).times('1').toString();
+  return Big(inputValue).times('1').toString();
+});
+CT.set('Miles/gallon(Imperial)', (inputValue: string, op: boolean): string => {
+  if (op) return Big(inputValue).div('1.20095').toString();
+  return Big(inputValue).times('1.20095').toString();
+});
+CT.set('Kilometer/liter', (inputValue: string, op: boolean): string => {
+  if (op) return Big(inputValue).times('2.35215').toString();
+  return Big(inputValue).div('2.35215').toString();
+});
+CT.set('Liter/100 Kilometer', (inputValue: string, op: boolean): string => {
+  if (op) return Big('235.215').div(inputValue).toString();
+  return Big('235.215').div(inputValue).toString();
+});
 
-    //Short Ton
-    'Short Ton Kilogram_9.07184e+2',
-    'Short Ton Gram_9.07184e+5',
-    'Short Ton Milligram_9.07184e+8',
-    'Short Ton Metric Ton_9.07184e-1',
-    'Short Ton Long Ton_8.928571429e-1',
-    'Short Ton Short Ton_1',
-    'Short Ton Pound_2e+3',
-    'Short Ton Ounce_32e+3',
-    'Short Ton Carrat_4.53592e+6',
-    'Short Ton Atomic Mass Unit_5.463186016E+29',
-
-    //Pound
-    'Pound Kilogram_4.53592e-1',
-    'Pound Gram_4.53592e+2',
-    'Pound Milligram_4.53592e+5',
-    'Pound Metric Ton_4.53592e-4',
-    'Pound Long Ton_4.464286e-4',
-    'Pound Short Ton_5e-4',
-    'Pound Pound_1',
-    'Pound Ounce_16',
-    'Pound Carrat_2.26796e+3',
-    'Pound Atomic Mass Unit_2.731593008E+26',
-
-    //Ounce
-    'Ounce Kilogram_2.83495e-2',
-    'Ounce Gram_2.83495e+1',
-    'Ounce Milligram_2.83495e+4',
-    'Ounce Metric Ton_2.83495e-5',
-    'Ounce Long Ton_2.79018e-5',
-    'Ounce Short Ton_3.125e-5',
-    'Ounce Pound_6.25e-2',
-    'Ounce Ounce_1',
-    'Ounce Carrat_1.417475e+2',
-    'Ounce Atomic Mass Unit_1.70724563E+25',
-
-    //Carrat
-    'Carrat Kilogram_2e-4',
-    'Carrat Gram_2e-1',
-    'Carrat Milligram_2e+2',
-    'Carrat Metric Ton_2e-7',
-    'Carrat Long Ton_1.96841466E-7',
-    'Carrat Short Ton_2.20462442E-7',
-    'Carrat Pound_4.409249e-4',
-    'Carrat Ounce_7.0547981e-3',
-    'Carrat Carrat_1',
-    'Carrat Atomic Mass Unit_1.20442733E+23',
-
-    //AMU
-    'Atomic Mass Unit Kilogram_1.660540199E-27',
-    'Atomic Mass Unit Gram_1.660540199E-24',
-    'Atomic Mass Unit Milligram_1.660540199E-21',
-    'Atomic Mass Unit Metric Ton_1.660540199E-30',
-    'Atomic Mass Unit Long Ton_1.634315837E-30',
-    'Atomic Mass Unit Short Ton_1.830433737E-30',
-    'Atomic Mass Unit Pound_3.660867475E-27',
-    'Atomic Mass Unit Ounce_5.85738796E-26',
-    'Atomic Mass Unit Carrat_8.302700999E-24',
-    'Atomic Mass Unit Atomic Mass Unit_1',
-  ],
-  [
-    //Temperature
-
-    //Celsius
-    'Celsius Celsius_1',
-    'Celsius Kelvin_273.15$add',
-    `Celsius Fahrenheit_${9 / 5}$times_32$add`,
-
-    //Kelvin
-    'Kelvin Celsius_273.15$minus',
-    'Kelvin Kelvin_1',
-    `Kelvin Fahrenheit_${273.15}$minus_${9 / 5}$times_32$add`,
-
-    //Fahrenheit
-    `Fahrenheit Celsius_32$minus_${5 / 9}$times`,
-    `Fahrenheit Kelvin_32$minus_${5 / 9}$times_273.15$add`,
-    'Fahrenheit Fahrenheit_1',
-  ],
-  [
-    //Volume
-
-    // Cubic Kilometer
-    'Cubic Kilometer Cubic Kilometer_1',
-    'Cubic Kilometer Cubic Meter_1e+9',
-    'Cubic Kilometer Cubic Centimeter_1e+15',
-    'Cubic Kilometer Cubic Millimeter_1e+18',
-    'Cubic Kilometer Liter_1e+12',
-    'Cubic Kilometer Milliliter_1e+15',
-    'Cubic Kilometer US Gallon_264172176858',
-    'Cubic Kilometer US Quart_1056688707432',
-    'Cubic Kilometer US Pint_2113377414864',
-    'Cubic Kilometer US Cup_4226754829728',
-    'Cubic Kilometer US Fluid Ounce_33814038637823',
-    'Cubic Kilometer US Table Spoon_67628077275645',
-    'Cubic Kilometer US Tea Spoon_202884231826936',
-    'Cubic Kilometer Imperial Gallon_219969248299',
-    'Cubic Kilometer Imperial Quart_879876993196',
-    'Cubic Kilometer Imperial Pint_1759753986393',
-    'Cubic Kilometer Imperial Fluid Ounce_35195079727854',
-    'Cubic Kilometer Imperial Table Spoon_56312127564566',
-    'Cubic Kilometer Imperial Tea Spoon_168936382693699',
-    'Cubic Kilometer Cubic Mile_0.2399128636',
-    'Cubic Kilometer Cubic Yard_1307950619.3',
-    'Cubic Kilometer Cubic Foot_35314666721',
-    'Cubic Kilometer Cubic Inch_61023744094732',
-
-    //Cubic Meter
-    'Cubic Meter Cubic Kilometer_1e-9',
-    'Cubic Meter Cubic Meter_1',
-    'Cubic Meter Cubic Centimeter_1e+6',
-    'Cubic Meter Cubic Millimeter_1e+9',
-    'Cubic Meter Liter_1e+3',
-    'Cubic Meter Milliliter_1e+6',
-    'Cubic Meter US Gallon_2.64172176858e+2',
-    'Cubic Meter US Quart_1.056688707432e+3',
-    'Cubic Meter US Pint_2.113377414864e+3',
-    'Cubic Meter US Cup_4.226754829728e+3',
-    'Cubic Meter US Fluid Ounce_3.3814038637823e+4',
-    'Cubic Meter US Table Spoon_6.7628077275645e+4',
-    'Cubic Meter US Tea Spoon_2.02884231826936e+5',
-    'Cubic Meter Imperial Gallon_2.19969248299e+2',
-    'Cubic Meter Imperial Quart_8.79876993196e+3',
-    'Cubic Meter Imperial Pint_1.759753986393e+3',
-    'Cubic Meter Imperial Fluid Ounce_3.5195079727854e+4',
-    'Cubic Meter Imperial Table Spoon_5.6312127564566e+4',
-    'Cubic Meter Imperial Tea Spoon_1.68936382693699e+5',
-    'Cubic Meter Cubic Mile_2.399128636E-10',
-    'Cubic Meter Cubic Yard_1.3079506193',
-    'Cubic Meter Cubic Foot_3.5314666721e+1',
-    'Cubic Meter Cubic Inch_6.1023744094732e+4',
-  ],
-];
+export const CONVERSION_TABLE = CT;

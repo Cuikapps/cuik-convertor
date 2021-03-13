@@ -117,6 +117,9 @@ input {
   &[type="number"] {
     -moz-appearance: textfield;
   }
+  &::placeholder {
+    color: theme.$primary;
+  }
 }
 
 span {
@@ -277,8 +280,36 @@ span {
     }
     .settings-list {
       display: grid;
-      grid-template-columns: 400px 150px;
+      grid-template-columns: 400px 100px 150px;
       grid-template-rows: 100px 100px;
+      .trailing-0s {
+        align-self: center;
+        justify-self: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+        height: 99px;
+        input {
+          width: 75px;
+          height: 34px;
+          border-width: 2px;
+          font-size: 1.9rem;
+        }
+        span {
+          font-size: 1rem;
+          text-align: left;
+          color: theme.$primary;
+        }
+        &.disabled {
+          input {
+            display: none;
+          }
+          span {
+            display: none;
+          }
+        }
+      }
       h4 {
         align-self: center;
         justify-self: center;
@@ -294,55 +325,50 @@ span {
         display: inline-block;
         width: 63px;
         height: 34px;
-      }
+        /* Hide default HTML checkbox */
+        input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        /* The slider */
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: theme.$secondary;
+          transition: 0.4s;
+          border-radius: 34px;
+          border: 2px solid theme.$primary;
+          &:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            top: 2px;
+            left: 4px;
+            bottom: 4px;
+            background-color: theme.$primary;
+            transition: 0.4s;
+            border-radius: 50%;
+          }
+        }
+        input:checked + .slider {
+          background-color: theme.$primary;
+        }
+        input:focus + .slider {
+          box-shadow: 0 0 1px theme.$primary;
+        }
 
-      /* Hide default HTML checkbox */
-      .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-
-      /* The slider */
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: theme.$secondary;
-        transition: 0.4s;
-        border-radius: 34px;
-        border: 2px solid theme.$primary;
-      }
-
-      .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        top: 2px;
-        left: 4px;
-        bottom: 4px;
-        background-color: theme.$primary;
-        transition: 0.4s;
-        border-radius: 50%;
-      }
-
-      input:checked + .slider {
-        background-color: theme.$primary;
-      }
-
-      input:focus + .slider {
-        box-shadow: 0 0 1px theme.$primary;
-      }
-
-      input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-        background-color: theme.$secondary;
+        input:checked + .slider:before {
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+          transform: translateX(26px);
+          background-color: theme.$secondary;
+        }
       }
     }
   }
@@ -355,8 +381,8 @@ span {
   height: 400px;
   width: 900px;
   z-index: 10;
-  top: 35%;
-  left: 15%;
+  top: calc(50% - 400px / 2);
+  left: calc(50% - 900px / 2);
   align-items: center;
   justify-content: flex-start;
   border: 5px solid theme.$primary;

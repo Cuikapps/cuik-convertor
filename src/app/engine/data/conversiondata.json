@@ -50,6 +50,117 @@
       "Cubic Yard",
       "Cubic Foot",
       "Cubic Inch"
+    ],
+    [
+      "Square Kilometer",
+      "Square Meter",
+      "Square Centimeter",
+      "Square Millimeter",
+      "Square Micrometer",
+      "Hectare",
+      "Square Mile",
+      "Square Yard",
+      "Square Foot",
+      "Square Inch",
+      "Acre"
+    ],
+    [
+      "Meter/second",
+      "Kilometer/hour",
+      "Foot/second",
+      "Mile/hour",
+      "Mile/second",
+      "Knot",
+      "Speed of Light"
+    ],
+    [
+      "Degree",
+      "Gradian",
+      "Milliradian",
+      "Minute of Arc",
+      "Radian",
+      "Second of Arc"
+    ],
+    [
+      "Second",
+      "Millisecond",
+      "Microsecond",
+      "Nanosecond",
+      "PicoSecond",
+      "Minute",
+      "Hour",
+      "Day",
+      "Week",
+      "Month",
+      "Year"
+    ],
+    [
+      "Bar",
+      "Pascal",
+      "Pound-force per Square Inch",
+      "Standard Atmosphere",
+      "Torr"
+    ],
+    [
+      "Bit",
+      "Kilobit",
+      "Kibibit",
+      "Megabit",
+      "Mebibit",
+      "Gigabit",
+      "Gibibit",
+      "Terabit",
+      "Tebibit",
+      "Petabit",
+      "Pebibit",
+      "Byte",
+      "Kilobyte",
+      "Kibibyte",
+      "Megabyte",
+      "Mebibyte",
+      "Gigabyte",
+      "Gibibyte",
+      "Terabyte",
+      "Tebibyte",
+      "Petabyte",
+      "Pebibyte"
+    ],
+    [
+      "Bit/second",
+      "Kilobit/second",
+      "Kibibit/second",
+      "Kilobyte/second",
+      "Megabit/second",
+      "Mebibit/second",
+      "Megabyte/second",
+      "Gigabit/second",
+      "Gibibit/second",
+      "Gigabyte/second",
+      "Terabit/second",
+      "Tebibit/second",
+      "Terabyte/second",
+      "Petabit/second",
+      "Pebibit/second",
+      "Petabyte/second"
+    ],
+    [
+      "Joule",
+      "Kilojoule",
+      "Gram Calorie",
+      "Kilocalorie",
+      "Watt Hour",
+      "Kilowatt Hour",
+      "Electronvolt",
+      "British Thermal Unit",
+      "US Thermal Unit",
+      "Foot-pound"
+    ],
+    ["Hertz", "Kilohertz", "Megahertz", "Gigahertz"],
+    [
+      "Miles/gallon",
+      "Miles/gallon(Imperial)",
+      "Kilometer/liter",
+      "Liter/100 Kilometer"
     ]
   ]
 }

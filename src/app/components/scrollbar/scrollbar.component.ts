@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { buttonTypes } from '../../engine/data/buttondata.json';
 import { data } from '../../engine/data/conversiondata.json';
+import * as ButtonData from '../../engine/data/buttondata.json';
 
 @Component({
   selector: 'app-scrollbar',
@@ -13,9 +13,9 @@ export class ScrollbarComponent {
   @Output() InScrollEmitter = new EventEmitter<string>();
   @Output() OutScrollEmitter = new EventEmitter<string>();
   @Input() inOut: string = 'length1';
-  buttonTypes: Array<string> = buttonTypes;
 
   values: Array<Array<string>> = this.initData();
+  buttonTypes = ButtonData.titles;
 
   initData() {
     let arr: Array<Array<string>> = new Array();
