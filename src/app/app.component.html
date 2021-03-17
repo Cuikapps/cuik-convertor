@@ -1,16 +1,82 @@
 <div class="page">
   <div class="header">
     <img src="../assets/LOGO.png" width="60" />
+    <div class="region-2"></div>
+    <div class="region-2"></div>
+    <button title="feedback" id="credits-button" (click)="feedback()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#e7e7de"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="credits-svg"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12" y2="16"></line>
+      </svg>
+    </button>
   </div>
-  <div class="conversion-type">
-    <app-conversion-type-btn
-      (buttonClickEmitter)="loadPage($event)"
-    ></app-conversion-type-btn>
-    <app-conversion-type-weight-btn
-      (buttonClickEmitter)="loadPage($event)"
-    ></app-conversion-type-weight-btn>
-  </div>
-  <div class="app-face">
-    <p>{{ loadedPageNumber }}</p>
+  <div class="inner-page">
+    <div class="conversion-type">
+      <app-conversion-type-btn
+        *ngFor="let buttonType of buttonTypes"
+        #conversionBtn
+        [buttonType]="buttonType"
+        (buttonClickEmitter)="loadPage($event)"
+      ></app-conversion-type-btn>
+    </div>
+    <div class="app-face">
+      <div [ngSwitch]="loadedPageNumber" class="convert-holder">
+        <h1>{{ textTypes[loadedPageNumber - 1] }}</h1>
+        <ng-container *ngFor="let button of buttonTypes; let i = index">
+          <div class="length" *ngSwitchCase="i + 1">
+            <div class="scroll-bars">
+              <app-length-type-scrollbar
+                (InScrollEmitter)="setInScrollData($event)"
+                [inOut]="button + '1'"
+              ></app-length-type-scrollbar>
+              <div class="region"></div>
+              <app-length-type-scrollbar
+                (OutScrollEmitter)="setOutScrollData($event)"
+                [inOut]="button + '2'"
+              ></app-length-type-scrollbar>
+            </div>
+            <div class="input-output">
+              <input
+                type="number"
+                [(ngModel)]="InputNumber"
+                (change)="updateScrollData()"
+              />
+              <div class="equal-sign">
+                <svg
+                  width="90"
+                  height="19"
+                  viewBox="0 0 90 19"
+                  fill="#0f3057"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="90" height="19" rx="5" fill="#0f3057" />
+                </svg>
+                <svg
+                  width="90"
+                  height="19"
+                  viewBox="0 0 90 19"
+                  fill="#0f3057"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="90" height="19" rx="5" fill="#0f3057" />
+                </svg>
+              </div>
+              <input type="number" readonly [value]="OutputNumber" />
+            </div>
+          </div>
+        </ng-container>
+        <div *ngSwitchDefault>ERROR: This conversion does not exist</div>
+      </div>
+    </div>
   </div>
 </div>

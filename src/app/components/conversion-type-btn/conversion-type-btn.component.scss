@@ -1,0 +1,27 @@
+@use '../../../Theme' as theme;
+
+.btn {
+  border-radius: 0px;
+  border-width: 0px;
+  width: 5em;
+  height: 5em;
+  cursor: pointer;
+  color: theme.$secondary;
+  &:hover {
+    background: radial-gradient(
+      circle,
+      rgba(0, 88, 122, 1) 0%,
+      rgba(3, 81, 116, 1) 21%,
+      rgba(6, 72, 108, 1) 46%,
+      rgba(15, 48, 87, 1) 100%
+    ) !important;
+  }
+  &:focus {
+    background: theme.$tertiary !important;
+    border-radius: 0px;
+    border-width: 0px;
+    width: 5em;
+    outline: none;
+    height: 5em;
+  }
+}

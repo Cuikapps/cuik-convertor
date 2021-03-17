@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cuikapps": {
+      "hosting": {
+        "cuik-convertor": [
+          "cuik-convertor"
+        ]
+      }
+    }
+  }
+}

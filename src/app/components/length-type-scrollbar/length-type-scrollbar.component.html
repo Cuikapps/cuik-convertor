@@ -1,0 +1,34 @@
+<div class="scroll-list">
+  <ng-container *ngFor="let button of buttonTypes; let i = index">
+    <div class="div-in" *ngIf="inOut === button + (i + 1).toString()">
+      <label class="radio" *ngFor="let value of values[i]">
+        <span class="radio__input">
+          <input
+            type="radio"
+            value="{{ value }}"
+            name="radio-in"
+            (change)="changeScroll($event)"
+          />
+          <span class="radio__control-in"></span>
+        </span>
+        <span class="radio__label-in">{{ value }}</span>
+      </label>
+    </div>
+  </ng-container>
+  <ng-container *ngFor="let button of buttonTypes; let i = index">
+    <div class="div-out" *ngIf="inOut === button + (i + 2).toString()">
+      <label class="radio" *ngFor="let value of values[i]">
+        <span class="radio__input">
+          <input
+            type="radio"
+            name="radio-out"
+            value="{{ value }}"
+            (change)="changeScroll($event)"
+          />
+          <span class="radio__control-out"></span>
+        </span>
+        <span class="radio__label-out">{{ value }}</span>
+      </label>
+    </div>
+  </ng-container>
+</div>
