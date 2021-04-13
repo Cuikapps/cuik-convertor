@@ -18,4 +18,11 @@
     background: theme.$tertiary !important;
     outline: none;
   }
+  &.inactive {
+    visibility: hidden;
+  }
+
+  &.active {
+    visibility: visible;
+  }
 }

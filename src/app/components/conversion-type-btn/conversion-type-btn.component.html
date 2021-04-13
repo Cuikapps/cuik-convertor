@@ -1,9 +1,12 @@
 <button
+  inViewport
+  [inViewportOptions]="{ threshold: [0] }"
+  (inViewportAction)="load($event)"
   #button
   [title]="buttonType"
   (click)="loadPageNumber()"
   [style.background]="isActivated ? '#00587a' : '#0F3057'"
-  class="btn"
+  class="btn inactive"
 >
   {{ buttonType }}
 </button>

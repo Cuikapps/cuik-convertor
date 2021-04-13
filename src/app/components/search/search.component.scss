@@ -1,0 +1,27 @@
+@use '../../../Theme' as theme;
+
+.bar {
+  display: flex;
+  background-color: theme.$secondary;
+  border-radius: 13px;
+  label {
+    height: 24px;
+    display: flex;
+    width: 157px;
+    &:hover {
+      svg {
+        stroke: theme.$tertiary;
+      }
+    }
+  }
+  input {
+    background-color: transparent;
+    border: none;
+    text-indent: 5px;
+    color: theme.$primary;
+    width: 133px;
+    &:focus {
+      outline: none;
+    }
+  }
+}

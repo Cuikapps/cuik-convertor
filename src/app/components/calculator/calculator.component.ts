@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalculatorService } from '../../services/calculator.service';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'app-calculator',
@@ -7,7 +8,10 @@ import { CalculatorService } from '../../services/calculator.service';
   styleUrls: ['./calculator.component.scss'],
 })
 export class CalculatorComponent implements OnInit {
-  constructor(private calculator: CalculatorService) {}
+  constructor(
+    private calculator: CalculatorService,
+    public state: StateService
+  ) {}
 
   previous: string = '';
   current: string = '0';

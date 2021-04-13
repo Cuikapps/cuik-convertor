@@ -1,5 +1,5 @@
-import { Pipe } from '@angular/core';
-import Big from 'big.js';
+import BigNumber from 'bignumber.js';
+
 let CT: Map<string, string | ((a: string, b: boolean) => string)> = new Map();
 
 //Length
@@ -25,29 +25,28 @@ CT.set('Short Ton', '1.1023122e-3');
 CT.set('Pound', '2.2046244202');
 CT.set('Ounce', '35.273990723');
 CT.set('Carrat', '5e+3');
-CT.set('Atomic Mass Unit', '6.022136652E+26');
 
 //Temperature
 CT.set('Celsius', (inputValue: string, op: boolean): string => {
-  if (op) return Big(inputValue).times('1').toString();
-  return Big(inputValue).times('1').toString();
+  if (op) return new BigNumber(inputValue).times('1').toString();
+  return new BigNumber(inputValue).times('1').toString();
 });
 CT.set('Fahrenheit', (inputValue: string, op: boolean): string => {
   if (op)
-    return Big(inputValue)
+    return new BigNumber(inputValue)
       .minus('32')
       .times(`${5 / 9}`)
       .toString();
 
-  return Big(inputValue)
+  return new BigNumber(inputValue)
     .times(`${(9 / 5).toString()}`)
-    .add('32')
+    .plus('32')
     .toString();
 });
 CT.set('Kelvin', (inputValue: string, op: boolean): string => {
-  if (op) return Big(inputValue).minus('273.15').toString();
+  if (op) return new BigNumber(inputValue).minus('273.15').toString();
 
-  return Big(inputValue).add('273.15').toString();
+  return new BigNumber(inputValue).plus('273.15').toString();
 });
 
 //Volume
@@ -97,39 +96,42 @@ CT.set('Speed of Light', '3.33564095198151e-9');
 
 //Plane Angle
 CT.set('Degree', (inputValue: string, op: boolean): string => {
-  if (op) return Big(inputValue).times('1').toString();
-  return Big(inputValue).times('1').toString();
+  if (op) return new BigNumber(inputValue).times('1').toString();
+  return new BigNumber(inputValue).times('1').toString();
 });
 CT.set('Gradian', (inputValue: string, op: boolean): string => {
-  if (op)
-    return Big(inputValue)
-      .times(`${180 / 200}`)
-      .toString();
-  return Big(inputValue)
-    .times(`${200 / 180}`)
-    .toString();
+  if (op) return new BigNumber(inputValue).times(`${180 / 200}`).toString();
+  return new BigNumber(inputValue).times(`${200 / 180}`).toString();
 });
 CT.set('Milliradian', (inputValue: string, op: boolean): string => {
   if (op)
-    return Big(inputValue)
-      .times(Big('180').div(Big('1000').times(Math.PI.toString())))
+    return new BigNumber(inputValue)
+      .times(
+        new BigNumber('180').div(
+          new BigNumber('1000').times(Math.PI.toString())
+        )
+      )
       .toString();
-  return Big(inputValue)
-    .times(Big('1000').times(Math.PI.toString()).div('180'))
+  return new BigNumber(inputValue)
+    .times(new BigNumber('1000').times(Math.PI.toString()).div('180'))
     .toString();
 });
 CT.set('Minute of Arc', (inputValue: string, op: boolean): string => {
-  if (op) return Big(inputValue).div('60').toString();
-  return Big(inputValue).times('60').toString();
+  if (op) return new BigNumber(inputValue).div('60').toString();
+  return new BigNumber(inputValue).times('60').toString();
 });
 CT.set('Radian', (inputValue: string, op: boolean): string => {
   if (op)
-    return Big(inputValue).times(Big('180').div(Math.PI.toString())).toString();
-  return Big(inputValue).times(Big(Math.PI.toString()).div('180')).toString();
+    return new BigNumber(inputValue)
+      .times(new BigNumber('180').div(Math.PI.toString()))
+      .toString();
+  return new BigNumber(inputValue)
+    .times(new BigNumber(Math.PI.toString()).div('180'))
+    .toString();
 });
 CT.set('Second of Arc', (inputValue: string, op: boolean): string => {
-  if (op) return Big(inputValue).div('3600').toString();
-  return Big(inputValue).times('3600').toString();
+  if (op) return new BigNumber(inputValue).div('3600').toString();
+  return new BigNumber(inputValue).times('3600').toString();
 });
 
 //Time
@@ -214,20 +216,20 @@ CT.set('Gigahertz', '1e-9');
 
 //Fuel Economy
 CT.set('Miles/gallon', (inputValue: string, op: boolean): string => {
-  if (op) return Big(inputValue).times('1').toString();
-  return Big(inputValue).times('1').toString();
+  if (op) return new BigNumber(inputValue).times('1').toString();
+  return new BigNumber(inputValue).times('1').toString();
 });
 CT.set('Miles/gallon(Imperial)', (inputValue: string, op: boolean): string => {
-  if (op) return Big(inputValue).div('1.20095').toString();
-  return Big(inputValue).times('1.20095').toString();
+  if (op) return new BigNumber(inputValue).div('1.20095').toString();
+  return new BigNumber(inputValue).times('1.20095').toString();
 });
 CT.set('Kilometer/liter', (inputValue: string, op: boolean): string => {
-  if (op) return Big(inputValue).times('2.35215').toString();
-  return Big(inputValue).div('2.35215').toString();
+  if (op) return new BigNumber(inputValue).times('2.35215').toString();
+  return new BigNumber(inputValue).div('2.35215').toString();
 });
 CT.set('Liter/100 Kilometer', (inputValue: string, op: boolean): string => {
-  if (op) return Big('235.215').div(inputValue).toString();
-  return Big('235.215').div(inputValue).toString();
+  if (op) return new BigNumber('235.215').div(inputValue).toString();
+  return new BigNumber('235.215').div(inputValue).toString();
 });
 
 export const CONVERSION_TABLE = CT;

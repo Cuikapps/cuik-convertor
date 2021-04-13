@@ -1,5 +1,12 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { titles } from '../../engine/data/buttondata.json';
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  Input,
+  Renderer2,
+} from '@angular/core';
+import { titles } from '../../data/buttondata.json';
 
 @Component({
   selector: 'app-conversion-type-btn',
@@ -7,11 +14,12 @@ import { titles } from '../../engine/data/buttondata.json';
   styleUrls: ['./conversion-type-btn.component.scss'],
 })
 export class ConversionTypeBtnComponent implements OnInit {
-  constructor() {}
+  constructor(private renderer: Renderer2) {}
 
   @Input() buttonType: string = 'length';
 
   isActivated: boolean = false;
+  inView: boolean = false;
 
   @Output()
   buttonClickEmitter: EventEmitter<number> = new EventEmitter<number>();
@@ -27,8 +35,12 @@ export class ConversionTypeBtnComponent implements OnInit {
     for (let i = 1; i <= titles.length; i++) {
       if (this.buttonType === titles[i - 1]) {
         this.buttonClickEmitter.emit(i);
-        console.log(i);
       }
     }
+  }
+
+  load({ target, visible }: { target: Element; visible: boolean }) {
+    this.renderer.addClass(target, visible ? 'active' : 'inactive');
+    this.renderer.removeClass(target, visible ? 'inactive' : 'active');
   }
 }

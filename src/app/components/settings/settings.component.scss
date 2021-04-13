@@ -1,0 +1,164 @@
+@use '../../../Theme' as theme;
+
+.page-modal {
+  position: fixed;
+  z-index: 100;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(87, 87, 87, 0.2);
+  input {
+    color: theme.$primary;
+    background-color: theme.$secondary;
+    font-size: 40px;
+    border-width: 5px;
+    border-radius: 10px;
+    border-style: solid;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border-color: theme.$primary;
+    &:focus {
+      outline: none;
+    }
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+    &::placeholder {
+      color: theme.$primary;
+    }
+  }
+  .settings-page {
+    box-sizing: initial;
+    background-color: theme.$secondary;
+    width: 680px;
+    height: 350px;
+    border-radius: 30px;
+    border: 5px solid theme.$primary;
+    padding: 5px 10px 10px 10px;
+    h3 {
+      position: relative;
+      width: 75px;
+      left: calc((680px / 2) - (75px / 2));
+      top: -40px;
+      font-family: theme.$Poppins;
+      font-size: 1.5rem;
+      color: theme.$primary;
+    }
+    .exit {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 650px;
+      top: 10px;
+      width: 32px;
+      height: 32px;
+      background-color: transparent;
+
+      cursor: pointer;
+    }
+    .settings-list {
+      display: grid;
+      grid-template-columns: 400px 100px 150px;
+      grid-template-rows: 100px 100px;
+      .trailing-0s {
+        align-self: center;
+        justify-self: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+        height: 99px;
+        input {
+          width: 75px;
+          height: 34px;
+          border-width: 2px;
+          font-size: 1.9rem;
+        }
+        span {
+          font-size: 1rem;
+          text-align: left;
+          color: theme.$primary;
+        }
+        &.disabled {
+          input {
+            display: none;
+          }
+          span {
+            display: none;
+          }
+        }
+      }
+      h4 {
+        align-self: center;
+        justify-self: center;
+        font-family: theme.$Poppins;
+        font-size: 1.2rem;
+        color: theme.$primary;
+      }
+      /* The switch - the box around the slider */
+      .switch {
+        align-self: center;
+        justify-self: center;
+        position: relative;
+        display: inline-block;
+        width: 63px;
+        height: 34px;
+        /* Hide default HTML checkbox */
+        input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        /* The slider */
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: theme.$secondary;
+          transition: 0.4s;
+          border-radius: 34px;
+          border: 2px solid theme.$primary;
+          &:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            top: 2px;
+            left: 4px;
+            bottom: 4px;
+            background-color: theme.$primary;
+            transition: 0.4s;
+            border-radius: 50%;
+          }
+        }
+        input:checked + .slider {
+          background-color: theme.$primary;
+        }
+        input:focus + .slider {
+          box-shadow: 0 0 1px theme.$primary;
+        }
+
+        input:checked + .slider:before {
+          -webkit-transform: translateX(26px);
+          -ms-transform: translateX(26px);
+          transform: translateX(26px);
+          background-color: theme.$secondary;
+        }
+      }
+    }
+  }
+}
+@include theme.close-button;

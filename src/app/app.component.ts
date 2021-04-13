@@ -5,14 +5,14 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { ConversionTypeBtnComponent } from './components/conversion-type-btn/conversion-type-btn.component';
-import { Convert } from './engine/main/Convert';
-import Big from 'big.js';
 
-import * as ButtonData from './engine/data/buttondata.json';
+import BigNumber from 'bignumber.js';
+import * as ButtonData from './data/buttondata.json';
 import { HistoryService } from './services/history.service';
-import { History } from './classes/History';
 import { SettingsService } from './services/settings.service';
 import { ChangeDetectorRef } from '@angular/core';
+import { ConvertorService } from './services/convertor.service';
+import { History } from './classes/History';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +23,8 @@ export class AppComponent implements AfterContentChecked {
   constructor(
     public history: HistoryService,
     public settings: SettingsService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private Convertor: ConvertorService
   ) {}
   title = 'cuik-convertor';
 
@@ -33,15 +34,6 @@ export class AppComponent implements AfterContentChecked {
   isPageLoaded: boolean = false;
 
   conversionButtons!: ConversionTypeBtnComponent[];
-  historyList: History[] = this.history.HistoryList;
-
-  settingsToggle: boolean = false;
-  buttonBarToggle: boolean = false;
-  calculatorToggle: boolean = false;
-  historyToggle: boolean = false;
-
-  bRoundOutput: boolean = this.settings.bRoundOutput;
-  decimals: number = 0;
 
   ngAfterContentChecked() {
     this.cdr.detectChanges();
@@ -54,7 +46,7 @@ export class AppComponent implements AfterContentChecked {
   OutputNumber: string = '0';
 
   // page data
-  textTypes: Array<string> = ButtonData.titles;
+  textTypes!: string[];
   loadedPageNumber: number = 1;
 
   // scroll data
@@ -62,10 +54,6 @@ export class AppComponent implements AfterContentChecked {
   OutScrollData: string = '';
 
   ScrollData: string = this.InScrollData + '_' + this.OutScrollData;
-
-  updateSettings() {
-    this.settings.bRoundOutput = this.bRoundOutput;
-  }
 
   //load the corresponding page and activate buttons
   loadPage(pageNumber: any) {
@@ -85,37 +73,6 @@ export class AppComponent implements AfterContentChecked {
     }
   }
 
-  //Feed back
-  feedback() {
-    this.toggleButtonBar();
-    window.open('https://cuikapps.com/support', '_blank');
-  }
-
-  //toggles the history tab
-  toggleHistory() {
-    this.toggleButtonBar();
-    this.historyToggle = !this.historyToggle;
-  }
-
-  toggleButtonBar() {
-    this.buttonBarToggle = !this.buttonBarToggle;
-  }
-
-  //Clear the conversion history
-  clearHistory() {
-    this.history.clearHistory();
-  }
-
-  toggleSettings() {
-    this.toggleButtonBar();
-    this.settingsToggle = !this.settingsToggle;
-  }
-
-  toggleCalculator() {
-    this.toggleButtonBar();
-    this.calculatorToggle = !this.calculatorToggle;
-  }
-
   // get scroll data from scroll component
   setInScrollData(scrollIn: string) {
     this.InScrollData = scrollIn;
@@ -127,17 +84,20 @@ export class AppComponent implements AfterContentChecked {
   }
 
   // Convert
-  updateScrollData() {
+  updateScrollData(): void {
     this.ScrollData = this.InScrollData + '_' + this.OutScrollData;
     if (this.InputNumber !== '') {
-      if (this.bRoundOutput)
-        this.OutputNumber = Big(
-          Convert.convert(this.ScrollData, this.InputNumber)
+      if (this.settings.bRoundOutput)
+        this.OutputNumber = new BigNumber(
+          this.Convertor.convert(this.ScrollData, this.InputNumber)
         )
-          .round(this.decimals)
+          .decimalPlaces(this.settings.decimals)
           .toString();
       else
-        this.OutputNumber = Convert.convert(this.ScrollData, this.InputNumber);
+        this.OutputNumber = this.Convertor.convert(
+          this.ScrollData,
+          this.InputNumber
+        );
     } else {
       return;
     }

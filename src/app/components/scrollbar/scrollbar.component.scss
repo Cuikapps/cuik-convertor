@@ -13,26 +13,20 @@
   border-radius: 10px;
   border-style: solid;
   border-color: theme.$primary;
-  /* width */
+  box-shadow: -5px 10px 10px theme.$secondary inset;
   &::-webkit-scrollbar {
     width: 20px;
-  }
-
-  /* Track */
-  &::-webkit-scrollbar-track {
-    background: theme.$secondary;
-    border-radius: 8px;
-  }
-
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    background: theme.$primary;
-    border-radius: 4px;
-  }
-
-  /* Handle on hover */
-  &::-webkit-scrollbar-thumb:hover {
-    background: theme.$tertiary;
+    &-track {
+      background: theme.$secondary;
+      border-radius: 8px;
+    }
+    &-thumb {
+      background: theme.$primary;
+      border-radius: 4px;
+      &:hover {
+        background: theme.$tertiary;
+      }
+    }
   }
 }
 .div-in,

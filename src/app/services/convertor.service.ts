@@ -1,8 +1,16 @@
-import Big from 'big.js';
+import { Injectable } from '@angular/core';
+import BigNumber from 'bignumber.js';
 import { CONVERSION_TABLE } from '../data/Conversions';
 
-export class Convert {
-  public static convert(type: string, input: string): string {
+@Injectable({
+  providedIn: 'root',
+})
+export class ConvertorService {
+  constructor() {
+    BigNumber.set({ DECIMAL_PLACES: 50 });
+  }
+
+  convert(type: string, input: string): string {
     const SEPARATED_TYPE = type.split('_');
 
     if (
@@ -12,13 +20,12 @@ export class Convert {
       //@ts-ignore
       let baseNumber: string = CONVERSION_TABLE.get(SEPARATED_TYPE[0]);
 
-      //@ts-ignore
-      let conversionNumber = Big(CONVERSION_TABLE.get(SEPARATED_TYPE[1])).div(
-        baseNumber
-      );
-      console.log(Big(input).times(conversionNumber).toString());
+      let conversionNumber = new BigNumber(
+        //@ts-ignore
+        CONVERSION_TABLE.get(SEPARATED_TYPE[1])
+      ).div(baseNumber);
 
-      return Big(input).times(conversionNumber).toString();
+      return new BigNumber(input).times(conversionNumber).toString();
     } else {
       //@ts-ignore
       let baseNumber: string = CONVERSION_TABLE.get(SEPARATED_TYPE[0])(

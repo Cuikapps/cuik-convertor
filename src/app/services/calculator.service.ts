@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import Big from 'big.js';
+import BigNumber from 'bignumber.js';
 
 @Injectable({
   providedIn: 'root',
@@ -32,13 +32,13 @@ export class CalculatorService {
     console.log(operand1 + operand2);
     switch (operator) {
       case '+':
-        return Big(operand1).add(operand2).toString();
+        return new BigNumber(operand1).plus(operand2).toString();
       case '-':
-        return Big(operand1).sub(operand2).toString();
+        return new BigNumber(operand1).minus(operand2).toString();
       case 'x':
-        return Big(operand1).times(operand2).toString();
+        return new BigNumber(operand1).times(operand2).toString();
       case '÷':
-        return Big(operand1).div(operand2).toString();
+        return new BigNumber(operand1).div(operand2).toString();
       default:
         return '0';
     }

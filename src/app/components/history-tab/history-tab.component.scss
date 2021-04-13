@@ -1,0 +1,85 @@
+@use '../../../Theme' as theme;
+
+.history {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: theme.$secondary;
+  height: 400px;
+  width: 900px;
+  z-index: 10;
+  top: calc(50% - 400px / 2);
+  left: calc(50% - 900px / 2);
+  align-items: center;
+  justify-content: flex-start;
+  border: 5px solid theme.$primary;
+  border-radius: 30px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: top 1s ease-in-out;
+  &::-webkit-scrollbar {
+    width: 20px;
+  }
+  &::-webkit-scrollbar-track {
+    background: theme.$secondary;
+    border-radius: 0px 20px 20px 0px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: theme.$primary;
+    border-radius: 20px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: theme.$tertiary;
+  }
+  .close-history-btn {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+  }
+  h3 {
+    color: theme.$primary;
+    font-family: theme.$Poppins;
+    font-size: 1.3rem;
+  }
+  .clear-history {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: theme.$primary;
+    font-family: theme.$Poppins;
+    font-size: 1.3rem;
+  }
+
+  .history-data {
+    position: static;
+    display: grid;
+    grid-template-columns: 420px 420px;
+    grid-template-rows: 30px 20px;
+    .from {
+      grid: 1 1;
+      color: theme.$primary;
+      font-family: theme.$Poppins;
+      font-size: 1.3rem;
+    }
+    .to {
+      color: theme.$primary;
+      font-family: theme.$Poppins;
+      font-size: 1.3rem;
+      grid: 2 1;
+    }
+    .history-input {
+      color: theme.$primary;
+      font-family: theme.$Poppins;
+      font-size: 1rem;
+      grid: 1 2;
+    }
+    .history-output {
+      color: theme.$primary;
+      font-family: theme.$Poppins;
+      font-size: 1rem;
+      grid: 2 2;
+    }
+  }
+}
+@include theme.close-button;

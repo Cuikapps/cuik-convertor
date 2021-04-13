@@ -29,7 +29,7 @@
             "assets": ["src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": [],
-            "allowedCommonJsDependencies": ["big.js"]
+            "allowedCommonJsDependencies": ["bignumber.js"]
           },
           "configurations": {
             "production": {
