@@ -1,6 +1,6 @@
 <div class="scroll-list">
   <ng-container *ngFor="let button of buttonTypes; let i = index">
-    <div class="div-in" *ngIf="inOut === button + (i + 1).toString()">
+    <div class="div-in" *ngIf="inOut === (button | lowercase) + '1'">
       <label class="radio" *ngFor="let value of values[i]">
         <span class="radio__input">
           <input
@@ -16,7 +16,7 @@
     </div>
   </ng-container>
   <ng-container *ngFor="let button of buttonTypes; let i = index">
-    <div class="div-out" *ngIf="inOut === button + (i + 2).toString()">
+    <div class="div-out" *ngIf="inOut === (button | lowercase) + '2'">
       <label class="radio" *ngFor="let value of values[i]">
         <span class="radio__input">
           <input

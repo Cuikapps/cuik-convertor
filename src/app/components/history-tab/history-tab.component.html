@@ -1,0 +1,22 @@
+<div class="history" *ngIf="state.historyToggle">
+  <h3>History</h3>
+  <div class="close-history-btn" (click)="toggleHistory()">
+    <svg
+      class="x-close-btn"
+      version="1.0"
+      xmlns="http://www.w3.org/2000/svg"
+      width="25px"
+      height="25px"
+    >
+      <line x1="5" y1="5" x2="19" y2="19" />
+      <line x1="5" y1="19" x2="19" y2="5" />
+    </svg>
+  </div>
+  <div class="history-data" *ngFor="let data of historyList">
+    <div class="from">{{ data.from }}</div>
+    <div class="to">{{ data.to }}</div>
+    <div class="history-input">{{ data.input }}</div>
+    <div class="history-output">{{ data.output }}</div>
+  </div>
+  <div class="clear-history" (click)="clearHistory()">Clear</div>
+</div>

@@ -1,6 +1,6 @@
 {
-  "data": {
-    "length": [
+  "data": [
+    [
       "Kilometer",
       "Meter",
       "Centimeter",
@@ -11,12 +11,155 @@
       "Yard",
       "Foot",
       "Inch",
-      "Nautical Mile"
+      "Light Year"
+    ],
+    [
+      "Kilogram",
+      "Gram",
+      "Milligram",
+      "Metric Ton",
+      "Long Ton",
+      "Short Ton",
+      "Pound",
+      "Ounce",
+      "Carrat"
+    ],
+    ["Celsius", "Kelvin", "Fahrenheit"],
+    [
+      "Cubic Kilometer",
+      "Cubic Meter",
+      "Cubic Centimeter",
+      "Cubic Millimeter",
+      "Liter",
+      "Milliliter",
+      "US Gallon",
+      "US Quart",
+      "US Pint",
+      "US Cup",
+      "US Fluid Ounce",
+      "US Table Spoon",
+      "US Tea Spoon",
+      "Imperial Gallon",
+      "Imperial Quart",
+      "Imperial Pint",
+      "Imperial Fluid Ounce",
+      "Imperial Table Spoon",
+      "Imperial Tea Spoon",
+      "Cubic Mile",
+      "Cubic Yard",
+      "Cubic Foot",
+      "Cubic Inch"
+    ],
+    [
+      "Square Kilometer",
+      "Square Meter",
+      "Square Centimeter",
+      "Square Millimeter",
+      "Square Micrometer",
+      "Hectare",
+      "Square Mile",
+      "Square Yard",
+      "Square Foot",
+      "Square Inch",
+      "Acre"
+    ],
+    [
+      "Meter/second",
+      "Kilometer/hour",
+      "Foot/second",
+      "Mile/hour",
+      "Mile/second",
+      "Knot",
+      "Speed of Light"
+    ],
+    [
+      "Degree",
+      "Gradian",
+      "Milliradian",
+      "Minute of Arc",
+      "Radian",
+      "Second of Arc"
+    ],
+    [
+      "Second",
+      "Millisecond",
+      "Microsecond",
+      "Nanosecond",
+      "PicoSecond",
+      "Minute",
+      "Hour",
+      "Day",
+      "Week",
+      "Month",
+      "Year"
+    ],
+    [
+      "Bar",
+      "Pascal",
+      "Pound-force per Square Inch",
+      "Standard Atmosphere",
+      "Torr"
+    ],
+    [
+      "Bit",
+      "Kilobit",
+      "Kibibit",
+      "Megabit",
+      "Mebibit",
+      "Gigabit",
+      "Gibibit",
+      "Terabit",
+      "Tebibit",
+      "Petabit",
+      "Pebibit",
+      "Byte",
+      "Kilobyte",
+      "Kibibyte",
+      "Megabyte",
+      "Mebibyte",
+      "Gigabyte",
+      "Gibibyte",
+      "Terabyte",
+      "Tebibyte",
+      "Petabyte",
+      "Pebibyte"
+    ],
+    [
+      "Bit/second",
+      "Kilobit/second",
+      "Kibibit/second",
+      "Kilobyte/second",
+      "Megabit/second",
+      "Mebibit/second",
+      "Megabyte/second",
+      "Gigabit/second",
+      "Gibibit/second",
+      "Gigabyte/second",
+      "Terabit/second",
+      "Tebibit/second",
+      "Terabyte/second",
+      "Petabit/second",
+      "Pebibit/second",
+      "Petabyte/second"
+    ],
+    [
+      "Joule",
+      "Kilojoule",
+      "Gram Calorie",
+      "Kilocalorie",
+      "Watt Hour",
+      "Kilowatt Hour",
+      "Electronvolt",
+      "British Thermal Unit",
+      "US Thermal Unit",
+      "Foot-pound"
+    ],
+    ["Hertz", "Kilohertz", "Megahertz", "Gigahertz"],
+    [
+      "Miles/gallon",
+      "Miles/gallon(Imperial)",
+      "Kilometer/liter",
+      "Liter/100 Kilometer"
     ]
-  },
-  "conversions": [
-    "Kilometer Kilometer_1",
-    "Kilometer Meter_1000",
-    "Kilometer Centimeter_100000"
   ]
 }

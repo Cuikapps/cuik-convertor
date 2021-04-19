@@ -1,20 +1,4 @@
 {
-  "buttonTypes": [
-    "length",
-    "weight",
-    "temp",
-    "volume",
-    "area",
-    "speed",
-    "plane angle",
-    "time",
-    "pressure",
-    "digital storage",
-    "data transfer rate",
-    "energy",
-    "frequency",
-    "fuel economy"
-  ],
   "titles": [
     "Length",
     "Weight",

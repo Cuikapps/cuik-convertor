@@ -1,27 +1,21 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { buttonTypes } from '../../data/buttondata.json';
 import { data } from '../../data/conversiondata.json';
+import * as ButtonData from '../../data/buttondata.json';
 
 @Component({
-  selector: 'app-length-type-scrollbar',
-  templateUrl: './length-type-scrollbar.component.html',
-  styleUrls: ['./length-type-scrollbar.component.scss'],
+  selector: 'app-scrollbar',
+  templateUrl: './scrollbar.component.html',
+  styleUrls: ['./scrollbar.component.scss'],
 })
-export class LengthTypeScrollbarComponent {
+export class ScrollbarComponent {
   constructor() {}
 
   @Output() InScrollEmitter = new EventEmitter<string>();
   @Output() OutScrollEmitter = new EventEmitter<string>();
   @Input() inOut: string = 'length1';
-  buttonTypes: Array<string> = buttonTypes;
 
-  values: Array<Array<string>> = this.initValues();
-
-  initValues() {
-    let arr: Array<Array<string>> = new Array();
-    arr.push(data.length);
-    return arr;
-  }
+  values: Array<Array<string>> = data;
+  buttonTypes = ButtonData.titles;
 
   // event from radio buttons
   changeScroll(e: any) {

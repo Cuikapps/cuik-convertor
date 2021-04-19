@@ -3,25 +3,26 @@
 .btn {
   border-radius: 0px;
   border-width: 0px;
-  width: 5em;
+  width: 156px;
+  text-align: center;
   height: 5em;
   cursor: pointer;
   color: theme.$secondary;
+  font-size: 1rem;
+  word-wrap: break-word;
+  word-break: normal;
   &:hover {
-    background: radial-gradient(
-      circle,
-      rgba(0, 88, 122, 1) 0%,
-      rgba(3, 81, 116, 1) 21%,
-      rgba(6, 72, 108, 1) 46%,
-      rgba(15, 48, 87, 1) 100%
-    ) !important;
+    background: radial-gradient(theme.$tertiary, theme.$primary) !important;
   }
   &:focus {
     background: theme.$tertiary !important;
-    border-radius: 0px;
-    border-width: 0px;
-    width: 5em;
     outline: none;
-    height: 5em;
+  }
+  &.inactive {
+    visibility: hidden;
+  }
+
+  &.active {
+    visibility: visible;
   }
 }

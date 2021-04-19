@@ -1,5 +1,9 @@
 @use '../Theme' as theme;
 
+.loading {
+  color: theme.$secondary;
+}
+
 .header {
   background-color: theme.$primary;
   width: 100%;
@@ -7,9 +11,25 @@
   height: auto;
 }
 .conversion-type {
-  width: 66.6px;
+  width: 200px;
   height: 100%;
   background-color: theme.$primary;
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
+  &::-webkit-scrollbar-track {
+    background: theme.$secondary;
+    border-radius: 12px 0px 0px 12px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: theme.$primary;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: theme.$tertiary;
+  }
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .page {
   background-color: theme.$primary;
@@ -18,7 +38,7 @@
 }
 .inner-page {
   display: flex;
-  height: 70%;
+  height: 90%;
   flex-direction: row;
 }
 .scroll-bars {
@@ -29,68 +49,52 @@
   align-items: center;
 }
 .app-face {
-  background-color: theme.$primary;
+  background-color: theme.$secondary;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-.convert-holder {
-  background-color: theme.$secondary;
-  padding: 10px;
-  border-radius: 10px;
+  align-items: center;
+  justify-content: baseline;
+  padding: 0px 10px 0px 10px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: theme.$secondary;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: theme.$primary;
+    border-radius: 10px 0px 0px 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: theme.$tertiary;
+  }
+
   h1 {
     visibility: visible;
     display: inline;
     font-family: theme.$Poppins;
-    margin-left: 10px;
+    font-size: xx-large;
     color: theme.$primary;
     font-weight: bold;
     letter-spacing: 1px;
   }
 }
-.region {
-  width: 6em;
-}
-.region-2 {
-  width: 60em;
-}
-.length
-  + .weight
-  + .temp
-  + .volume
-  + .area
-  + .speed
-  + .angle
-  + .time
-  + .pressure
-  + .digital-storage
-  + .data-transfer-rate
-  + .energy
-  + .frequency
-  + .fuel {
+.face {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
+  justify-content: baseline;
 }
-.input-output {
-  display: flex;
-  flex-direction: row;
-  height: 5em;
-  width: 100%;
-  justify-content: space-evenly;
-  align-items: center;
+.invisible {
+  visibility: hidden;
 }
 .equal-sign {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 3em;
-  margin: 0px 10px 0px 10px;
+  margin-bottom: 20px;
 }
 input {
   color: theme.$primary;
@@ -99,8 +103,8 @@ input {
   border-width: 5px;
   border-radius: 10px;
   border-style: solid;
-  margin-bottom: 40px;
-  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-top: 10px;
   border-color: theme.$primary;
   &:focus {
     outline: none;
@@ -113,14 +117,15 @@ input {
   &[type="number"] {
     -moz-appearance: textfield;
   }
-}
-#credits-button {
-  background-color: transparent;
-  border-width: 0em;
-  &:focus {
-    outline: none;
+  &::placeholder {
+    color: theme.$primary;
   }
 }
-.credits-svg {
-  width: 4em;
+
+span {
+  color: theme.$secondary;
+  text-align: center;
+  font-family: theme.$Poppins;
+  font-size: 1.2rem;
+  transition: transform 1s ease-in-out;
 }
