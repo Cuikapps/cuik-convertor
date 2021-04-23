@@ -7,10 +7,9 @@ import {
 import { ConversionTypeBtnComponent } from './components/conversion-type-btn/conversion-type-btn.component';
 
 import BigNumber from 'bignumber.js';
-import * as ButtonData from './data/buttondata.json';
-import { HistoryService } from './services/history.service';
-import { SettingsService } from './services/settings.service';
-import { ChangeDetectorRef } from '@angular/core';
+import { HistoryService } from '@services/history.service';
+import { SettingsService } from '@services/settings.service';
+import { ChangeDetectorRef, OnInit } from '@angular/core';
 import { ConvertorService } from './services/convertor.service';
 import { History } from './classes/History';
 
@@ -19,7 +18,7 @@ import { History } from './classes/History';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements AfterContentChecked {
+export class AppComponent implements AfterContentChecked, OnInit {
   constructor(
     public history: HistoryService,
     public settings: SettingsService,
@@ -34,6 +33,11 @@ export class AppComponent implements AfterContentChecked {
   isPageLoaded: boolean = false;
 
   conversionButtons!: ConversionTypeBtnComponent[];
+
+  ngOnInit() {
+    if (localStorage.getItem('first time') == null)
+      localStorage.setItem('first time', 'true');
+  }
 
   ngAfterContentChecked() {
     this.cdr.detectChanges();

@@ -1,0 +1,20 @@
+<div class="modal" *ngIf="bTutorial">
+  <ng-container *ngFor="let keyframe of keyframes; let i = index">
+    <app-tutorial-block
+      [class]="keyframe"
+      *ngIf="currentTutorial == i"
+      [title]="getData(i, 'title')"
+      [text]="getData(i, 'text')"
+      [btn-one-color]="getData(i, 'button-one-color')"
+      [btn-two-color]="getData(i, 'button-two-color')"
+      [btn-one-hover]="getData(i, 'button-one-hover')"
+      [btn-two-hover]="getData(i, 'button-two-hover')"
+      [btn-one-text]="getData(i, 'button-one-text')"
+      [btn-two-text]="getData(i, 'button-two-text')"
+      [arrow-side]="getArrowSide(i)"
+      [arrow]="getArrow(i)"
+      (btn-one-action)="next()"
+      (btn-two-action)="previous()"
+    ></app-tutorial-block>
+  </ng-container>
+</div>

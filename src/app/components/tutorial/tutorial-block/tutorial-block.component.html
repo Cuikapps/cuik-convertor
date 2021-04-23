@@ -1,0 +1,31 @@
+<div class="block">
+  <h1 class="title">{{ title }}</h1>
+  <p>{{ text }}</p>
+  <div
+    class="btn b1"
+    #b1
+    [ngStyle]="{
+      backgroundColor: button1Color
+    }"
+    (mouseover)="toggleB1Hover(b1, true)"
+    (mouseout)="toggleB1Hover(b1, false)"
+    (click)="btnOneClick()"
+  >
+    {{ button1Text }}
+  </div>
+  <div
+    class="btn b2"
+    #b2
+    [ngStyle]="{
+      backgroundColor: button2Color
+    }"
+    (mouseover)="toggleB2Hover(b2, true)"
+    (mouseout)="toggleB2Hover(b2, false)"
+    (click)="btnTwoClick()"
+  >
+    {{ button2Text }}
+  </div>
+</div>
+<div class="arrow" *ngIf="arrow">
+  <app-svg-arrow [rotation]="getRotation()"></app-svg-arrow>
+</div>

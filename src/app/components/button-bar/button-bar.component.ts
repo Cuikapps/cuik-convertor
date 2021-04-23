@@ -16,4 +16,9 @@ export class ButtonBarComponent implements OnInit {
     this.state.buttonBarToggle = !this.state.buttonBarToggle;
     window.open('https://cuikapps.com/support', '_blank');
   }
+
+  startTutorial() {
+    localStorage.setItem('first time', 'true');
+    location.reload();
+  }
 }

@@ -25,6 +25,7 @@ CT.set('Short Ton', '1.1023122e-3');
 CT.set('Pound', '2.2046244202');
 CT.set('Ounce', '35.273990723');
 CT.set('Carrat', '5e+3');
+CT.set('Atomic Mass Unit', '6.022136652E+26');
 
 //Temperature
 CT.set('Celsius', (inputValue: string, op: boolean): string => {
