@@ -39,6 +39,7 @@ export class ConversionTypeBtnComponent implements OnInit {
     }
   }
 
+  //This is for loading only the buttons in view
   load({ target, visible }: { target: Element; visible: boolean }) {
     this.renderer.addClass(target, visible ? 'active' : 'inactive');
     this.renderer.removeClass(target, visible ? 'inactive' : 'active');

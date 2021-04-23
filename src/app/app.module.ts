@@ -20,6 +20,9 @@ import { SearchComponent } from './components/search/search.component';
 
 import 'intersection-observer';
 import { SearchService } from './services/search.service';
+import { TutorialComponent } from './components/tutorial/tutorial.component';
+import { TutorialBlockComponent } from './components/tutorial/tutorial-block/tutorial-block.component';
+import { SvgArrowComponent } from './components/tutorial/tutorial-block/svg-arrow/svg-arrow.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { SearchService } from './services/search.service';
     SettingsComponent,
     ButtonBarComponent,
     SearchComponent,
+    TutorialComponent,
+    TutorialBlockComponent,
+    SvgArrowComponent,
   ],
   imports: [
     BrowserModule,

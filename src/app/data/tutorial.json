@@ -1,0 +1,64 @@
+{
+  "tutorial": {
+    "start": {
+      "block-height": "150px",
+      "block-width": "300px",
+      "button-one-color": "#0f3057",
+      "button-one-hover": "#00587a",
+      "button-one-text": "Begin",
+      "button-two-color": "#8b0000",
+      "button-two-hover": "#bb0000",
+      "button-two-text": "Cancel"
+    },
+    "button-bar": {
+      "block-height": "0px",
+      "block-width": "0px",
+      "button-one-color": "#0f3057",
+      "button-one-hover": "#00587a",
+      "button-one-text": "Begin",
+      "button-two-color": "#8b0000",
+      "button-two-hover": "#bb0000",
+      "button-two-text": "Cancel"
+    },
+    "search-bar": {
+      "block-height": "0px",
+      "block-width": "0px",
+      "button-one-color": "#0f3057",
+      "button-one-hover": "#00587a",
+      "button-one-text": "Begin",
+      "button-two-color": "#8b0000",
+      "button-two-hover": "#bb0000",
+      "button-two-text": "Cancel"
+    },
+    "input-area": {
+      "block-height": "0px",
+      "block-width": "0px",
+      "button-one-color": "#0f3057",
+      "button-one-hover": "#00587a",
+      "button-one-text": "Begin",
+      "button-two-color": "#8b0000",
+      "button-two-hover": "#bb0000",
+      "button-two-text": "Cancel"
+    },
+    "output-area": {
+      "block-height": "0px",
+      "block-width": "0px",
+      "button-one-color": "#0f3057",
+      "button-one-hover": "#00587a",
+      "button-one-text": "Begin",
+      "button-two-color": "#8b0000",
+      "button-two-hover": "#bb0000",
+      "button-two-text": "Cancel"
+    },
+    "menu-bar": {
+      "block-height": "0px",
+      "block-width": "0px",
+      "button-one-color": "#0f3057",
+      "button-one-hover": "#00587a",
+      "button-one-text": "Begin",
+      "button-two-color": "#8b0000",
+      "button-two-hover": "#bb0000",
+      "button-two-text": "Cancel"
+    }
+  }
+}

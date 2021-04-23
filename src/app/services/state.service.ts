@@ -29,7 +29,7 @@ export class StateService {
   public set buttonBarToggle(value) {
     this._buttonBarToggle = value;
   }
-  
+
   private _calculatorToggle = false;
   public get calculatorToggle() {
     return this._calculatorToggle;

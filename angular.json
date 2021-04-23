@@ -86,8 +86,11 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/cuik-convertor-theme.scss", "src/styles.scss"],
-            "scripts": []
+            "styles": ["src/styles.scss"],
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/app"]
+            }
           }
         },
         "lint": {
