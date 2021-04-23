@@ -40,6 +40,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
   }
 
   ngAfterContentChecked() {
+    //This for displaying 'Loading...' before the page is loaded
     this.cdr.detectChanges();
     this.isPageLoaded = true;
     this.conversionButtons = this.conversionBtn.toArray();
@@ -106,6 +107,7 @@ export class AppComponent implements AfterContentChecked, OnInit {
       return;
     }
 
+    //Add a now history instance to the history list
     let calculation: History = new History(
       this.InScrollData,
       this.OutScrollData,

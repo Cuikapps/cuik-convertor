@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { sides } from './tutorial-block/tutorial-block.component';
 
+//#region types
 declare type tutorials = 0 | 1 | 2 | 3 | 4 | 5;
 declare type tutData = {
   title: string;
@@ -23,6 +24,7 @@ declare type props =
   | 'button-two-color'
   | 'button-two-hover'
   | 'button-two-text';
+//#endregion
 
 @Component({
   selector: 'app-tutorial',
@@ -141,7 +143,7 @@ export class TutorialComponent implements OnInit {
     this.bTutorial = false;
     localStorage.setItem('first time', 'false');
   }
-
+  //#region  property getters
   getData(key: number, prop: props): string {
     return this.tutorialData[key][prop];
   }
@@ -151,4 +153,5 @@ export class TutorialComponent implements OnInit {
   getArrow(key: number): boolean {
     return this.tutorialData[key].arrow;
   }
+  //#endregion
 }
